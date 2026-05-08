@@ -9,6 +9,7 @@ import SafetyBento from "@/components/SafetyBento";
 import JourneyTimeline from "@/components/JourneyTimeline";
 import EmotionalCarousel from "@/components/EmotionalCarousel";
 import { ArrowRight, ShieldCheck, MapPin, Bell, Smartphone } from "lucide-react";
+import TechPulse from "@/components/TechPulse";
 
 export default function ParentsPage() {
   const containerRef = useRef(null);
@@ -119,40 +120,7 @@ export default function ParentsPage() {
       <JourneyTimeline />
 
       {/* 4. INNOVATIVE "TECH PULSE" SECTION */}
-      <section className="py-32 bg-black text-white relative overflow-hidden">
-         <div className="container mx-auto px-6 text-center mb-24 relative z-10">
-            <span className="text-[#FFD700] font-black tracking-[0.4em] uppercase text-xs mb-4 block">Zero-Latency Mesh</span>
-            <h2 className="text-5xl md:text-8xl font-black leading-tight">
-              Real-time is <br />
-              <span className="italic font-serif text-[#FFD700]">not enough.</span>
-            </h2>
-         </div>
-
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-1 px-6 lg:px-0">
-            {[
-              { title: "Quantum Sync", desc: "Our proprietary protocol ensures updates reach you in under 200ms." },
-              { title: "AES-256 Mesh", desc: "Bank-grade encryption for every single student data packet." },
-              { title: "Edge Compute", desc: "Processing speed alerts locally on the bus for zero-delay response." }
-            ].map((item, i) => (
-              <div key={i} className="group relative p-20 border-r border-white/10 last:border-0 hover:bg-[#FFD700] transition-all duration-700">
-                 <h3 className="text-3xl font-black mb-6 group-hover:text-black transition-colors">{item.title}</h3>
-                 <p className="text-gray-400 font-medium group-hover:text-black/70 transition-colors leading-relaxed">
-                   {item.desc}
-                 </p>
-                 <div className="absolute bottom-10 right-10 text-white/10 group-hover:text-black/20 text-9xl font-black transition-colors">
-                   0{i+1}
-                 </div>
-              </div>
-            ))}
-         </div>
-
-         {/* Animated Background Line */}
-         <motion.div 
-           animate={{ x: ["-100%", "100%"] }}
-           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-           className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent opacity-30"
-         />
-      </section>
+      <TechPulse />
 
       {/* 5. EMOTIONAL CAROUSEL */}
       <EmotionalCarousel />
