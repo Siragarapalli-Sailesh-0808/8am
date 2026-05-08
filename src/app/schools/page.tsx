@@ -1,259 +1,152 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import React from "react";
 import ScrollingTicker from "@/components/ScrollingTicker";
 import StickyHeader from "@/components/StickyHeader";
+import StatsBento from "@/components/StatsBento";
 import FinalCTA from "@/components/FinalCTA";
-import EmotionalCarousel from "@/components/EmotionalCarousel";
-import { Shield, LayoutDashboard, BellRing, Users2, ArrowRight, Zap, Map as MapIcon, Activity } from "lucide-react";
-
-// LUXURY PALETTE (80L Budget Aesthetic)
-const LuxuryNavy = "#050A30"; 
-const PureGold = "#FFD700";
-const GlassWhite = "rgba(255, 255, 255, 0.7)";
-
-const LuxuryConsole = () => {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.9, y: 30 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className="relative w-full aspect-[16/10] bg-white/10 backdrop-blur-2xl rounded-[40px] border border-white/20 shadow-[0_50px_100px_-20px_rgba(5,10,48,0.3)] overflow-hidden"
-    >
-      {/* Glossy Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-      
-      {/* UI Elements */}
-      <div className="h-full w-full flex flex-col p-8">
-        <div className="flex items-center justify-between mb-8">
-           <div className="flex space-x-2">
-              <div className="w-3 h-3 rounded-full bg-[#FF4B4B]" />
-              <div className="w-3 h-3 rounded-full bg-[#FFD700]" />
-              <div className="w-3 h-3 rounded-full bg-[#28C76F]" />
-           </div>
-           <div className="text-[10px] font-black tracking-[0.3em] text-white/40 uppercase">SafeHop Enterprise v4.0</div>
-        </div>
-
-        <div className="flex-1 grid grid-cols-4 gap-6">
-           {/* Sidebar */}
-           <div className="col-span-1 space-y-4">
-              {[1, 2, 3, 4].map(i => (
-                <div key={i} className="h-10 bg-white/5 rounded-xl border border-white/10" />
-              ))}
-           </div>
-           {/* Main Map View */}
-           <div className="col-span-3 bg-white/5 rounded-3xl border border-white/10 relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10">
-                 <svg width="100%" height="100%">
-                    <pattern id="luxuryGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5" />
-                    </pattern>
-                    <rect width="100%" height="100%" fill="url(#luxuryGrid)" />
-                 </svg>
-              </div>
-              <motion.div 
-                animate={{ 
-                  x: [0, 100, 50, 0], 
-                  y: [0, 50, -50, 0] 
-                }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-              >
-                 <div className="w-32 h-32 bg-[#FFD700]/20 rounded-full blur-3xl animate-pulse" />
-                 <MapIcon className="text-[#FFD700] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" size={32} />
-              </motion.div>
-           </div>
-        </div>
-
-        {/* Bottom Status Bar */}
-        <div className="mt-8 flex items-center space-x-6">
-           <div className="flex items-center space-x-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-              <Activity className="text-[#FFD700]" size={14} />
-              <span className="text-[10px] font-bold text-white/60">SYSTEM HEALTH: OPTIMAL</span>
-           </div>
-           <div className="flex-1 h-[1px] bg-white/10" />
-           <div className="text-[10px] font-black text-[#FFD700]">LIVE MONITORING ACTIVE</div>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-const SignatureBento = ({ title, value, label, icon: Icon, className, delay = 0 }: any) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 1, delay }}
-    whileHover={{ y: -10, boxShadow: "0 40px 80px -20px rgba(5,10,48,0.2)" }}
-    className={`bg-white rounded-[48px] p-12 border border-gray-100 flex flex-col justify-between group transition-all duration-700 relative overflow-hidden ${className}`}
-  >
-    <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity duration-700">
-       <Icon size={120} />
-    </div>
-    
-    <div>
-      <div className="w-16 h-16 bg-[#FFD700]/10 rounded-[20px] flex items-center justify-center text-[#FFD700] mb-10 group-hover:bg-[#FFD700] group-hover:text-white transition-all duration-500 shadow-xl shadow-transparent group-hover:shadow-[#FFD700]/30">
-        <Icon size={32} />
-      </div>
-      <h3 className="text-sm font-black uppercase tracking-[0.3em] text-gray-300 mb-4">{label}</h3>
-      <h2 className="text-4xl font-black mb-6 leading-tight" style={{ color: LuxuryNavy }}>{title}</h2>
-    </div>
-
-    <div className="flex items-baseline space-x-2">
-       <span className="text-6xl font-serif italic text-[#FFD700]">{value}</span>
-       <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Global Index</span>
-    </div>
-  </motion.div>
-);
+import AdminDashboardMockup from "@/components/AdminDashboardMockup";
+import { motion } from "framer-motion";
+import { Shield, BarChart3, Users, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function SchoolsPage() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-
   return (
-    <main ref={containerRef} className="bg-white min-h-screen font-sans overflow-x-hidden selection:bg-[#FFD700] selection:text-white">
+    <main className="w-full bg-white text-[#3B2F00]">
       <ScrollingTicker />
       <StickyHeader />
 
-      {/* 1. THE SIGNATURE HERO (80L Aesthetic) */}
-      <section className="relative min-h-screen flex items-center pt-24 pb-32 overflow-hidden bg-[#050A30]">
-        {/* Abstract Golden Mesh Background */}
-        <div className="absolute inset-0 z-0">
-           <motion.div 
-             style={{ y: bgY }}
-             className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#FFD700]/10 rounded-full blur-[150px]" 
-           />
-           <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#FFD700]/5 rounded-full blur-[120px]" />
-           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,215,0,0.1) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        </div>
-
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 grid lg:grid-cols-2 gap-24 items-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
+      {/* 1. INSTITUTIONAL HERO SECTION */}
+      <section className="relative pt-32 pb-20 px-6 md:px-24 overflow-hidden">
+        <div className="container mx-auto max-w-7xl relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center space-x-3 bg-white/5 border border-white/10 px-6 py-2 rounded-full mb-10 backdrop-blur-md"
+              className="bg-[#FFD700]/10 text-[#3B2F00] px-6 py-2 rounded-full w-max text-xs font-black mb-8 border border-[#FFD700] tracking-[0.3em] uppercase"
             >
-               <Zap size={14} className="text-[#FFD700]" />
-               <span className="text-[10px] font-black text-white/60 uppercase tracking-[0.3em]">Tier-1 Institutional Protocol</span>
+              School Administration Portal
             </motion.div>
-            
-            <h1 className="text-7xl md:text-[120px] font-black text-white leading-[0.85] tracking-tighter mb-12">
-              Engineering <br />
-              <span className="italic font-serif text-[#FFD700] font-normal">Absolute Trust.</span>
+            <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-8 text-[#3B2F00]">
+              The Gold Standard <br />
+              of <span className="italic font-serif text-[#FFD700] font-normal">Safety.</span>
             </h1>
-            
-            <p className="text-xl text-white/50 max-w-lg mb-16 font-medium leading-relaxed">
-              The world's most advanced mobility infrastructure for elite educational institutions. Precision auditing, real-time command, and biometric safety standards.
+            <p className="text-xl text-[#3B2F00]/60 max-w-xl mb-12 font-medium leading-relaxed">
+              Empower your institution with end-to-end fleet visibility and student accountability. SAFEHOP is the preferred partner for 500+ elite schools across India.
             </p>
-
-            <div className="flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-10">
-               <motion.button
-                 whileHover={{ scale: 1.05, y: -5 }}
-                 whileTap={{ scale: 0.95 }}
-                 className="w-full sm:w-auto bg-[#FFD700] text-[#050A30] px-16 py-7 rounded-[24px] font-black text-lg shadow-[0_25px_60px_-15px_rgba(255,215,0,0.4)] hover:shadow-[0_30px_70px_-15px_rgba(255,215,0,0.5)] transition-all"
-               >
-                 Request Integration
-               </motion.button>
-               <button className="text-white/60 font-black text-sm border-b border-white/20 pb-1 hover:text-[#FFD700] hover:border-[#FFD700] transition-all">
-                 Explore the Infrastructure
-               </button>
+            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+              <motion.button 
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,215,0,0.3)" }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto bg-[#FFD700] text-[#3B2F00] px-12 py-6 rounded-full font-black flex items-center justify-center space-x-3 transition-all"
+              >
+                <span>Partner with SAFEHOP</span>
+                <ArrowRight size={22} />
+              </motion.button>
             </div>
           </motion.div>
 
-          <div className="relative">
-             <LuxuryConsole />
-             
-             {/* Floating Data Badge */}
-             <motion.div 
-               animate={{ y: [0, -15, 0] }}
-               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-               className="absolute -right-12 -top-12 bg-white p-10 rounded-[40px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] z-20 border border-gray-50"
-             >
-                <div className="text-5xl font-black text-[#050A30]">99.9%</div>
-                <div className="text-[10px] font-black uppercase text-[#FFD700] tracking-widest mt-2">Precision Uptime</div>
-             </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.2 }}
+            className="relative flex justify-center lg:justify-end"
+          >
+            <AdminDashboardMockup />
+            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#FFD700]/5 rounded-full blur-[100px]" />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. INSTITUTIONAL STANDARDS (FEATURE GRID) */}
+      <section className="py-32 bg-[#FDFDFD]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-24">
+            <span className="text-[#FFD700] font-black tracking-[0.4em] uppercase text-xs mb-4 block">Institutional Compliance</span>
+            <h2 className="text-5xl md:text-7xl font-black text-[#3B2F00]">Built for <span className="italic font-serif font-normal text-[#FFD700]">Principals.</span></h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              {
+                icon: Shield,
+                title: "100% Accountability",
+                desc: "Every boarding and de-boarding event is logged with millisecond precision via smart RFID sensors."
+              },
+              {
+                icon: BarChart3,
+                title: "Live Fleet Audit",
+                desc: "Real-time route adherence monitoring with automated anomaly detection for school staff."
+              },
+              {
+                icon: Users,
+                title: "Parent Concierge",
+                desc: "Integrated portal for direct, transparent communication between school transport and parents."
+              }
+            ].map((feature, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-12 rounded-[40px] border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-500 group"
+              >
+                <div className="w-16 h-16 bg-[#FFD700]/10 rounded-2xl flex items-center justify-center text-[#FFD700] mb-8 group-hover:scale-110 group-hover:bg-[#FFD700] group-hover:text-[#3B2F00] transition-all">
+                  <feature.icon size={32} />
+                </div>
+                <h3 className="text-2xl font-black text-[#3B2F00] mb-4">{feature.title}</h3>
+                <p className="text-[#3B2F00]/50 font-medium leading-relaxed">{feature.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 2. THE SIGNATURE BENTO GRID */}
-      <section className="py-40 px-6 md:px-12 lg:px-24 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-32 text-center">
-             <span className="text-[#FFD700] font-black tracking-[0.5em] uppercase text-xs mb-6 block">The Tech Architecture</span>
-             <h2 className="text-6xl md:text-[100px] font-black leading-[0.9] tracking-tighter" style={{ color: LuxuryNavy }}>
-               Institutional <br />
-               <span className="italic font-serif text-[#FFD700]">Intelligence.</span>
-             </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-             <SignatureBento 
-               label="Security Layer"
-               title="Automated Multi-Point RFID Auditing"
-               value="100%"
-               icon={Shield}
-               className="md:col-span-2"
-               delay={0.1}
-             />
-             <SignatureBento 
-               label="Command Center"
-               title="Real-Time Fleet Visualization"
-               value="0.2s"
-               icon={LayoutDashboard}
-               delay={0.2}
-             />
-             <SignatureBento 
-               label="Communication"
-               title="Predictive Emergency Broadcasts"
-               value="AI"
-               icon={BellRing}
-               delay={0.3}
-             />
-             <SignatureBento 
-               label="Community"
-               title="Verified Parent Trust Portal"
-               value="4.9/5"
-               icon={Users2}
-               className="md:col-span-2"
-               delay={0.4}
-             />
-          </div>
-        </div>
-      </section>
-
-      {/* 3. ULTRA-PREMIUM TESTIMONIAL WRAPPER */}
-      <section className="bg-gray-50 py-40">
-         <div className="container mx-auto px-6">
-            <div className="bg-[#050A30] rounded-[64px] p-12 md:p-32 relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFD700]/5 rounded-full blur-[100px] -z-0" />
-               
-               <div className="relative z-10 max-w-4xl">
-                  <span className="text-[#FFD700] text-9xl font-serif italic mb-12 block">"</span>
-                  <h2 className="text-4xl md:text-6xl font-medium text-white leading-tight mb-16 italic font-serif">
-                    SAFEHOP has fundamentally transformed our school's safety culture. The level of <span className="text-[#FFD700]">visibility and accountability</span> is now the benchmark for our institution.
-                  </h2>
-                  <div className="flex items-center space-x-6">
-                     <div className="w-20 h-1 bg-[#FFD700]" />
-                     <p className="text-xl font-black text-white uppercase tracking-[0.3em]">Principal, Oakridge International</p>
-                  </div>
-               </div>
+      {/* 3. PRECISION COMPLIANCE SECTION */}
+      <section className="py-32 bg-[#3B2F00] text-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center relative z-10">
+          <div>
+            <span className="text-[#FFD700] font-black tracking-[0.4em] uppercase text-xs mb-4 block">Operational Excellence</span>
+            <h2 className="text-5xl md:text-7xl font-black leading-tight mb-8">
+              Zero-Risk <br />
+              <span className="italic font-serif text-[#FFD700]">Standards.</span>
+            </h2>
+            <div className="space-y-6">
+              {[
+                "Government-mandated GPS compliance",
+                "Advanced Biometric Verification",
+                "Emergency Panic Response protocols",
+                "Automated Maintenance Schedules"
+              ].map((text, i) => (
+                <div key={i} className="flex items-center space-x-4">
+                  <CheckCircle2 className="text-[#FFD700]" size={24} />
+                  <span className="text-xl font-bold">{text}</span>
+                </div>
+              ))}
             </div>
-         </div>
+          </div>
+          <div className="grid grid-cols-2 gap-6">
+             <div className="p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[40px] text-center">
+                <h4 className="text-6xl font-serif italic text-[#FFD700] mb-2">99%</h4>
+                <p className="text-xs font-black uppercase tracking-widest opacity-40">Accuracy Rate</p>
+             </div>
+             <div className="p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[40px] text-center">
+                <h4 className="text-6xl font-serif italic text-[#FFD700] mb-2">500+</h4>
+                <p className="text-xs font-black uppercase tracking-widest opacity-40">School Partners</p>
+             </div>
+             <div className="p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[40px] text-center col-span-2">
+                <h4 className="text-6xl font-serif italic text-[#FFD700] mb-2">Instant</h4>
+                <p className="text-xs font-black uppercase tracking-widest opacity-40">Crisis Alerts</p>
+             </div>
+          </div>
+        </div>
+        {/* Background Accent */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#FFD700]/5 -z-10" style={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 0 100%)' }} />
       </section>
 
-      <EmotionalCarousel />
+      <StatsBento />
       <FinalCTA />
     </main>
   );

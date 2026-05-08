@@ -36,7 +36,28 @@ export const EmotionalCarousel = () => {
         </motion.h2>
       </div>
 
-      <div className="relative h-[600px] flex items-center justify-center perspective-1000">
+      <div className="relative max-w-7xl mx-auto h-[600px] flex items-center justify-center perspective-1000">
+        {/* SIDE NAVIGATION BUTTONS */}
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between items-center z-[100] pointer-events-none px-4 md:px-0">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={prev}
+            className="pointer-events-auto p-6 rounded-full bg-white/80 backdrop-blur-md border-2 border-black/5 text-black shadow-xl hover:bg-[#FFD700] hover:border-[#FFD700] transition-all duration-300 -ml-4 lg:-ml-20"
+          >
+            <ChevronLeft size={32} />
+          </motion.button>
+          
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={next}
+            className="pointer-events-auto p-6 rounded-full bg-white/80 backdrop-blur-md border-2 border-black/5 text-black shadow-xl hover:bg-[#FFD700] hover:border-[#FFD700] transition-all duration-300 -mr-4 lg:-mr-20"
+          >
+            <ChevronRight size={32} />
+          </motion.button>
+        </div>
+
         <AnimatePresence mode="popLayout">
           {[-1, 0, 1].map((offset) => {
             const itemIndex = (index + offset + testimonials.length) % testimonials.length;
@@ -81,36 +102,20 @@ export const EmotionalCarousel = () => {
         </AnimatePresence>
       </div>
 
-      {/* CUSTOM 80-LAKH NAVIGATION BUTTONS */}
-      <div className="flex justify-center items-center space-x-12 mt-16">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={prev}
-          className="p-5 rounded-full border-2 border-black/10 text-black hover:bg-[#FFD700] hover:border-[#FFD700] transition-all duration-300"
-        >
-          <ChevronLeft size={32} />
-        </motion.button>
-        <div className="flex space-x-2">
+      {/* PAGINATION DOTS ONLY */}
+      <div className="flex justify-center items-center mt-16">
+        <div className="flex space-x-3">
           {testimonials.map((_, i) => (
             <motion.div
               key={i}
               animate={{
-                width: i === index ? 32 : 8,
+                width: i === index ? 40 : 10,
                 backgroundColor: i === index ? "#FFD700" : "#E5E7EB"
               }}
-              className="h-2 rounded-full"
+              className="h-2 rounded-full transition-all duration-300"
             />
           ))}
         </div>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={next}
-          className="p-5 rounded-full border-2 border-black/10 text-black hover:bg-[#FFD700] hover:border-[#FFD700] transition-all duration-300"
-        >
-          <ChevronRight size={32} />
-        </motion.button>
       </div>
     </section>
   );
