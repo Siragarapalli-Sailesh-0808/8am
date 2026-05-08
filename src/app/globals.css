@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
 :root {
+  --color-primary: #FFD700;
+  --color-secondary: #FFFFFF;
+  --color-accent: #2D2D2D;
+  --color-text-muted: #555555;
+  --color-border-light: #EEEEEE;
   --background: #ffffff;
   --foreground: #171717;
 }
 
 @theme inline {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-text-muted: var(--color-text-muted);
+  --color-border-light: var(--color-border-light);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-montserrat);
+  --font-body: var(--font-inter);
+  --font-serif: var(--font-playfair);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter, "Inter", sans-serif);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat, "Montserrat", sans-serif);
+  font-weight: 700;
+}
+
+.headline-italic {
+  font-family: var(--font-playfair, "Playfair Display", Georgia, serif);
+  font-style: italic;
+  font-weight: 500;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+@keyframes feature-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-feature-marquee {
+  animation: feature-marquee 34s linear infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
 }
