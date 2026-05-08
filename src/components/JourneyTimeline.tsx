@@ -35,7 +35,12 @@ const TIMELINE_EVENTS = [
 ];
 
 const JourneyTimeline = () => {
-  const { scrollYProgress } = useScroll();
+  const containerRef = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+  
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -43,7 +48,7 @@ const JourneyTimeline = () => {
   });
 
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section ref={containerRef} className="py-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-start gap-20">
           <div className="w-full md:w-1/3 sticky top-32">
