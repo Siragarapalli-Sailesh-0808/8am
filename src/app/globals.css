@@ -3,11 +3,11 @@
 :root {
   --color-primary: #FFD700;
   --color-secondary: #FFFFFF;
-  --color-accent: #3B2F00;
-  --color-text-muted: #555555;
-  --color-border-light: #EEEEEE;
-  --background: #ffffff;
-  --foreground: #3B2F00;
+  --color-accent: var(--color-primary);
+  --color-text-muted: var(--color-primary);
+  --color-border-light: var(--color-secondary);
+  --background: var(--color-secondary);
+  --foreground: var(--color-primary);
 }
 
 @theme inline {

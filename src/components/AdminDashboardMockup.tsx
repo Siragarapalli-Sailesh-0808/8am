@@ -5,7 +5,7 @@ import { Map, Users, Shield, Bell } from "lucide-react";
 
 const AdminDashboardMockup = () => {
   return (
-    <div className="relative w-full max-w-[700px] h-[450px] bg-white rounded-[32px] border-[8px] border-[#3B2F00]/5 shadow-[0_60px_120px_-30px_rgba(61,43,31,0.15)] overflow-hidden">
+    <div className="relative w-full max-w-[700px] h-[450px] bg-white rounded-[32px] border-[8px] border-[#FFD700]/5 shadow-[0_60px_120px_-30px_rgba(255,215,0,0.15)] overflow-hidden">
       {/* Top Bar */}
       <div className="h-12 bg-white border-b border-gray-100 flex items-center px-6 justify-between">
         <div className="flex space-x-2">
@@ -13,7 +13,7 @@ const AdminDashboardMockup = () => {
           <div className="w-3 h-3 rounded-full bg-yellow-400" />
           <div className="w-3 h-3 rounded-full bg-green-400" />
         </div>
-        <div className="text-[10px] font-black tracking-widest text-[#3B2F00]/40 uppercase">SafeHop Admin Console</div>
+        <div className="text-[10px] font-black tracking-widest text-[#FFD700]/40 uppercase">SafeHop Admin Console</div>
         <div className="w-8 h-8 rounded-full bg-[#FFD700]/20" />
       </div>
 
@@ -30,7 +30,7 @@ const AdminDashboardMockup = () => {
         <div className="flex-1 p-8 bg-[#FDFDFD]">
           <div className="flex justify-between items-end mb-8">
             <div>
-              <h4 className="text-2xl font-black text-[#3B2F00]">Live Fleet</h4>
+              <h4 className="text-2xl font-black text-[#FFD700]">Live Fleet</h4>
               <p className="text-xs font-bold text-gray-400">12 Active Buses • All Synchronized</p>
             </div>
             <div className="px-4 py-2 bg-green-500/10 rounded-full flex items-center space-x-2">
@@ -45,7 +45,7 @@ const AdminDashboardMockup = () => {
              <div className="absolute inset-0 opacity-[0.03]">
                 <svg width="100%" height="100%">
                   <pattern id="adminGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3B2F00" strokeWidth="1" />
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFD700" strokeWidth="1" />
                   </pattern>
                   <rect width="100%" height="100%" fill="url(#adminGrid)" />
                 </svg>
@@ -82,7 +82,7 @@ const AdminDashboardMockup = () => {
              <div className="p-4 bg-white rounded-2xl border border-gray-50 flex items-center justify-between">
                 <div>
                    <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest">Active Students</p>
-                   <p className="text-lg font-black text-[#3B2F00]">1,240</p>
+                   <p className="text-lg font-black text-[#FFD700]">1,240</p>
                 </div>
                 <div className="w-2 h-8 bg-gray-100 rounded-full overflow-hidden">
                    <motion.div 
@@ -94,7 +94,7 @@ const AdminDashboardMockup = () => {
              <div className="p-4 bg-white rounded-2xl border border-gray-50 flex items-center justify-between">
                 <div>
                    <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest">On-Time Rate</p>
-                   <p className="text-lg font-black text-[#3B2F00]">99.2%</p>
+                   <p className="text-lg font-black text-[#FFD700]">99.2%</p>
                 </div>
                 <div className="w-2 h-8 bg-gray-100 rounded-full overflow-hidden">
                    <motion.div 

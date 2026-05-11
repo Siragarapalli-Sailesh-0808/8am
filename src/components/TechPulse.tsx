@@ -29,7 +29,7 @@ const TechPulse = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-8xl font-black text-[#3B2F00] leading-none"
+            className="text-5xl md:text-8xl font-black text-[#FFD700] leading-none"
           >
             Real-time is <br />
             <span className="italic font-serif font-normal text-[#FFD700]">not enough.</span>
@@ -79,8 +79,8 @@ const TechPulse = () => {
                 <div className="w-20 h-20 bg-[#FFD700]/10 rounded-3xl flex items-center justify-center text-[#FFD700] mb-8 group-hover:bg-[#FFD700] group-hover:text-white transition-all duration-500 shadow-inner">
                   <item.icon size={36} strokeWidth={2.5} />
                 </div>
-                <h3 className="text-3xl font-black text-[#3B2F00] mb-6 tracking-tight">{item.title}</h3>
-                <p className="text-[#3B2F00]/60 font-medium leading-relaxed">
+                <h3 className="text-3xl font-black text-[#FFD700] mb-6 tracking-tight">{item.title}</h3>
+                <p className="text-[#FFD700]/60 font-medium leading-relaxed">
                   {item.desc}
                 </p>
                 

@@ -1,111 +1,197 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import ScrollingTicker from "@/components/ScrollingTicker";
 import StickyHeader from "@/components/StickyHeader";
-import CrisisSectionWhite from "@/components/CrisisSectionWhite";
 import FinalCTA from "@/components/FinalCTA";
-import { motion } from "framer-motion";
-import { Globe, Lightbulb, Target, Award } from "lucide-react";
+import { ArrowRight, Globe2, ShieldCheck, Zap } from "lucide-react";
+import Image from "next/image";
 
 export default function CompanyPage() {
   return (
-    <main className="w-full bg-[#FDFDFD]">
+    <main className="bg-white min-h-screen text-[#FFD700] overflow-x-hidden">
       <ScrollingTicker />
       <StickyHeader />
 
-      {/* HERO SECTION */}
-      <section className="relative pt-32 pb-20 px-6 md:px-24 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.4] pointer-events-none">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="companyGrid" width="160" height="160" patternUnits="userSpaceOnUse">
-                <path d="M 160 0 L 0 0 0 160" fill="none" stroke="#E5E7EB" strokeWidth="1" />
-                <circle cx="0" cy="0" r="1.5" fill="#FFD700" opacity="0.3" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#companyGrid)" />
-          </svg>
+      {/* 1. THE BLOOM HERO (QUANTUM RISE) */}
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 px-6 overflow-hidden">
+        {/* Floating 3D Elements (Conceptual) */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{ 
+                y: [0, -40, 0],
+                rotate: [0, 10, 0],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{ 
+                duration: 5 + i, 
+                repeat: Infinity, 
+                ease: "easeInOut",
+                delay: i * 0.5 
+              }}
+              className="absolute w-32 h-32 bg-[#FFD700]/10 rounded-full blur-2xl"
+              style={{ 
+                left: `${15 + i * 15}%`, 
+                top: `${20 + (i % 3) * 20}%`,
+                opacity: 0.3
+              }}
+            />
+          ))}
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-center relative z-10 max-w-4xl"
+        >
+          <div className="flex justify-center mb-8 text-[#FFD700]">
+             <Zap size={40} fill="currentColor" />
+          </div>
+          <h1 className="text-6xl md:text-[120px] font-black leading-[0.85] tracking-tighter mb-12">
+            The Future <br />
+            <span className="italic font-serif font-normal text-[#FFD700]">is Guarded.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-[#FFD700]/60 font-medium max-w-2xl mx-auto mb-16 leading-relaxed">
+            SafeHop is the world's first AI-integrated mobility protocol designed for the next generation of urban student transit.
+          </p>
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#FFD700] text-white px-12 py-6 rounded-full font-black uppercase text-xs tracking-widest shadow-2xl shadow-[#FFD700]/20"
           >
-            <span className="text-[#FFD700] font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Our Mission</span>
-            <h1 className="text-5xl md:text-8xl font-black text-[#2D2D2D] leading-[1] mb-8">
-              Pioneering <br />
-              <span className="italic font-serif text-[#FFD700]">Safe Transit.</span>
-            </h1>
-            <p className="text-xl text-[#2D2D2D]/70 leading-relaxed font-medium mb-12">
-              SAFEHOP was founded on a simple belief: every student deserves a safe journey, and every parent deserves certainty. We are redefining urban mobility for India's next generation.
-            </p>
+            Discover the Protocol
+          </motion.button>
+        </motion.div>
 
-            <div className="flex items-center space-x-12">
-               <div>
-                  <h3 className="text-4xl font-black text-[#2D2D2D]">15+</h3>
-                  <p className="text-xs font-bold text-[#FFD700] uppercase tracking-widest mt-1">Smart Cities</p>
-               </div>
-               <div>
-                  <h3 className="text-4xl font-black text-[#2D2D2D]">2M+</h3>
-                  <p className="text-xs font-bold text-[#FFD700] uppercase tracking-widest mt-1">Daily Alerts</p>
-               </div>
-               <div>
-                  <h3 className="text-4xl font-black text-[#2D2D2D]">500+</h3>
-                  <p className="text-xs font-bold text-[#FFD700] uppercase tracking-widest mt-1">School Partners</p>
-               </div>
-            </div>
-          </motion.div>
+        {/* Floating "Bloom" Globes */}
+        <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-[#FFD700]/20 rounded-full blur-[100px] -z-10" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#FFD700]/20 rounded-full blur-[100px] -z-10" />
+      </section>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="relative"
-          >
-             <div className="bg-white rounded-[48px] p-12 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] border border-gray-50 aspect-square flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-12">
-                   {[
-                     { icon: <Globe />, label: "National" },
-                     { icon: <Lightbulb />, label: "Innovation" },
-                     { icon: <Target />, label: "Precision" },
-                     { icon: <Award />, label: "Excellence" }
-                   ].map((item, i) => (
-                     <div key={i} className="flex flex-col items-center text-center">
-                        <div className="w-16 h-16 bg-[#FDFDFD] rounded-3xl shadow-lg flex items-center justify-center text-[#FFD700] mb-4 border border-gray-50">
-                           {item.icon}
-                        </div>
-                        <p className="font-bold text-[#2D2D2D] uppercase tracking-tighter text-sm">{item.label}</p>
-                     </div>
-                   ))}
-                </div>
-             </div>
-          </motion.div>
+      {/* 2. THE PHILOSOPHY SPLIT */}
+      <section className="py-40 bg-[#FDFDFD]">
+        <div className="container mx-auto px-6 max-w-7xl grid lg:grid-cols-2 gap-24 items-start">
+           <div>
+              <h2 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-tighter mb-8">
+                 What is <br />
+                 <span className="italic font-serif font-normal text-[#FFD700]">SafeHop Bloom?</span>
+              </h2>
+              <motion.button 
+                whileHover={{ x: 10 }}
+                className="flex items-center space-x-4 group"
+              >
+                 <span className="text-xs font-black uppercase tracking-[0.3em]">Our Origin Story</span>
+                 <div className="w-10 h-[2px] bg-[#FFD700] group-hover:w-16 transition-all" />
+              </motion.button>
+           </div>
+           <div className="space-y-8">
+              <p className="text-xl md:text-3xl font-black leading-tight text-[#FFD700]">
+                 SafeHop is a yield-bearing safety protocol that ensures every second of transit is an asset, not a liability.
+              </p>
+              <p className="text-lg text-[#FFD700]/50 font-medium leading-relaxed">
+                 We started with a simple question: Why is the most important journey of a child's day the most opaque? SafeHop was built to bring transparency, accountability, and AI-driven precision to institutional transport. 
+              </p>
+              <p className="text-lg text-[#FFD700]/50 font-medium leading-relaxed">
+                 Today, we are the standard for 500+ schools worldwide, processing millions of data points every second to ensure zero-latency safety.
+              </p>
+           </div>
         </div>
       </section>
 
-      <CrisisSectionWhite />
+      {/* 3. BENTO IDENTITY GRID */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+           {/* Card 1: Wide Image Card */}
+           <motion.div 
+             whileHover={{ y: -10 }}
+             className="md:col-span-2 h-[500px] bg-[#FFD700]/10 rounded-[60px] relative overflow-hidden group border border-[#FFD700]/20"
+           >
+              <div className="absolute top-12 left-12 z-20">
+                 <h3 className="text-4xl font-black mb-4">Network that <br /><span className="italic font-serif font-normal text-[#FFD700]">scales.</span></h3>
+                 <p className="text-sm font-bold opacity-60">Global coverage in 15+ Smart Cities.</p>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent z-10" />
+              {/* Background Asset Simulation */}
+              <div className="absolute bottom-0 right-0 w-full h-full opacity-40 group-hover:scale-110 transition-transform duration-700">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFD700] rounded-full blur-[150px]" />
+              </div>
+           </motion.div>
 
-      {/* CORE VALUES SECTION */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto text-center mb-20">
-           <h2 className="text-5xl font-black text-[#2D2D2D]">Built on <span className="italic font-serif text-[#FFD700]">Core Values.</span></h2>
+           {/* Card 2: Darker/Bronze Card */}
+           <motion.div 
+             whileHover={{ y: -10 }}
+             className="bg-[#FFD700] p-12 rounded-[60px] flex flex-col justify-between text-white border border-white/10"
+           >
+              <Globe2 className="text-[#FFD700]" size={48} />
+              <div>
+                 <h3 className="text-3xl font-black mb-6 leading-tight text-[#FFD700]">Always Liquid, Always Safe.</h3>
+                 <p className="text-sm font-medium text-white/50 leading-relaxed">
+                   Real-time latency under 200ms ensures your data is always current and actionable.
+                 </p>
+              </div>
+           </motion.div>
+
+           {/* Card 3: Minimal White Card */}
+           <motion.div 
+             whileHover={{ y: -10 }}
+             className="bg-[#FDFDFD] p-12 rounded-[60px] flex flex-col justify-between border border-gray-100 shadow-sm"
+           >
+              <ShieldCheck className="text-[#FFD700]" size={48} />
+              <div>
+                 <h3 className="text-3xl font-black mb-6 leading-tight">100% Hands-Free.</h3>
+                 <p className="text-sm font-medium text-[#FFD700]/40 leading-relaxed">
+                   Automated compliance reporting so you can focus on education, not logistics.
+                 </p>
+              </div>
+           </motion.div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-           {[
-             { title: "Radical Transparency", desc: "We believe parents and schools should never have to guess. Data is our language of trust." },
-             { title: "Human-Centric Tech", desc: "Our technology is complex, but the experience is simple, intuitive, and built for humans." },
-             { title: "Unyielding Safety", desc: "We don't compromise on the safety of the millions of students who rely on us every day." }
-           ].map((value, i) => (
-             <motion.div 
-               key={i}
-               whileHover={{ y: -10 }}
-               className="p-10 bg-[#FDFDFD] rounded-[40px] border border-gray-100 shadow-sm"
-             >
-                <h3 className="text-2xl font-bold text-[#2D2D2D] mb-4">{value.title}</h3>
-                <p className="text-[#2D2D2D]/60 font-medium leading-relaxed">{value.desc}</p>
-             </motion.div>
-           ))}
+      </section>
+
+      {/* 4. LOGO TICKER */}
+      <section className="py-20 border-y border-gray-100 opacity-30 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden whitespace-nowrap">
+         <div className="flex space-x-24 animate-marquee">
+            {[1,2,3,4,5,6,7,8].map((i) => (
+              <span key={i} className="text-2xl font-black uppercase tracking-[0.5em] text-[#FFD700]">PARTNER {i}</span>
+            ))}
+         </div>
+      </section>
+
+      {/* 5. INSTITUTIONAL SCALE SECTION */}
+      <section className="py-40 px-6">
+        <div className="max-w-7xl mx-auto">
+           <div className="grid lg:grid-cols-2 gap-20 items-center">
+              <div>
+                 <span className="text-xs font-black uppercase tracking-[0.4em] text-[#FFD700] block mb-6">Built for Enterprise</span>
+                 <h2 className="text-6xl md:text-[80px] font-black leading-[0.85] tracking-tighter mb-10">
+                    Institutional <br />
+                    <span className="italic font-serif font-normal text-[#FFD700]">Precision.</span>
+                 </h2>
+                 <p className="text-xl text-[#FFD700]/60 font-medium mb-12 max-w-md">
+                    From single-campus schools to nation-wide transport networks, SafeHop scales with absolute consistency.
+                 </p>
+                 <button className="flex items-center space-x-4 text-xs font-black uppercase tracking-widest border-b-2 border-[#FFD700] pb-2">
+                    <span>Explore Institutional Case Studies</span>
+                    <ArrowRight size={16} />
+                 </button>
+              </div>
+              <motion.div 
+                 initial={{ opacity: 0, scale: 0.9 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 className="bg-[#FDFDFD] rounded-[80px] p-1 border border-gray-100 shadow-2xl overflow-hidden relative group"
+              >
+                 <Image 
+                   src="/golden_institutional_campus_1778239262354.png" 
+                   alt="Institutional Campus" 
+                   width={800} 
+                   height={800}
+                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#FFD700]/10 to-transparent pointer-events-none" />
+              </motion.div>
+           </div>
         </div>
       </section>
 

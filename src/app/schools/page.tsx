@@ -11,7 +11,7 @@ import InstitutionalVault from "@/components/InstitutionalVault";
 
 export default function SchoolsPage() {
   return (
-    <main className="w-full bg-white text-[#3B2F00]">
+    <main className="w-full bg-[var(--background)] text-[var(--foreground)]">
       <ScrollingTicker />
       <StickyHeader />
 
@@ -26,22 +26,22 @@ export default function SchoolsPage() {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-[#FFD700]/10 text-[#3B2F00] px-6 py-2 rounded-full w-max text-xs font-black mb-8 border border-[#FFD700] tracking-[0.3em] uppercase"
+              className="bg-[#FFD700]/10 text-[var(--foreground)] px-6 py-2 rounded-full w-max text-xs font-black mb-8 border border-[#FFD700] tracking-[0.3em] uppercase"
             >
               School Administration Portal
             </motion.div>
-            <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-8 text-[#3B2F00]">
+            <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-8 text-[var(--foreground)]">
               The Gold Standard <br />
               of <span className="italic font-serif text-[#FFD700] font-normal">Safety.</span>
             </h1>
-            <p className="text-xl text-[#3B2F00]/60 max-w-xl mb-12 font-medium leading-relaxed">
+            <p className="text-xl text-[var(--foreground)]/60 max-w-xl mb-12 font-medium leading-relaxed">
               Empower your institution with end-to-end fleet visibility and student accountability. SAFEHOP is the preferred partner for 500+ elite schools across India.
             </p>
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
               <motion.button 
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,215,0,0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto bg-[#FFD700] text-[#3B2F00] px-12 py-6 rounded-full font-black flex items-center justify-center space-x-3 transition-all"
+                className="w-full sm:w-auto bg-[#FFD700] text-white px-12 py-6 rounded-full font-black flex items-center justify-center space-x-3 transition-all shadow-[0_12px_28px_rgba(255,215,0,0.35)]"
               >
                 <span>Partner with SAFEHOP</span>
                 <ArrowRight size={22} />
