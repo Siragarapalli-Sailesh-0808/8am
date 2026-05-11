@@ -36,32 +36,31 @@ export default function ParentsPage() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="rounded-[36px] bg-[rgba(0,0,0,0.55)] p-8 backdrop-blur-md sm:p-10 lg:p-12"
           >
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white/10 text-white px-5 py-2 rounded-full w-max text-xs font-black mb-8 border border-white/60 tracking-[0.2em] uppercase"
+              className="bg-[#FFD700]/10 text-[#FFD700] px-5 py-2 rounded-full w-max text-xs font-black mb-8 border border-[#FFD700] tracking-[0.2em] uppercase"
             >
               The Parental Portal
             </motion.div>
-            <h1 className="text-6xl md:text-[100px] font-black mb-8 leading-[0.85] tracking-tighter text-white">
+            <h1 className="text-6xl md:text-[100px] font-black mb-8 leading-[0.85] tracking-tighter text-[#FFD700]">
               Absolute Control. <br />
-              Total <span className="italic font-serif text-white font-normal">Certainty.</span>
+              Total <span className="italic font-serif text-[#FFD700] font-normal">Certainty.</span>
             </h1>
-            <p className="text-xl text-white/90 max-w-lg mb-12 font-medium leading-relaxed">
+            <p className="text-xl text-[#FFD700] max-w-lg mb-12 font-medium leading-relaxed">
               Experience the world&apos;s most advanced parent-teacher mobility interface. Real-time updates, AI-driven ETA, and biometric safety standards.
             </p>
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
               <motion.button 
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,215,0,0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto bg-white text-[#FFD700] px-12 py-6 rounded-full font-black flex items-center justify-center space-x-3 transition-all"
+                className="w-full sm:w-auto bg-[#FFD700] text-white px-12 py-6 rounded-full font-black flex items-center justify-center space-x-3 transition-all"
               >
                 <span>Activate Safety</span>
                 <ArrowRight size={22} />
               </motion.button>
-              <button className="text-white font-black text-sm border-b-2 border-white pb-1 hover:text-[#FFD700] hover:border-[#FFD700] transition-all">
+              <button className="text-[#FFD700] font-black text-sm border-b-2 border-[#FFD700] pb-1 hover:text-[#FFD700] hover:border-[#FFD700] transition-all">
                 View Feature Tour
               </button>
             </div>
