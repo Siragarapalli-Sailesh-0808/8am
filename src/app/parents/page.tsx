@@ -44,7 +44,7 @@ export default function ParentsPage() {
             >
               The Parental Portal
             </motion.div>
-            <h1 className="text-6xl md:text-[100px] font-black mb-8 leading-[0.85] tracking-tighter text-[#E0B100]">
+            <h1 className="text-5xl md:text-7xl lg:text-[85px] font-black mb-8 leading-[0.9] tracking-tighter text-[#E0B100]">
               Absolute Control. <br />
               Total <span className="italic font-serif text-[#E0B100] font-normal">Certainty.</span>
             </h1>
