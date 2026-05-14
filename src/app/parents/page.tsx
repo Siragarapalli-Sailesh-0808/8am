@@ -7,6 +7,7 @@ import FinalCTA from "@/components/FinalCTA";
 import PhoneMockup from "@/components/PhoneMockup";
 import SafetyBento from "@/components/SafetyBento";
 import JourneyTimeline from "@/components/JourneyTimeline";
+import MetricSpotlight from "@/components/MetricSpotlight";
 import EmotionalCarousel from "@/components/EmotionalCarousel";
 import { ArrowRight, ShieldCheck, MapPin, Bell, Smartphone } from "lucide-react";
 import TechPulse from "@/components/TechPulse";
@@ -124,6 +125,7 @@ export default function ParentsPage() {
 
       {/* 5. EMOTIONAL CAROUSEL */}
       <EmotionalCarousel />
+      <MetricSpotlight />
 
       {/* 6. EXTENSIVE FAQ SECTION */}
       <section className="py-32 bg-[#F9F9F9]">
