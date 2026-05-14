@@ -20,47 +20,20 @@ const PhoneMockup = () => {
           </div>
         </div>
 
-        {/* Map Area */}
+        {/* Live Tracking View */}
         <div className="flex-1 bg-[var(--card-bg)] mx-4 rounded-3xl overflow-hidden relative border border-gray-100 shadow-inner">
-           {/* Grid Pattern */}
-           <div className="absolute inset-0 opacity-10">
-              <svg width="100%" height="100%">
-                <pattern id="phoneGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#000000" strokeWidth="1" />
-                </pattern>
-                <rect width="100%" height="100%" fill="url(#phoneGrid)" />
-              </svg>
-           </div>
+           <video 
+             src="/portal_preview.mp4"
+             autoPlay 
+             loop 
+             muted 
+             playsInline 
+             className="absolute inset-0 w-full h-full object-cover"
+           />
 
-           {/* Bus Path */}
-           <svg className="absolute inset-0 h-full w-full" viewBox="0 0 200 300">
-             <motion.path
-               d="M40 250 Q 100 200 160 250 T 160 100"
-               stroke="#E0B100"
-               strokeWidth="4"
-               strokeLinecap="round"
-               strokeDasharray="10 10"
-               initial={{ pathLength: 0 }}
-               animate={{ pathLength: 1 }}
-               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-               fill="none"
-             />
-             <motion.circle 
-               r="6" 
-               fill="#E0B100"
-               animate={{ 
-                 cx: [40, 100, 160, 160], 
-                 cy: [250, 200, 250, 100] 
-               }}
-               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-               stroke="white"
-               strokeWidth="2"
-             />
-           </svg>
-
-           {/* Labels */}
-           <div className="absolute top-4 left-4 bg-[var(--card-bg)]/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold shadow-sm border border-gray-100">
-              Bus #42 • Moving
+           {/* Overlay Labels */}
+           <div className="absolute top-4 left-4 bg-[var(--card-bg)]/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold shadow-sm border border-gray-100 z-10 text-[#222222]">
+              Bus #42 • Live Tracking
            </div>
         </div>
 
