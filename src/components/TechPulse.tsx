@@ -5,12 +5,12 @@ import { Zap, ShieldCheck, Cpu } from "lucide-react";
 
 const TechPulse = () => {
   return (
-    <section className="py-32 bg-white relative overflow-hidden px-6">
+    <section className="py-32 bg-[var(--card-bg)] relative overflow-hidden px-6">
       {/* 1. BACKGROUND TEXTURE (White-on-White Grid) */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <svg width="100%" height="100%">
           <pattern id="whiteGrid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#FFD700" strokeWidth="1" />
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#E0B100" strokeWidth="1" />
           </pattern>
           <rect width="100%" height="100%" fill="url(#whiteGrid)" />
         </svg>
@@ -21,7 +21,7 @@ const TechPulse = () => {
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-[#FFD700] font-black tracking-[0.4em] uppercase text-xs mb-4 block"
+            className="text-[#E0B100] font-black tracking-[0.4em] uppercase text-xs mb-4 block"
           >
             Zero-Latency Architecture
           </motion.span>
@@ -29,10 +29,10 @@ const TechPulse = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-8xl font-black text-[#FFD700] leading-none"
+            className="text-5xl md:text-8xl font-black text-[#E0B100] leading-none"
           >
             Real-time is <br />
-            <span className="italic font-serif font-normal text-[#FFD700]">not enough.</span>
+            <span className="italic font-serif font-normal text-[#E0B100]">not enough.</span>
           </motion.h2>
         </div>
 
@@ -45,7 +45,7 @@ const TechPulse = () => {
                  opacity: [0.1, 0.3, 0.1]
                }}
                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-               className="w-[500px] h-[500px] bg-[#FFD700] rounded-full blur-[120px]"
+               className="w-[500px] h-[500px] bg-[#E0B100] rounded-full blur-[120px]"
              />
           </div>
 
@@ -74,18 +74,18 @@ const TechPulse = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2, duration: 0.8 }}
                 whileHover={{ y: -15 }}
-                className="bg-white/80 backdrop-blur-xl p-12 rounded-[48px] border border-[#FFD700]/20 shadow-[0_30px_60px_-15px_rgba(255,215,0,0.1)] group hover:border-[#FFD700] transition-all duration-500"
+                className="bg-[var(--card-bg)]/80 backdrop-blur-xl p-12 rounded-[48px] border border-[#E0B100]/20 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.04)] group hover:border-[#E0B100] transition-all duration-500"
               >
-                <div className="w-20 h-20 bg-[#FFD700]/10 rounded-3xl flex items-center justify-center text-[#FFD700] mb-8 group-hover:bg-[#FFD700] group-hover:text-white transition-all duration-500 shadow-inner">
+                <div className="w-20 h-20 bg-[#E0B100]/10 rounded-3xl flex items-center justify-center text-[#E0B100] mb-8 group-hover:bg-[#E0B100] group-hover:text-[var(--card-bg)] transition-all duration-500 shadow-inner">
                   <item.icon size={36} strokeWidth={2.5} />
                 </div>
-                <h3 className="text-3xl font-black text-[#FFD700] mb-6 tracking-tight">{item.title}</h3>
-                <p className="text-[#FFD700]/60 font-medium leading-relaxed">
+                <h3 className="text-3xl font-black text-[#E0B100] mb-6 tracking-tight">{item.title}</h3>
+                <p className="text-[#E0B100]/60 font-medium leading-relaxed">
                   {item.desc}
                 </p>
                 
                 {/* Visual Connector Line (Conceptual) */}
-                <div className="mt-10 h-[2px] w-0 bg-[#FFD700] group-hover:w-full transition-all duration-700" />
+                <div className="mt-10 h-[2px] w-0 bg-[#E0B100] group-hover:w-full transition-all duration-700" />
               </motion.div>
             ))}
           </div>
@@ -93,8 +93,8 @@ const TechPulse = () => {
       </div>
 
       {/* FLOATING LIGHT LEAKS */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#FFD700]/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#FFD700]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#E0B100]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#E0B100]/5 rounded-full blur-[100px] pointer-events-none" />
     </section>
   );
 };

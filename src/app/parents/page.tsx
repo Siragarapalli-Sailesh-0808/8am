@@ -22,7 +22,7 @@ export default function ParentsPage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
-    <main ref={containerRef} className="bg-white min-h-screen font-sans text-black overflow-x-hidden">
+    <main ref={containerRef} className="bg-[var(--card-bg)] min-h-screen font-sans text-black overflow-x-hidden">
       <ScrollingTicker />
       <StickyHeader />
 
@@ -40,27 +40,27 @@ export default function ParentsPage() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-[#FFD700]/10 text-[#FFD700] px-5 py-2 rounded-full w-max text-xs font-black mb-8 border border-[#FFD700] tracking-[0.2em] uppercase"
+              className="bg-[#E0B100]/10 text-[#E0B100] px-5 py-2 rounded-full w-max text-xs font-black mb-8 border border-[#E0B100] tracking-[0.2em] uppercase"
             >
               The Parental Portal
             </motion.div>
-            <h1 className="text-6xl md:text-[100px] font-black mb-8 leading-[0.85] tracking-tighter text-[#FFD700]">
+            <h1 className="text-6xl md:text-[100px] font-black mb-8 leading-[0.85] tracking-tighter text-[#E0B100]">
               Absolute Control. <br />
-              Total <span className="italic font-serif text-[#FFD700] font-normal">Certainty.</span>
+              Total <span className="italic font-serif text-[#E0B100] font-normal">Certainty.</span>
             </h1>
-            <p className="text-xl text-[#FFD700] max-w-lg mb-12 font-medium leading-relaxed">
+            <p className="text-xl text-[#E0B100] max-w-lg mb-12 font-medium leading-relaxed">
               Experience the world&apos;s most advanced parent-teacher mobility interface. Real-time updates, AI-driven ETA, and biometric safety standards.
             </p>
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
               <motion.button 
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,215,0,0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto bg-[#FFD700] text-white px-12 py-6 rounded-full font-black flex items-center justify-center space-x-3 transition-all"
+                className="w-full sm:w-auto bg-[#E0B100] text-[var(--card-bg)] px-12 py-6 rounded-full font-black flex items-center justify-center space-x-3 transition-all"
               >
                 <span>Activate Safety</span>
                 <ArrowRight size={22} />
               </motion.button>
-              <button className="text-[#FFD700] font-black text-sm border-b-2 border-[#FFD700] pb-1 hover:text-[#FFD700] hover:border-[#FFD700] transition-all">
+              <button className="text-[#E0B100] font-black text-sm border-b-2 border-[#E0B100] pb-1 hover:text-[#E0B100] hover:border-[#E0B100] transition-all">
                 View Feature Tour
               </button>
             </div>
@@ -80,9 +80,9 @@ export default function ParentsPage() {
               <motion.div 
                 animate={{ y: [0, -20, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -left-12 top-20 bg-white p-6 rounded-[30px] shadow-2xl border border-gray-50 flex items-center space-x-4 z-20"
+                className="absolute -left-12 top-20 bg-[var(--card-bg)] p-6 rounded-[30px] shadow-2xl border border-gray-50 flex items-center space-x-4 z-20"
               >
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-[var(--card-bg)]">
                   <ShieldCheck size={28} />
                 </div>
                 <div>
@@ -94,9 +94,9 @@ export default function ParentsPage() {
               <motion.div 
                 animate={{ y: [0, 20, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -right-12 bottom-20 bg-white p-6 rounded-[30px] shadow-2xl border border-gray-50 flex items-center space-x-4 z-20"
+                className="absolute -right-12 bottom-20 bg-[var(--card-bg)] p-6 rounded-[30px] shadow-2xl border border-gray-50 flex items-center space-x-4 z-20"
               >
-                <div className="w-12 h-12 bg-[#FFD700] rounded-full flex items-center justify-center text-black">
+                <div className="w-12 h-12 bg-[#E0B100] rounded-full flex items-center justify-center text-black">
                   <MapPin size={28} />
                 </div>
                 <div>
@@ -109,8 +109,8 @@ export default function ParentsPage() {
         </motion.div>
 
         {/* Dynamic Background */}
-        <div className="absolute right-0 top-0 w-1/3 h-full bg-[#FFD700]/5 -z-10" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
-        <div className="absolute left-0 bottom-0 w-64 h-64 bg-[#FFD700]/10 rounded-full blur-[100px] -z-10" />
+        <div className="absolute right-0 top-0 w-1/3 h-full bg-[#E0B100]/5 -z-10" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
+        <div className="absolute left-0 bottom-0 w-64 h-64 bg-[#E0B100]/10 rounded-full blur-[100px] -z-10" />
       </section>
 
       {/* 2. THE SECURITY BENTO */}
@@ -129,7 +129,7 @@ export default function ParentsPage() {
       <section className="py-32 bg-[#F9F9F9]">
          <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-20">
-               <h2 className="text-4xl md:text-6xl font-black">Common <span className="italic font-serif text-[#FFD700]">Questions.</span></h2>
+               <h2 className="text-4xl md:text-6xl font-black">Common <span className="italic font-serif text-[#E0B100]">Questions.</span></h2>
             </div>
             <div className="space-y-6">
                {[
@@ -141,11 +141,11 @@ export default function ParentsPage() {
                    key={i}
                    initial={{ opacity: 0, y: 10 }}
                    whileInView={{ opacity: 1, y: 0 }}
-                   className="bg-white p-8 rounded-[30px] shadow-sm border border-gray-50 hover:shadow-md transition-all cursor-pointer group"
+                   className="bg-[var(--card-bg)] p-8 rounded-[30px] shadow-sm border border-gray-50 hover:shadow-md transition-all cursor-pointer group"
                  >
                     <h3 className="text-xl font-black mb-4 flex justify-between items-center">
                        {faq.q}
-                       <span className="text-[#FFD700] group-hover:rotate-90 transition-transform">+</span>
+                       <span className="text-[#E0B100] group-hover:rotate-90 transition-transform">+</span>
                     </h3>
                     <p className="text-gray-500 font-medium leading-relaxed">{faq.a}</p>
                  </motion.div>

@@ -55,22 +55,22 @@ const StepCard = ({ step, index, onActive, showVisualBelow }: { step: any; index
           filter: isInView ? "blur(0px)" : "blur(2px)"
         }}
         transition={{ duration: 0.5 }}
-        className={`p-10 rounded-[40px] border-2 transition-all duration-500 flex flex-col justify-center min-h-[400px] md:min-h-[350px] ${isInView ? "border-[#FFD700] bg-white shadow-2xl" : "border-transparent bg-gray-50/50"
+        className={`p-10 rounded-[40px] border-2 transition-all duration-500 flex flex-col justify-center min-h-[400px] md:min-h-[350px] ${isInView ? "border-[#E0B100] bg-[var(--card-bg)] shadow-xl" : "border-transparent bg-[#F8F7F2]/50"
           }`}
       >
         <div className="flex items-center space-x-4 mb-6">
-          <span className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-colors duration-500 ${isInView ? "bg-[#FFD700] text-[#2D2D2D]" : "bg-gray-200 text-gray-400"
+          <span className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-colors duration-500 ${isInView ? "bg-[#E0B100] text-[#222222]" : "bg-gray-200 text-gray-400"
             }`}>
             0{index + 1}
           </span>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#2D2D2D]/40">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#222222]/40">
             {step.tag}
           </span>
         </div>
-        <h3 className="text-3xl md:text-4xl font-black text-[#2D2D2D] mb-6 leading-tight">
-          {step.title} <span className="italic font-serif text-[#FFD700]">{step.accent}</span>
+        <h3 className="text-3xl md:text-4xl font-black text-[#222222] mb-6 leading-tight">
+          {step.title} <span className="italic font-serif text-[#E0B100]">{step.accent}</span>
         </h3>
-        <p className="text-[#2D2D2D]/60 text-base md:text-lg leading-relaxed font-medium">
+        <p className="text-[#222222]/60 text-base md:text-lg leading-relaxed font-medium">
           {step.desc}
         </p>
       </motion.div>
@@ -86,12 +86,12 @@ const StepCard = ({ step, index, onActive, showVisualBelow }: { step: any; index
             className="relative w-full"
           >
             {/* Outer Gold Accent Border */}
-            <div className="absolute -inset-1 bg-gradient-to-br from-[#FFD700] to-[#FFC700] rounded-[20px] opacity-60 blur-sm" />
+            <div className="absolute -inset-1 bg-gradient-to-br from-[#E0B100] to-[#FFC700] rounded-[20px] opacity-60 blur-sm" />
 
             {/* Main Dark Border */}
-            <div className="relative bg-white border-4 border-[#2D2D2D]/20 rounded-[16px] overflow-hidden shadow-2xl">
+            <div className="relative bg-[var(--card-bg)] border-4 border-[#222222]/20 rounded-[16px] overflow-hidden shadow-2xl">
               {/* Subtle Gold Edge Accent */}
-              <div className="absolute inset-0 border-2 border-[#FFD700]/30 rounded-[12px] pointer-events-none" />
+              <div className="absolute inset-0 border-2 border-[#E0B100]/30 rounded-[12px] pointer-events-none" />
 
               <div className="aspect-[4/3] md:aspect-[3/2] overflow-hidden">
                 {index === 0 && (
@@ -133,7 +133,7 @@ function BoardingVisual() {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.1 }}
-      className="absolute inset-0 flex items-center justify-center p-8 bg-white"
+      className="absolute inset-0 flex items-center justify-center p-8 bg-[var(--card-bg)]"
     >
       <motion.div
         initial={{ y: 0 }}
@@ -142,12 +142,12 @@ function BoardingVisual() {
         className="relative"
       >
         {/* Outer Gold Accent Border */}
-        <div className="absolute -inset-1 bg-gradient-to-br from-[#FFD700] to-[#FFC700] rounded-[24px] opacity-60 blur-sm" />
+        <div className="absolute -inset-1 bg-gradient-to-br from-[#E0B100] to-[#FFC700] rounded-[24px] opacity-60 blur-sm" />
 
         {/* Main Dark Border */}
-        <div className="relative bg-white border-4 border-[#2D2D2D]/20 rounded-[20px] overflow-hidden shadow-2xl">
+        <div className="relative bg-[var(--card-bg)] border-4 border-[#222222]/20 rounded-[20px] overflow-hidden shadow-2xl">
           {/* Subtle Gold Edge Accent */}
-          <div className="absolute inset-0 border-2 border-[#FFD700]/30 rounded-[16px] pointer-events-none" />
+          <div className="absolute inset-0 border-2 border-[#E0B100]/30 rounded-[16px] pointer-events-none" />
 
           <img
             src="/boarding.jpeg"
@@ -166,7 +166,7 @@ function TrackingVisual() {
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -100 }}
-      className="absolute inset-0 flex items-center justify-center bg-white p-8"
+      className="absolute inset-0 flex items-center justify-center bg-[var(--card-bg)] p-8"
     >
       <motion.div
         initial={{ scale: 0.95 }}
@@ -175,12 +175,12 @@ function TrackingVisual() {
         className="relative"
       >
         {/* Outer Gold Accent Border */}
-        <div className="absolute -inset-1 bg-gradient-to-br from-[#FFD700] to-[#FFC700] rounded-[24px] opacity-60 blur-sm" />
+        <div className="absolute -inset-1 bg-gradient-to-br from-[#E0B100] to-[#FFC700] rounded-[24px] opacity-60 blur-sm" />
 
         {/* Main Dark Border */}
-        <div className="relative bg-white border-4 border-[#2D2D2D]/20 rounded-[20px] overflow-hidden shadow-2xl">
+        <div className="relative bg-[var(--card-bg)] border-4 border-[#222222]/20 rounded-[20px] overflow-hidden shadow-2xl">
           {/* Subtle Gold Edge Accent */}
-          <div className="absolute inset-0 border-2 border-[#FFD700]/30 rounded-[16px] pointer-events-none" />
+          <div className="absolute inset-0 border-2 border-[#E0B100]/30 rounded-[16px] pointer-events-none" />
 
           <video
             src="/tracking.mp4"
@@ -202,7 +202,7 @@ function ArrivalVisual() {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.1 }}
-      className="absolute inset-0 flex items-center justify-center bg-white p-8"
+      className="absolute inset-0 flex items-center justify-center bg-[var(--card-bg)] p-8"
     >
       <motion.div
         initial={{ y: 0 }}
@@ -211,12 +211,12 @@ function ArrivalVisual() {
         className="relative"
       >
         {/* Outer Gold Accent Border */}
-        <div className="absolute -inset-1 bg-gradient-to-br from-[#FFD700] to-[#FFC700] rounded-[24px] opacity-60 blur-sm" />
+        <div className="absolute -inset-1 bg-gradient-to-br from-[#E0B100] to-[#FFC700] rounded-[24px] opacity-60 blur-sm" />
 
         {/* Main Dark Border */}
-        <div className="relative bg-white border-4 border-[#2D2D2D]/20 rounded-[20px] overflow-hidden shadow-2xl">
+        <div className="relative bg-[var(--card-bg)] border-4 border-[#222222]/20 rounded-[20px] overflow-hidden shadow-2xl">
           {/* Subtle Gold Edge Accent */}
-          <div className="absolute inset-0 border-2 border-[#FFD700]/30 rounded-[16px] pointer-events-none" />
+          <div className="absolute inset-0 border-2 border-[#E0B100]/30 rounded-[16px] pointer-events-none" />
 
           <img
             src="/alerts.jpeg"
@@ -233,20 +233,20 @@ export default function ScrollytellingSection() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="relative bg-[#FDFDFD] px-4 py-16 md:px-6 md:py-24 lg:py-32 lg:px-24">
+    <section className="relative bg-[#F8F7F2] px-4 py-16 md:px-6 md:py-24 lg:py-32 lg:px-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 md:mb-20 lg:mb-24 text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 text-xs font-bold uppercase tracking-[0.4em] text-[#FFD700]"
+            className="mb-4 text-xs font-bold uppercase tracking-[0.4em] text-[#E0B100]"
           >
             Seamless Integration
           </motion.p>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#2D2D2D] leading-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#222222] leading-tight">
             The Journey of <br />
-            <span className="italic font-serif font-normal text-[#FFD700]">Pure Visibility.</span>
+            <span className="italic font-serif font-normal text-[#E0B100]">Pure Visibility.</span>
           </h2>
         </div>
 
@@ -265,7 +265,7 @@ export default function ScrollytellingSection() {
           </div>
 
           <div className="relative">
-            <div className="sticky top-[20vh] h-[60vh] w-full rounded-[64px] bg-white shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] border border-gray-50 overflow-hidden">
+            <div className="sticky top-[20vh] h-[60vh] w-full rounded-[64px] bg-[var(--card-bg)] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)] border border-[#E8E2D3] overflow-hidden">
               <AnimatePresence mode="wait">
                 {activeStep === 0 && <BoardingVisual key="boarding" />}
                 {activeStep === 1 && <TrackingVisual key="tracking" />}

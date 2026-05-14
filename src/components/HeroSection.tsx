@@ -28,11 +28,11 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white pt-14 lg:pt-16">
+    <section className="relative overflow-hidden bg-[#F8F7F2] pt-32 lg:pt-40">
       <div className="absolute inset-0 -z-10">
-        <div className="h-full w-full bg-white" />
+        <div className="h-full w-full bg-[#F8F7F2]" />
         <div
-          className="absolute inset-y-0 right-0 hidden w-3/5 bg-[#FFD700] lg:block"
+          className="absolute inset-y-0 right-0 hidden w-3/5 bg-[#E0B100] lg:block"
           style={{ clipPath: "polygon(24% 0, 100% 0, 100% 100%, 0 100%)" }}
         />
       </div>
@@ -46,26 +46,26 @@ export default function HeroSection() {
             animate="visible"
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <h1 className="text-4xl font-extrabold leading-tight text-[#FFD700] sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-extrabold leading-tight text-[#E0B100] sm:text-5xl lg:text-6xl">
                 <span>Deliver students</span>
                 <br />
                 <span>on time and</span>
                 <br />
-                <span className="headline-italic text-[#FFD700]">ready to learn.</span>
+                <span className="headline-italic text-[#E0B100]">ready to learn.</span>
               </h1>
             </motion.div>
 
             <motion.p
               variants={fadeInUp}
-              className="mb-8 max-w-xl text-base leading-8 text-[#FFD700] sm:text-lg"
+              className="mb-8 max-w-xl text-base leading-8 text-[#222222] sm:text-lg"
             >
-              SAFEHOP combines real-time GPS visibility with instant RFID tap-in alerts, giving schools and parents accurate arrival updates, stronger accountability, and safer, better-coordinated student transportation across Indian cities every day reliably.
+              8AM combines real-time GPS visibility with instant RFID tap-in alerts, giving schools and parents accurate arrival updates, stronger accountability, and safer, better-coordinated student transportation across Indian cities every day reliably.
             </motion.p>
 
             <motion.div variants={fadeInUp}>
               <motion.button
-                className="inline-flex items-center gap-2 rounded-full bg-[#FFD700] px-8 py-4 text-sm font-bold text-white shadow-[0_8px_24px_rgba(255,215,0,0.35)] transition-shadow hover:shadow-[0_12px_28px_rgba(255,215,0,0.45)] sm:text-base"
-                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center gap-2 rounded-full bg-[#E0B100] px-8 py-4 text-sm font-bold text-[var(--card-bg)] shadow-[0_8px_24px_rgba(224,177,0,0.25)] transition-shadow hover:shadow-[0_12px_28px_rgba(224,177,0,0.35)] sm:text-base"
+                whileHover={{ scale: 1.05, backgroundColor: "#C99700" }}
                 whileTap={{ scale: 0.95 }}
               >
                 Start Your Free Demo
@@ -76,7 +76,7 @@ export default function HeroSection() {
         </div>
 
         <motion.div
-          className="order-2 h-64 w-full rounded-3xl bg-[#FFD700] md:h-80 lg:order-2 lg:h-[36rem]"
+          className="order-2 h-64 w-full rounded-3xl bg-[#E0B100] md:h-80 lg:order-2 lg:h-[36rem]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}

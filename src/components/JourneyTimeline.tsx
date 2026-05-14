@@ -9,28 +9,28 @@ const TIMELINE_EVENTS = [
     title: "Morning Boarding",
     desc: "Your child taps their RFID card. You receive an instant 'Boarded' notification.",
     icon: Coffee,
-    color: "#FFD700"
+    color: "#E0B100"
   },
   {
     time: "7:45 AM",
     title: "In-Transit Monitoring",
     desc: "Watch the bus move live on your high-precision map as it navigates the city.",
     icon: Bus,
-    color: "#FFD700"
+    color: "#E0B100"
   },
   {
     time: "8:10 AM",
     title: "School Arrival",
     desc: "A 'Safe Arrival' confirmation alert hits your phone as the bus reaches the school gate.",
     icon: School,
-    color: "#FFD700"
+    color: "#E0B100"
   },
   {
     time: "3:30 PM",
     title: "Evening Return",
     desc: "Receive an alert the moment the bus leaves the school premises for home.",
     icon: Home,
-    color: "#FFD700"
+    color: "#E0B100"
   }
 ];
 
@@ -48,14 +48,14 @@ const JourneyTimeline = () => {
   });
 
   return (
-    <section ref={containerRef} className="py-32 bg-white relative overflow-hidden">
+    <section ref={containerRef} className="py-32 bg-[var(--card-bg)] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-start gap-20">
           <div className="w-full md:w-1/3 sticky top-32">
-             <span className="text-[#FFD700] font-black tracking-[0.4em] uppercase text-xs mb-4 block">The Daily Guardian</span>
+             <span className="text-[#E0B100] font-black tracking-[0.4em] uppercase text-xs mb-4 block">The Daily Guardian</span>
              <h2 className="text-5xl md:text-7xl font-black leading-tight mb-8">
                Your Child's Day, <br />
-               <span className="italic font-serif text-[#FFD700]">Visualized.</span>
+               <span className="italic font-serif text-[#E0B100]">Visualized.</span>
              </h2>
              <p className="text-xl text-gray-400 font-medium leading-relaxed">
                Experience the peace of mind that comes from knowing exactly where your child is, from breakfast to home-time.
@@ -67,7 +67,7 @@ const JourneyTimeline = () => {
             <div className="absolute left-8 top-0 bottom-0 w-1 bg-gray-100 rounded-full">
                <motion.div 
                  style={{ scaleY, transformOrigin: "top" }}
-                 className="absolute inset-0 bg-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.5)]" 
+                 className="absolute inset-0 bg-[#E0B100] shadow-[0_0_15px_rgba(255,215,0,0.5)]" 
                />
             </div>
 
@@ -81,11 +81,11 @@ const JourneyTimeline = () => {
                   transition={{ duration: 0.8, delay: idx * 0.1 }}
                   className="flex items-start space-x-12 relative"
                 >
-                  <div className="z-10 w-16 h-16 bg-white border-4 border-[#FFD700] rounded-full flex items-center justify-center text-[#FFD700] shadow-xl shrink-0 transition-transform hover:scale-110 duration-500">
+                  <div className="z-10 w-16 h-16 bg-[var(--card-bg)] border-4 border-[#E0B100] rounded-full flex items-center justify-center text-[#E0B100] shadow-xl shrink-0 transition-transform hover:scale-110 duration-500">
                      <event.icon size={28} />
                   </div>
                   <div className="pt-2">
-                     <span className="text-[#FFD700] font-black tracking-widest text-sm mb-2 block">{event.time}</span>
+                     <span className="text-[#E0B100] font-black tracking-widest text-sm mb-2 block">{event.time}</span>
                      <h3 className="text-3xl font-black mb-4">{event.title}</h3>
                      <p className="text-lg text-gray-500 font-medium max-w-lg leading-relaxed">
                        {event.desc}

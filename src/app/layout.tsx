@@ -21,7 +21,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "SAFEHOP - India's #1 Student Mobility Platform",
+  title: "8AM - India's #1 Student Mobility Platform",
   description: "Real-time GPS tracking and RFID notifications for student safety and efficient school transportation",
 };
 
@@ -35,7 +35,7 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.variable} ${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-gray-900">{children}</body>
+      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">{children}</body>
     </html>
   );
 }

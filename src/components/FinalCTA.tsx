@@ -5,14 +5,14 @@ import { ArrowRight, Star } from "lucide-react";
 
 export const FinalCTA = () => {
   return (
-    <section className="py-32 px-6 bg-[#FDFDFD]">
+    <section className="py-32 px-6 bg-[#F8F7F2]">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden bg-white rounded-[48px] p-12 md:p-24 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1),0_20px_50px_-10px_rgba(255,215,0,0.1)] border border-gray-50"
+          className="relative overflow-hidden bg-[var(--card-bg)] rounded-[48px] p-12 md:p-24 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] border border-[#E8E2D3]"
         >
           {/* BACKGROUND DECO - Golden Dashed Lines */}
           <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
@@ -20,7 +20,7 @@ export const FinalCTA = () => {
                <motion.path 
                  d="M-100 200 Q 200 50 400 200 T 900 200" 
                  fill="none" 
-                 stroke="#FFD700" 
+                 stroke="#E0B100" 
                  strokeWidth="2" 
                  strokeDasharray="8 8" 
                  initial={{ pathLength: 0 }}
@@ -30,7 +30,7 @@ export const FinalCTA = () => {
                <motion.path 
                  d="M-100 300 Q 300 150 500 300 T 1000 300" 
                  fill="none" 
-                 stroke="#FFD700" 
+                 stroke="#E0B100" 
                  strokeWidth="1" 
                  strokeDasharray="12 12" 
                  initial={{ pathLength: 0 }}
@@ -45,13 +45,13 @@ export const FinalCTA = () => {
               <div className="flex items-center space-x-3 mb-8">
                 <div className="flex -space-x-3">
                    {[1, 2, 3, 4].map(i => (
-                     <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-white shadow-sm overflow-hidden">
+                     <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-[var(--card-bg)] shadow-sm overflow-hidden">
                        <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=user${i + 10}`} alt="user" className="w-full h-full object-cover" />
                      </div>
                    ))}
                 </div>
                 <div className="flex flex-col">
-                  <div className="flex text-[#FFD700]">
+                  <div className="flex text-[#E0B100]">
                     {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} fill="currentColor" />)}
                   </div>
                   <p className="text-[10px] font-black text-black/60 uppercase tracking-[0.2em]">50K+ Active Parents</p>
@@ -60,10 +60,10 @@ export const FinalCTA = () => {
 
               <h2 className="text-5xl md:text-7xl font-black text-black leading-[1.05] mb-8">
                 Join the journey <br />
-                <span className="italic font-serif text-[#FFD700] text-6xl md:text-8xl">tomorrow.</span>
+                <span className="italic font-serif text-[#E0B100] text-6xl md:text-8xl">tomorrow.</span>
               </h2>
               
-              <p className="text-lg text-[#555555] mb-12 max-w-md leading-relaxed font-medium opacity-80">
+              <p className="text-lg text-[#666666] mb-12 max-w-md leading-relaxed font-medium opacity-80">
                 Experience India's most trusted student mobility platform. Real-time visibility, instant alerts, and total peace of mind.
               </p>
 
@@ -71,7 +71,7 @@ export const FinalCTA = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 bg-[#FFD700] text-black font-black rounded-full shadow-[0_20px_40px_-10px_rgba(255,215,0,0.5)] flex items-center justify-center space-x-3 hover:shadow-[0_25px_50px_-12px_rgba(255,215,0,0.6)] transition-all"
+                  className="px-12 py-6 bg-[#E0B100] text-black font-black rounded-full shadow-[0_20px_40px_-10px_rgba(255,215,0,0.5)] flex items-center justify-center space-x-3 hover:shadow-[0_25px_50px_-12px_rgba(255,215,0,0.6)] transition-all"
                 >
                   <span className="tracking-tight">Get Started Now</span>
                   <ArrowRight size={22} strokeWidth={3} />
@@ -79,7 +79,7 @@ export const FinalCTA = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 bg-white text-black border-2 border-gray-100 font-bold rounded-full hover:bg-gray-50 hover:border-gray-200 transition-all"
+                  className="px-12 py-6 bg-[var(--card-bg)] text-black border-2 border-gray-100 font-bold rounded-full hover:bg-gray-50 hover:border-gray-200 transition-all"
                 >
                   Book a Demo
                 </motion.button>
@@ -93,7 +93,7 @@ export const FinalCTA = () => {
                  whileInView={{ opacity: 1, rotate: 6, x: 0 }}
                  whileHover={{ scale: 1.05, rotate: 4, zIndex: 40 }}
                  transition={{ duration: 0.8, ease: "easeOut" }}
-                 className="absolute top-10 right-0 w-72 h-96 bg-white p-4 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] rounded-sm rotate-6 z-20 border border-gray-50 group"
+                 className="absolute top-10 right-0 w-72 h-96 bg-[var(--card-bg)] p-4 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] rounded-sm rotate-6 z-20 border border-[#E8E2D3] group"
                >
                  <div className="w-full h-72 bg-gray-100 mb-4 overflow-hidden relative">
                     <img 
@@ -101,7 +101,7 @@ export const FinalCTA = () => {
                       alt="Safe Bus" 
                       className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500" 
                     />
-                    <div className="absolute inset-0 bg-[#FFD700]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-[#E0B100]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                  </div>
                  <p className="text-[11px] font-bold text-black uppercase tracking-wider text-center">Live Fleet Visibility</p>
                </motion.div>
@@ -111,7 +111,7 @@ export const FinalCTA = () => {
                  whileInView={{ opacity: 1, rotate: -8, x: 0 }}
                  whileHover={{ scale: 1.05, rotate: -6, zIndex: 40 }}
                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                 className="absolute bottom-10 left-10 w-72 h-96 bg-white p-4 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] rounded-sm -rotate-8 z-10 border border-gray-50 group"
+                 className="absolute bottom-10 left-10 w-72 h-96 bg-[var(--card-bg)] p-4 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] rounded-sm -rotate-8 z-10 border border-[#E8E2D3] group"
                >
                  <div className="w-full h-72 bg-gray-100 mb-4 overflow-hidden relative">
                     <img 
@@ -119,7 +119,7 @@ export const FinalCTA = () => {
                       alt="Happy Parent" 
                       className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500" 
                     />
-                    <div className="absolute inset-0 bg-[#FFD700]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-[#E0B100]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                  </div>
                  <p className="text-[11px] font-bold text-black uppercase tracking-wider text-center">Parent Peace of Mind</p>
                </motion.div>
@@ -132,7 +132,7 @@ export const FinalCTA = () => {
                    scale: [1, 1.1, 1]
                  }}
                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                 className="absolute top-1/2 left-1/4 z-30 bg-[#FFD700] p-6 rounded-full shadow-[0_20px_40px_rgba(255,215,0,0.4)]"
+                 className="absolute top-1/2 left-1/4 z-30 bg-[#E0B100] p-6 rounded-full shadow-[0_20px_40px_rgba(255,215,0,0.4)]"
                >
                  <Star className="text-black fill-current" size={40} />
                </motion.div>

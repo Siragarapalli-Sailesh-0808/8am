@@ -21,7 +21,7 @@ export const CrisisSectionWhite = () => {
   ];
 
   return (
-    <section ref={containerRef} className="relative bg-[#FDFDFD] py-32 overflow-hidden px-6 md:px-24">
+    <section ref={containerRef} className="relative bg-[#F8F7F2] py-32 overflow-hidden px-6 md:px-24">
       
       {/* PREMIUM WHITE-TECH BLUEPRINT BACKGROUND */}
       <motion.div 
@@ -32,14 +32,14 @@ export const CrisisSectionWhite = () => {
           <defs>
             <pattern id="lightCityGrid" width="120" height="120" patternUnits="userSpaceOnUse">
               <path d="M 120 0 L 0 0 0 120" fill="none" stroke="#FFFFFF" strokeWidth="1" />
-              <circle cx="0" cy="0" r="1.5" fill="#FFD700" opacity="0.5" />
+              <circle cx="0" cy="0" r="1.5" fill="#E0B100" opacity="0.5" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#lightCityGrid)" />
           
           <motion.path 
             d="M-50 300 C 250 200 450 700 850 400 S 1500 600 1500 600" 
-            stroke="#FFD700" 
+            stroke="#E0B100" 
             strokeWidth="1.5" 
             fill="none"
             initial={{ pathLength: 0 }}
@@ -55,7 +55,7 @@ export const CrisisSectionWhite = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-fit border-b-2 border-[#FFD700] mb-8"
+            className="w-fit border-b-2 border-[#E0B100] mb-8"
           >
             <p className="text-xs font-bold tracking-[0.4em] text-[var(--foreground)] pb-2 uppercase">The Problem</p>
           </motion.div>
@@ -66,7 +66,7 @@ export const CrisisSectionWhite = () => {
             className="text-5xl md:text-7xl font-black text-[var(--foreground)] leading-[1.1] mb-4"
           >
             Today's Transportation Anxiety <br />
-            <span className="italic font-serif font-normal text-[#FFD700] text-6xl md:text-8xl">Crisis</span>
+            <span className="italic font-serif font-normal text-[#E0B100] text-6xl md:text-8xl">Crisis</span>
           </motion.h2>
         </header>
 
@@ -78,12 +78,12 @@ export const CrisisSectionWhite = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="bg-white rounded-[32px] p-10 min-h-[400px] flex flex-col justify-between shadow-[0_10px_40px_-15px_rgba(255,215,0,0.08)] border border-gray-50 group hover:border-[#FFD700] hover:shadow-2xl hover:shadow-[#FFD700]/10 transition-all duration-500"
+              className="bg-[var(--card-bg)] rounded-[32px] p-10 min-h-[400px] flex flex-col justify-between shadow-[0_10px_40px_-15px_rgba(0,0,0,0.04)] border border-[#E8E2D3] group hover:border-[#E0B100] hover:shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500"
             >
               <p className="text-[10px] font-bold tracking-widest text-[var(--foreground)]/40 uppercase">{stat.label}</p>
               
               <div className="space-y-6">
-                <h3 className="text-6xl font-serif italic text-[#FFD700] tracking-tighter leading-none group-hover:scale-105 transition-transform origin-left">
+                <h3 className="text-6xl font-serif italic text-[#E0B100] tracking-tighter leading-none group-hover:scale-105 transition-transform origin-left">
                   {stat.value}
                 </h3>
                 <p className="text-[var(--foreground)] text-sm font-medium leading-relaxed opacity-80">
@@ -91,7 +91,7 @@ export const CrisisSectionWhite = () => {
                 </p>
               </div>
               
-              <div className="w-12 h-1 bg-gray-100 group-hover:w-full group-hover:bg-[#FFD700] transition-all duration-500" />
+              <div className="w-12 h-1 bg-gray-100 group-hover:w-full group-hover:bg-[#E0B100] transition-all duration-500" />
             </motion.div>
           ))}
         </div>

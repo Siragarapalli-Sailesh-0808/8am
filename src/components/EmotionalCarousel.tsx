@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   { id: 1, name: "Anita Sharma", role: "Parent, Delhi Public School", feedback: "The real-time RFID alerts give me peace of mind every single morning.", img: "/parent1.jpg" },
-  { id: 2, name: "Rajesh Iyer", role: "Principal, Oakridge International", feedback: "SAFEHOP transformed our fleet efficiency and student safety standards.", img: "/school1.jpg" },
+  { id: 2, name: "Rajesh Iyer", role: "Principal, Oakridge International", feedback: "8AM transformed our fleet efficiency and student safety standards.", img: "/school1.jpg" },
   { id: 3, name: "Priya V.", role: "Parent, Glendale Academy", feedback: "I no longer worry about delays. The GPS tracking is incredibly accurate.", img: "/parent2.jpg" },
 ];
 
@@ -16,12 +16,12 @@ export const EmotionalCarousel = () => {
   const prev = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="py-32 bg-[#FDFDFD] overflow-hidden px-6">
+    <section className="py-32 bg-[#F8F7F2] overflow-hidden px-6">
       <div className="max-w-7xl mx-auto text-center mb-20">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-[#FFD700] font-bold tracking-[0.3em] uppercase mb-4 block"
+          className="text-[#E0B100] font-bold tracking-[0.3em] uppercase mb-4 block"
         >
           Parent & School Stories
         </motion.span>
@@ -32,7 +32,7 @@ export const EmotionalCarousel = () => {
           className="text-5xl md:text-7xl font-black text-[var(--foreground)]"
         >
           From our community <br />
-          <span className="italic font-serif text-[#FFD700]">to everywhere.</span>
+          <span className="italic font-serif text-[#E0B100]">to everywhere.</span>
         </motion.h2>
       </div>
 
@@ -43,7 +43,7 @@ export const EmotionalCarousel = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={prev}
-            className="pointer-events-auto p-6 rounded-full bg-white/80 backdrop-blur-md border-2 border-[#FFD700]/5 text-[var(--foreground)] shadow-xl hover:bg-[#FFD700] hover:border-[#FFD700] transition-all duration-300 -ml-4 lg:-ml-20"
+            className="pointer-events-auto p-6 rounded-full bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[#E0B100]/5 text-[var(--foreground)] shadow-xl hover:bg-[#E0B100] hover:border-[#E0B100] transition-all duration-300 -ml-4 lg:-ml-20"
           >
             <ChevronLeft size={32} />
           </motion.button>
@@ -52,7 +52,7 @@ export const EmotionalCarousel = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={next}
-            className="pointer-events-auto p-6 rounded-full bg-white/80 backdrop-blur-md border-2 border-[#FFD700]/5 text-[var(--foreground)] shadow-xl hover:bg-[#FFD700] hover:border-[#FFD700] transition-all duration-300 -mr-4 lg:-mr-20"
+            className="pointer-events-auto p-6 rounded-full bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[#E0B100]/5 text-[var(--foreground)] shadow-xl hover:bg-[#E0B100] hover:border-[#E0B100] transition-all duration-300 -mr-4 lg:-mr-20"
           >
             <ChevronRight size={32} />
           </motion.button>
@@ -77,9 +77,9 @@ export const EmotionalCarousel = () => {
                 }}
                 exit={{ opacity: 0, x: -offset * 400 }}
                 transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                className="absolute w-full max-w-[500px] bg-white rounded-[40px] p-10 shadow-[0_20px_60px_-15px_rgba(255,215,0,0.1)] border border-gray-50 flex flex-col items-center text-center"
+                className="absolute w-full max-w-[500px] bg-[var(--card-bg)] rounded-[40px] p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-[#E8E2D3] flex flex-col items-center text-center"
               >
-                <div className="w-28 h-28 rounded-full overflow-hidden mb-8 border-4 border-[#FFD700] shadow-xl">
+                <div className="w-28 h-28 rounded-full overflow-hidden mb-8 border-4 border-[#E0B100] shadow-xl">
                   {/* High-res image placeholder with fallback */}
                   <img
                     src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${item.name}`}
@@ -88,11 +88,11 @@ export const EmotionalCarousel = () => {
                   />
                 </div>
                 <h3 className="text-3xl font-black text-[var(--foreground)] mb-2">{item.name}</h3>
-                <p className="text-[#FFD700] text-sm font-bold uppercase tracking-widest mb-6">{item.role}</p>
+                <p className="text-[#E0B100] text-sm font-bold uppercase tracking-widest mb-6">{item.role}</p>
                 <p className="text-xl text-[var(--foreground)] font-medium italic leading-relaxed mb-10">
                   "{item.feedback}"
                 </p>
-                <button className="group flex items-center space-x-2 text-sm font-black uppercase tracking-tighter border-b-2 border-[#FFD700] pb-1 hover:border-[#FFD700] transition-all">
+                <button className="group flex items-center space-x-2 text-sm font-black uppercase tracking-tighter border-b-2 border-[#E0B100] pb-1 hover:border-[#E0B100] transition-all">
                   <span>Read Full Story</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </button>
@@ -110,7 +110,7 @@ export const EmotionalCarousel = () => {
               key={i}
               animate={{
                 width: i === index ? 40 : 10,
-                backgroundColor: i === index ? "#FFD700" : "#FFFFFF"
+                backgroundColor: i === index ? "#E0B100" : "#E8E2D3"
               }}
               className="h-2 rounded-full transition-all duration-300"
             />
