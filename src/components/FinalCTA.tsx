@@ -71,7 +71,7 @@ export const FinalCTA = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 bg-[#E0B100] text-black font-black rounded-full shadow-[0_20px_40px_-10px_rgba(255,215,0,0.5)] flex items-center justify-center space-x-3 hover:shadow-[0_25px_50px_-12px_rgba(255,215,0,0.6)] transition-all"
+                  className="px-12 py-6 bg-[#E0B100] text-black font-black rounded-full shadow-[0_20px_40px_-10px_rgba(224,177,0,0.4)] flex items-center justify-center space-x-3 hover:shadow-[0_25px_50px_-12px_rgba(224,177,0,0.5)] transition-all"
                 >
                   <span className="tracking-tight">Get Started Now</span>
                   <ArrowRight size={22} strokeWidth={3} />
@@ -93,25 +93,7 @@ export const FinalCTA = () => {
                  whileInView={{ opacity: 1, rotate: 6, x: 0 }}
                  whileHover={{ scale: 1.05, rotate: 4, zIndex: 40 }}
                  transition={{ duration: 0.8, ease: "easeOut" }}
-                 className="absolute top-10 right-0 w-72 h-96 bg-[var(--card-bg)] p-4 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] rounded-sm rotate-6 z-20 border border-[#E8E2D3] group"
-               >
-                 <div className="w-full h-72 bg-gray-100 mb-4 overflow-hidden relative">
-                    <img 
-                      src="/bus.png" 
-                      alt="Safe Bus" 
-                      className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500" 
-                    />
-                    <div className="absolute inset-0 bg-[#E0B100]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                 </div>
-                 <p className="text-[11px] font-bold text-black uppercase tracking-wider text-center">Live Fleet Visibility</p>
-               </motion.div>
-
-               <motion.div 
-                 initial={{ opacity: 0, rotate: -15, x: -50 }}
-                 whileInView={{ opacity: 1, rotate: -8, x: 0 }}
-                 whileHover={{ scale: 1.05, rotate: -6, zIndex: 40 }}
-                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                 className="absolute bottom-10 left-10 w-72 h-96 bg-[var(--card-bg)] p-4 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] rounded-sm -rotate-8 z-10 border border-[#E8E2D3] group"
+                 className="absolute top-10 right-0 w-72 h-96 bg-[var(--card-bg)] p-4 shadow-[0_30px_60px_-15px_rgba(224,177,0,0.15)] rounded-sm rotate-6 z-20 border border-[#E8E2D3] group"
                >
                  <div className="w-full h-72 bg-gray-100 mb-4 overflow-hidden relative">
                     <img 
@@ -122,6 +104,24 @@ export const FinalCTA = () => {
                     <div className="absolute inset-0 bg-[#E0B100]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                  </div>
                  <p className="text-[11px] font-bold text-black uppercase tracking-wider text-center">Parent Peace of Mind</p>
+               </motion.div>
+
+               <motion.div 
+                 initial={{ opacity: 0, rotate: -15, x: -50 }}
+                 whileInView={{ opacity: 1, rotate: -8, x: 0 }}
+                 whileHover={{ scale: 1.05, rotate: -6, zIndex: 40 }}
+                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                 className="absolute bottom-10 left-10 w-72 h-96 bg-[var(--card-bg)] p-4 shadow-[0_30px_60px_-15px_rgba(224,177,0,0.15)] rounded-sm -rotate-8 z-10 border border-[#E8E2D3] group"
+               >
+                 <div className="w-full h-72 bg-gray-100 mb-4 overflow-hidden relative">
+                    <img 
+                      src="/boarding.jpeg" 
+                      alt="Safe Boarding" 
+                      className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500" 
+                    />
+                    <div className="absolute inset-0 bg-[#E0B100]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                 </div>
+                 <p className="text-[11px] font-bold text-black uppercase tracking-wider text-center">Real-Time Accountability</p>
                </motion.div>
 
                {/* FLOATING ICON */}
