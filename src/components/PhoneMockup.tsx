@@ -4,25 +4,27 @@ import { motion } from "framer-motion";
 
 const PhoneMockup = () => {
   return (
-    <div className="relative w-full max-w-[320px] aspect-[9/19] mx-auto">
-      {/* Premium Video Container */}
+    <div className="relative w-[300px] h-[600px] mx-auto">
+      {/* Premium Video-Only Screen */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative h-full w-full bg-[#F8F7F2] rounded-[40px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)] border-4 border-white/50"
+        className="relative h-full w-full bg-[#222222] rounded-[50px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-[6px] border-white ring-1 ring-black/5"
       >
         <video 
-          src="/portal_preview.mp4"
           autoPlay 
           loop 
           muted 
           playsInline 
           className="absolute inset-0 w-full h-full object-cover"
-        />
+        >
+          <source src="/portal_preview.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         
-        {/* Subtle Inner Glow */}
-        <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_80px_rgba(0,0,0,0.05)]" />
+        {/* Subtle Glass Overlay for Premium feel */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-black/20 to-transparent opacity-30" />
       </motion.div>
     </div>
   );
