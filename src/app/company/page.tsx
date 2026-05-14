@@ -256,16 +256,43 @@ export default function CompanyPage() {
               <motion.div 
                  initial={{ opacity: 0, scale: 0.9 }}
                  whileInView={{ opacity: 1, scale: 1 }}
-                 className="bg-[#F8F7F2] rounded-[80px] p-1 border border-gray-100 shadow-2xl overflow-hidden relative group"
+                 className="bg-[#F8F7F2] rounded-[80px] p-1 border border-gray-100 shadow-2xl overflow-hidden relative group h-[600px]"
               >
                  <Image 
-                   src="/golden_institutional_campus_1778239262354.png" 
+                   src="/institutional_campus.png" 
                    alt="Institutional Campus" 
-                   width={800} 
-                   height={800}
+                   fill
                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]"
                  />
-                 <div className="absolute inset-0 bg-gradient-to-t from-[#E0B100]/10 to-transparent pointer-events-none" />
+                 
+                 {/* Antigravity Data Points */}
+                 <div className="absolute inset-0 p-12 flex flex-col justify-between pointer-events-none">
+                    <div className="flex justify-end">
+                       <motion.div 
+                         initial={{ opacity: 0, x: 20 }}
+                         whileInView={{ opacity: 1, x: 0 }}
+                         transition={{ delay: 0.5 }}
+                         className="bg-white/40 backdrop-blur-xl border border-white/30 px-6 py-3 rounded-2xl shadow-xl"
+                       >
+                          <p className="text-[10px] font-black text-[#222222] uppercase tracking-widest">Active Campuses</p>
+                          <p className="text-2xl font-black text-[#222222]">500+</p>
+                       </motion.div>
+                    </div>
+
+                    <div className="flex justify-start">
+                       <motion.div 
+                         initial={{ opacity: 0, x: -20 }}
+                         whileInView={{ opacity: 1, x: 0 }}
+                         transition={{ delay: 0.7 }}
+                         className="bg-[#222222]/80 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-2xl shadow-xl"
+                       >
+                          <p className="text-[10px] font-black text-[#E0B100] uppercase tracking-widest">System Uptime</p>
+                          <p className="text-2xl font-black text-white">99.9%</p>
+                       </motion.div>
+                    </div>
+                 </div>
+
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#E0B100]/20 to-transparent pointer-events-none" />
               </motion.div>
            </div>
         </div>
