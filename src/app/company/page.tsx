@@ -101,52 +101,128 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* 3. BENTO IDENTITY GRID */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-           {/* Card 1: Wide Image Card */}
+      {/* 3. THE 8AM ENGINE: SCALE & PERFORMANCE */}
+      <section className="py-32 bg-[#F8F7F2] overflow-hidden">
+        <div className="container mx-auto px-6 max-w-7xl">
+           <div className="mb-20 text-center">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="inline-flex items-center px-4 py-2 rounded-full border border-[#E8E2D3] bg-white shadow-sm mb-6"
+              >
+                  <Zap size={12} className="text-[#E0B100] mr-2 fill-current" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#222222]">Performance Benchmark</span>
+              </motion.div>
+              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-6 text-[#222222]">
+                Engineered for <br />
+                <span className="italic font-serif font-normal text-[#E0B100]">Absolute Performance.</span>
+              </h2>
+           </div>
+
+           {/* SCALE VISUALIZATION */}
            <motion.div 
-             whileHover={{ y: -10 }}
-             className="md:col-span-2 h-[500px] bg-[#E0B100]/10 rounded-[60px] relative overflow-hidden group border border-[#E0B100]/20"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative h-[600px] w-full rounded-[60px] bg-[#222222] overflow-hidden shadow-2xl group mb-12"
            >
-              <div className="absolute top-12 left-12 z-20">
-                 <h3 className="text-4xl font-black mb-4">Network that <br /><span className="italic font-serif font-normal text-[#E0B100]">scales.</span></h3>
-                 <p className="text-sm font-bold opacity-60">Global coverage in 15+ Smart Cities.</p>
+              <div className="absolute inset-0 opacity-10 pointer-events-none">
+                 <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#E0B100 0.5px, transparent 0.5px)', backgroundSize: '40px 40px' }} />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent z-10" />
-              {/* Background Asset Simulation */}
-              <div className="absolute bottom-0 right-0 w-full h-full opacity-40 group-hover:scale-110 transition-transform duration-700">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E0B100] rounded-full blur-[150px]" />
+              
+              {/* Pulsing Network Map Concept */}
+              <div className="absolute inset-0 flex items-center justify-center p-20">
+                 <div className="relative w-full h-full max-w-4xl opacity-40">
+                    {[
+                      { t: '15%', l: '20%' }, { t: '35%', l: '65%' }, { t: '75%', l: '25%' }, 
+                      { t: '55%', l: '85%' }, { t: '20%', l: '80%' }, { t: '80%', l: '60%' }
+                    ].map((pos, i) => (
+                      <motion.div 
+                        key={i}
+                        animate={{ scale: [1, 2, 1], opacity: [0.2, 0.5, 0.2] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: i * 0.7 }}
+                        className="absolute w-6 h-6 bg-[#E0B100] rounded-full blur-md"
+                        style={{ top: pos.t, left: pos.l }}
+                      />
+                    ))}
+                    
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                       <motion.path 
+                         d="M 100 150 Q 400 300 700 100 T 900 400" 
+                         stroke="#E0B100" strokeWidth="1" fill="none" opacity="0.2"
+                         initial={{ pathLength: 0 }}
+                         whileInView={{ pathLength: 1 }}
+                         transition={{ duration: 3, ease: "easeInOut" }}
+                       />
+                       <motion.path 
+                         d="M 50 400 Q 300 100 600 500" 
+                         stroke="#E0B100" strokeWidth="1" fill="none" opacity="0.2"
+                         initial={{ pathLength: 0 }}
+                         whileInView={{ pathLength: 1 }}
+                         transition={{ duration: 4, ease: "easeInOut" }}
+                       />
+                    </svg>
+                 </div>
+              </div>
+
+              {/* Central Value Card */}
+              <div className="absolute bottom-8 left-8 right-8 md:left-auto md:right-12 md:bottom-12 md:w-[400px] bg-white/5 backdrop-blur-2xl border border-white/10 p-10 rounded-[48px] text-white">
+                 <h3 className="text-3xl font-black mb-4">Network Resilience</h3>
+                 <p className="text-white/50 text-sm leading-relaxed mb-8">
+                    Our edge-computing infrastructure ensures that every school bus is monitored with sub-200ms latency, ensuring your data is always current and actionable.
+                 </p>
+                 <div className="flex items-center space-x-8">
+                    <div>
+                       <p className="text-3xl font-black text-[#E0B100]">200ms</p>
+                       <p className="text-[10px] font-bold uppercase tracking-widest opacity-40 mt-1">Avg. Latency</p>
+                    </div>
+                    <div className="w-[1px] h-12 bg-white/10" />
+                    <div>
+                       <p className="text-3xl font-black text-[#E0B100]">99.9%</p>
+                       <p className="text-[10px] font-bold uppercase tracking-widest opacity-40 mt-1">Uptime</p>
+                    </div>
+                 </div>
               </div>
            </motion.div>
 
-           {/* Card 2: Darker/Bronze Card */}
-           <motion.div 
-             whileHover={{ y: -10 }}
-             className="bg-[#E0B100] p-12 rounded-[60px] flex flex-col justify-between text-[var(--card-bg)] border border-white/10"
-           >
-              <Globe2 className="text-[#E0B100]" size={48} />
-              <div>
-                 <h3 className="text-3xl font-black mb-6 leading-tight text-[#E0B100]">Always Liquid, Always Safe.</h3>
-                 <p className="text-sm font-medium text-[var(--card-bg)]/50 leading-relaxed">
-                   Real-time latency under 200ms ensures your data is always current and actionable.
-                 </p>
-              </div>
-           </motion.div>
+           {/* CAPACITY & REACH METRICS */}
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="bg-white border border-[#E8E2D3] p-12 rounded-[50px] shadow-sm hover:shadow-2xl transition-all group"
+              >
+                 <div className="w-12 h-12 bg-[#FDF7E7] rounded-2xl flex items-center justify-center mb-8">
+                    <ShieldCheck className="text-[#E0B100]" size={24} />
+                 </div>
+                 <div className="flex items-end justify-between">
+                    <div>
+                       <p className="text-[10px] font-black uppercase tracking-widest text-[#222222]/40 mb-2">Global Protection</p>
+                       <p className="text-6xl font-black text-[#222222]">500k+</p>
+                    </div>
+                    <div className="hidden lg:block text-right">
+                       <p className="text-xs font-bold text-[#666666] max-w-[150px]">Students protected daily across our growing global network.</p>
+                    </div>
+                 </div>
+              </motion.div>
 
-           {/* Card 3: Minimal White Card */}
-           <motion.div 
-             whileHover={{ y: -10 }}
-             className="bg-[#F8F7F2] p-12 rounded-[60px] flex flex-col justify-between border border-gray-100 shadow-sm"
-           >
-              <ShieldCheck className="text-[#E0B100]" size={48} />
-              <div>
-                 <h3 className="text-3xl font-black mb-6 leading-tight">100% Hands-Free.</h3>
-                 <p className="text-sm font-medium text-[#E0B100]/40 leading-relaxed">
-                   Automated compliance reporting so you can focus on education, not logistics.
-                 </p>
-              </div>
-           </motion.div>
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="bg-[#E0B100] p-12 rounded-[50px] shadow-xl hover:shadow-[#E0B100]/30 transition-all"
+              >
+                 <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-8">
+                    <Globe2 className="text-[#222222]" size={24} />
+                 </div>
+                 <div className="flex items-end justify-between">
+                    <div>
+                       <p className="text-[10px] font-black uppercase tracking-widest text-[#222222]/40 mb-2">Urban Velocity</p>
+                       <p className="text-6xl font-black text-[#222222]">15+</p>
+                    </div>
+                    <div className="hidden lg:block text-right">
+                       <p className="text-xs font-bold text-[#222222]/60 max-w-[150px]">Metropolitan hubs optimized with AI-driven route protocols.</p>
+                    </div>
+                 </div>
+              </motion.div>
+           </div>
         </div>
       </section>
 
