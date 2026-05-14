@@ -48,30 +48,30 @@ const JourneyTimeline = () => {
   });
 
   return (
-    <section ref={containerRef} className="py-32 bg-[var(--card-bg)] relative overflow-hidden">
+    <section ref={containerRef} className="py-24 md:py-32 bg-[var(--card-bg)] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-start gap-20">
-          <div className="w-full md:w-1/3 sticky top-32">
+        <div className="flex flex-col md:flex-row items-start gap-12 md:gap-20">
+          <div className="w-full md:w-1/3 md:sticky md:top-32 mb-12 md:mb-0">
              <span className="text-[#E0B100] font-black tracking-[0.4em] uppercase text-xs mb-4 block">The Daily Guardian</span>
-             <h2 className="text-5xl md:text-7xl font-black leading-tight mb-8">
-               Your Child's Day, <br />
-               <span className="italic font-serif text-[#E0B100]">Visualized.</span>
+             <h2 className="text-4xl md:text-7xl font-black leading-tight mb-8 tracking-tighter">
+                Your Child&apos;s Day, <br />
+                <span className="italic font-serif text-[#E0B100]">Visualized.</span>
              </h2>
-             <p className="text-xl text-gray-400 font-medium leading-relaxed">
-               Experience the peace of mind that comes from knowing exactly where your child is, from breakfast to home-time.
+             <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-sm md:max-w-none">
+                Experience the peace of mind that comes from knowing exactly where your child is, from breakfast to home-time.
              </p>
           </div>
 
-          <div className="w-full md:w-2/3 relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gray-100 rounded-full">
+          <div className="w-full md:w-2/3 relative pl-2">
+            {/* Timeline Line (Adjusted for mobile icon center) */}
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-1 bg-gray-100 rounded-full">
                <motion.div 
                  style={{ scaleY, transformOrigin: "top" }}
                  className="absolute inset-0 bg-[#E0B100] shadow-[0_0_15px_rgba(255,215,0,0.5)]" 
                />
             </div>
 
-            <div className="space-y-24">
+            <div className="space-y-16 md:space-y-24">
               {TIMELINE_EVENTS.map((event, idx) => (
                 <motion.div 
                   key={idx}
@@ -79,16 +79,18 @@ const JourneyTimeline = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, delay: idx * 0.1 }}
-                  className="flex items-start space-x-12 relative"
+                  className="flex items-start space-x-6 md:space-x-12 relative"
                 >
-                  <div className="z-10 w-16 h-16 bg-[var(--card-bg)] border-4 border-[#E0B100] rounded-full flex items-center justify-center text-[#E0B100] shadow-xl shrink-0 transition-transform hover:scale-110 duration-500">
-                     <event.icon size={28} />
+                  {/* Responsive Icon Circle */}
+                  <div className="z-10 w-12 h-12 md:w-16 h-16 bg-[var(--card-bg)] border-2 md:border-4 border-[#E0B100] rounded-full flex items-center justify-center text-[#E0B100] shadow-xl shrink-0 transition-transform hover:scale-110 duration-500">
+                     <event.icon size={22} className="md:hidden" />
+                     <event.icon size={28} className="hidden md:block" />
                   </div>
-                  <div className="pt-2">
-                     <span className="text-[#E0B100] font-black tracking-widest text-sm mb-2 block">{event.time}</span>
-                     <h3 className="text-3xl font-black mb-4">{event.title}</h3>
-                     <p className="text-lg text-gray-500 font-medium max-w-lg leading-relaxed">
-                       {event.desc}
+                  <div className="pt-1 md:pt-2">
+                     <span className="text-[#E0B100] font-black tracking-widest text-[10px] md:text-sm mb-2 block">{event.time}</span>
+                     <h3 className="text-xl md:text-3xl font-black mb-3 md:mb-4">{event.title}</h3>
+                     <p className="text-base md:text-lg text-gray-500 font-medium max-w-lg leading-relaxed">
+                        {event.desc}
                      </p>
                   </div>
                 </motion.div>

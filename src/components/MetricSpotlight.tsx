@@ -52,12 +52,12 @@ const MetricSpotlight = () => {
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         {/* Typography-First Headline */}
-        <div className="mb-32">
+        <div className="mb-20 md:mb-32">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-7xl md:text-[110px] font-black tracking-tighter leading-[0.85] text-[#222222]"
+            className="text-6xl md:text-[110px] font-black tracking-tighter leading-[0.85] text-[#222222]"
           >
             The Morning <br />
             <span className="italic font-serif font-normal text-[#E0B100]">Coordination Crisis.</span>
@@ -65,7 +65,7 @@ const MetricSpotlight = () => {
         </div>
 
         {/* Floating Statistics Grid */}
-        <div className="grid md:grid-cols-3 gap-12 md:gap-0 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-0 items-start">
           {metrics.map((item, i) => (
             <React.Fragment key={i}>
               <motion.div 
@@ -74,16 +74,16 @@ const MetricSpotlight = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.2 }}
                 whileHover={{ scale: 1.02 }}
-                className="flex flex-col items-center md:items-start text-center md:text-left px-8 group"
+                className="flex flex-col items-center md:items-start text-center md:text-left px-4 md:px-8 group"
               >
                 {/* Icon */}
-                <div className="mb-8 text-[#E0B100]">
+                <div className="mb-6 md:mb-8 text-[#E0B100]">
                   <item.icon size={32} strokeWidth={2} />
                 </div>
 
                 {/* Number */}
                 <div className="relative">
-                  <div className="text-8xl font-black text-[#222222] mb-4 tracking-tighter relative z-10">
+                  <div className="text-8xl md:text-9xl font-black text-[#222222] mb-4 tracking-tighter relative z-10">
                     <Counter value={item.number} prefix={item.prefix} suffix={item.suffix} />
                   </div>
                   {/* Yellow Pulse Effect */}
@@ -112,7 +112,7 @@ const MetricSpotlight = () => {
                 </motion.div>
               </motion.div>
 
-              {/* Vertical Divider */}
+              {/* Vertical Divider (Hidden on Mobile) */}
               {i < metrics.length - 1 && (
                 <div className="hidden md:block w-[1px] h-64 bg-[#E0B100]/20 self-center" />
               )}

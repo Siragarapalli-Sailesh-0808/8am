@@ -10,7 +10,7 @@ import JourneyTimeline from "@/components/JourneyTimeline";
 import MetricSpotlight from "@/components/MetricSpotlight";
 import EmotionalCarousel from "@/components/EmotionalCarousel";
 import { ArrowRight, ShieldCheck, MapPin, Bell, Smartphone } from "lucide-react";
-import TechPulse from "@/components/TechPulse";
+import ParentAssurance from "@/components/ParentAssurance";
 
 export default function ParentsPage() {
   const containerRef = useRef(null);
@@ -120,8 +120,8 @@ export default function ParentsPage() {
       {/* 3. THE DAILY GUARDIAN TIMELINE */}
       <JourneyTimeline />
 
-      {/* 4. INNOVATIVE "TECH PULSE" SECTION */}
-      <TechPulse />
+      {/* 4. THE PARENT ASSURANCE GALLERY */}
+      <ParentAssurance />
 
       {/* 5. EMOTIONAL CAROUSEL */}
       <EmotionalCarousel />

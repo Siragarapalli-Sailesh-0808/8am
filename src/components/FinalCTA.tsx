@@ -12,7 +12,7 @@ export const FinalCTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden bg-[var(--card-bg)] rounded-[48px] p-12 md:p-24 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] border border-[#E8E2D3]"
+          className="relative overflow-hidden bg-[var(--card-bg)] rounded-[40px] md:rounded-[48px] p-8 md:p-24 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] border border-[#E8E2D3]"
         >
           {/* BACKGROUND DECO - Golden Dashed Lines */}
           <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
@@ -41,8 +41,8 @@ export const FinalCTA = () => {
           </div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="text-left">
-              <div className="flex items-center space-x-3 mb-8">
+            <div className="text-center lg:text-left">
+              <div className="flex flex-col lg:flex-row items-center lg:items-center space-y-4 lg:space-y-0 lg:space-x-3 mb-8">
                 <div className="flex -space-x-3">
                    {[1, 2, 3, 4].map(i => (
                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-[var(--card-bg)] shadow-sm overflow-hidden">
@@ -50,7 +50,7 @@ export const FinalCTA = () => {
                      </div>
                    ))}
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col items-center lg:items-start">
                   <div className="flex text-[#E0B100]">
                     {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} fill="currentColor" />)}
                   </div>
@@ -58,30 +58,23 @@ export const FinalCTA = () => {
                 </div>
               </div>
 
-              <h2 className="text-5xl md:text-7xl font-black text-black leading-[1.05] mb-8">
+              <h2 className="text-4xl md:text-7xl font-black text-black leading-[1.05] mb-8 tracking-tight">
                 Join the journey <br />
-                <span className="italic font-serif text-[#E0B100] text-6xl md:text-8xl">tomorrow.</span>
+                <span className="italic font-serif text-[#E0B100] text-5xl md:text-8xl">tomorrow.</span>
               </h2>
               
-              <p className="text-lg text-[#666666] mb-12 max-w-md leading-relaxed font-medium opacity-80">
-                Experience India's most trusted student mobility platform. Real-time visibility, instant alerts, and total peace of mind.
+              <p className="text-base md:text-lg text-[#666666] mb-12 max-w-md mx-auto lg:mx-0 leading-relaxed font-medium opacity-80">
+                Experience India&apos;s most trusted student mobility platform. Real-time visibility, instant alerts, and total peace of mind.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-5">
+              <div className="flex flex-col sm:flex-row gap-4 lg:gap-5 justify-center lg:justify-start">
                 <motion.button 
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 bg-[#E0B100] text-black font-black rounded-full shadow-[0_20px_40px_-10px_rgba(224,177,0,0.4)] flex items-center justify-center space-x-3 hover:shadow-[0_25px_50px_-12px_rgba(224,177,0,0.5)] transition-all"
+                  className="px-8 md:px-12 py-5 md:py-6 bg-[#E0B100] text-black font-black rounded-full shadow-[0_20px_40px_-10px_rgba(224,177,0,0.4)] flex items-center justify-center space-x-3 hover:shadow-[0_25px_50px_-12px_rgba(224,177,0,0.5)] transition-all"
                 >
                   <span className="tracking-tight">Get Started Now</span>
                   <ArrowRight size={22} strokeWidth={3} />
-                </motion.button>
-                <motion.button 
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 bg-[var(--card-bg)] text-black border-2 border-gray-100 font-bold rounded-full hover:bg-gray-50 hover:border-gray-200 transition-all"
-                >
-                  Book a Demo
                 </motion.button>
               </div>
             </div>
