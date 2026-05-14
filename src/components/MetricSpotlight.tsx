@@ -41,11 +41,11 @@ const MetricSpotlight = () => {
       {/* Parallax Background Watermark */}
       <motion.div 
         style={{ y }}
-        className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center"
+        className="absolute inset-0 opacity-[0.04] pointer-events-none flex items-center justify-center"
       >
-        <div className="w-[1200px] h-[1200px] border-[1px] border-[#6D28D9] rounded-full flex items-center justify-center">
-            <div className="w-[800px] h-[800px] border-[1px] border-[#6D28D9] rounded-full flex items-center justify-center">
-                <div className="text-[300px] font-black text-[#6D28D9]">8:00</div>
+        <div className="w-[1200px] h-[1200px] border-[1px] border-[#E0B100] rounded-full flex items-center justify-center">
+            <div className="w-[800px] h-[800px] border-[1px] border-[#E0B100] rounded-full flex items-center justify-center">
+                <div className="text-[300px] font-black text-[#E0B100]">8:00</div>
             </div>
         </div>
       </motion.div>
@@ -60,7 +60,7 @@ const MetricSpotlight = () => {
             className="text-7xl md:text-[110px] font-black tracking-tighter leading-[0.85] text-[#222222]"
           >
             The Morning <br />
-            <span className="italic font-serif font-normal text-[#6D28D9]">Coordination Crisis.</span>
+            <span className="italic font-serif font-normal text-[#E0B100]">Coordination Crisis.</span>
           </motion.h2>
         </div>
 
@@ -73,16 +73,27 @@ const MetricSpotlight = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.2 }}
-                className="flex flex-col items-center md:items-start text-center md:text-left px-8"
+                whileHover={{ scale: 1.02 }}
+                className="flex flex-col items-center md:items-start text-center md:text-left px-8 group"
               >
                 {/* Icon */}
-                <div className="mb-8 text-[#6D28D9]">
-                  <item.icon size={32} strokeWidth={1.5} />
+                <div className="mb-8 text-[#E0B100]">
+                  <item.icon size={32} strokeWidth={2} />
                 </div>
 
                 {/* Number */}
-                <div className="text-8xl font-black text-[#6D28D9] mb-4 tracking-tighter">
-                  <Counter value={item.number} prefix={item.prefix} suffix={item.suffix} />
+                <div className="relative">
+                  <div className="text-8xl font-black text-[#222222] mb-4 tracking-tighter relative z-10">
+                    <Counter value={item.number} prefix={item.prefix} suffix={item.suffix} />
+                  </div>
+                  {/* Yellow Pulse Effect */}
+                  <motion.div 
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    whileInView={{ scale: 1.5, opacity: 0.15 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.2 + 1, duration: 1 }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#E0B100] rounded-full blur-2xl -z-10"
+                  />
                 </div>
 
                 {/* Narrative */}
@@ -92,10 +103,10 @@ const MetricSpotlight = () => {
                   transition={{ delay: i * 0.2 + 0.5 }}
                 >
                   <p className="text-xs font-black uppercase tracking-[0.3em] text-[#222222] mb-4">{item.label}</p>
-                  <p className="text-lg text-gray-500 font-medium leading-relaxed mb-8 max-w-[280px]">
+                  <p className="text-lg text-[#222222]/60 font-medium leading-relaxed mb-8 max-w-[280px]">
                     {item.desc}
                   </p>
-                  <p className="font-mono text-[9px] uppercase tracking-widest text-gray-300">
+                  <p className="font-mono text-[9px] uppercase tracking-widest text-[#222222]/30">
                     {item.source}
                   </p>
                 </motion.div>
@@ -103,7 +114,7 @@ const MetricSpotlight = () => {
 
               {/* Vertical Divider */}
               {i < metrics.length - 1 && (
-                <div className="hidden md:block w-[1px] h-64 bg-gray-200/60 self-center" />
+                <div className="hidden md:block w-[1px] h-64 bg-[#E0B100]/20 self-center" />
               )}
             </React.Fragment>
           ))}
@@ -111,7 +122,7 @@ const MetricSpotlight = () => {
       </div>
 
       {/* Glassmorphism Bottom Accent */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent backdrop-blur-sm pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8F7F2] to-transparent backdrop-blur-sm pointer-events-none" />
     </section>
   );
 };
