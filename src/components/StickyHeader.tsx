@@ -27,7 +27,13 @@ export default function StickyHeader() {
             whileHover={{ scale: 1.05 }}
             className="flex items-center cursor-pointer"
           >
-            <img src="/logo.png" alt="8AM Logo" className="h-10 w-auto mix-blend-multiply object-contain" />
+            <img 
+              src="/logo.png" 
+              alt="8AM Logo" 
+              className={`w-auto mix-blend-multiply object-contain transition-all duration-500 ${
+                isScrolled ? "h-14" : "h-20"
+              }`} 
+            />
           </motion.div>
         </Link>
 
