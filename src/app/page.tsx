@@ -1,6 +1,7 @@
 import ScrollingTicker from "@/components/ScrollingTicker";
 import StickyHeader from "@/components/StickyHeader";
 import HeroSection from "@/components/HeroSection";
+import MobilityExperience from "@/components/MobilityExperience";
 import ParentAssurance from "@/components/ParentAssurance";
 import StatsBento from "@/components/StatsBento";
 import ScrollytellingSection from "@/components/ScrollytellingSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <ScrollingTicker />
       <StickyHeader />
       <HeroSection />
+      <MobilityExperience />
       <ParentAssurance />
       <StatsBento />
       <ScrollytellingSection />
