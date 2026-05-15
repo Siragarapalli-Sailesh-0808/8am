@@ -37,32 +37,32 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="mx-auto grid min-h-[calc(100vh-9rem)] max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-20 pt-8 lg:grid-cols-[1.2fr,0.8fr] lg:gap-24 lg:px-8">
-        <div className="order-1">
+      <div className="mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-9rem)] max-w-7xl px-6 pb-20 pt-8 lg:px-8 text-center">
+        <div className="max-w-4xl w-full">
           <motion.div
-            className="z-10"
+            className="z-10 flex flex-col items-center"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <motion.div variants={fadeInUp} className="mb-8">
-              <h1 className="text-5xl font-extrabold leading-[1] text-[#E0B100] sm:text-6xl lg:text-[7.5rem] tracking-tight lg:leading-[0.9]">
-                <span>Deliver students</span>
+              <h1 className="text-5xl font-black leading-[0.85] text-[#E0B100] sm:text-7xl lg:text-[6rem] tracking-[-0.07em] lg:leading-[0.8] text-center">
+                <span>The morning</span>
                 <br />
-                <span>on time and</span>
+                <span>commute,</span>
                 <br />
-                <span className="headline-italic text-[#E0B100]">ready to learn.</span>
+                <span className="headline-italic text-[#E0B100] tracking-tight">re-engineered.</span>
               </h1>
             </motion.div>
 
             <motion.p
               variants={fadeInUp}
-              className="mb-10 max-w-xl text-lg leading-relaxed text-[#222222]/70 sm:text-xl lg:text-2xl lg:opacity-60"
+              className="mb-12 max-w-2xl mx-auto text-lg leading-relaxed text-[#222222]/70 sm:text-xl lg:text-2xl font-medium"
             >
-              8AM combines real-time GPS visibility with instant RFID tap-in alerts, giving schools and parents absolute transparency and safety.
+              8AM is a routing-intelligence platform for Indian school transport — automatic nodal points, fuel-aware routes, and live driver, parent and ops apps in one calm system.
             </motion.p>
 
-            <motion.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp} className="mb-20">
               <motion.button
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#E0B100] px-12 py-6 text-base font-black text-[#222222] shadow-[0_25px_50px_-12px_rgba(224,177,0,0.4)] transition-all hover:shadow-[0_30px_60px_-12px_rgba(224,177,0,0.5)] tracking-tight"
                 whileHover={{ scale: 1.02 }}
@@ -75,11 +75,11 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* EYE-CATCHING LANDSCAPE HERO VIDEO - OPTIMIZED FOR MOBILE */}
+        {/* EYE-CATCHING LANDSCAPE HERO VIDEO - CENTERED AND COMPACT */}
         <motion.div
-          className="order-2 relative w-full aspect-video rounded-[32px] md:rounded-[40px] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] border-2 md:border-4 border-white/20 bg-[#222222]"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          className="relative w-full max-w-5xl aspect-video rounded-[32px] md:rounded-[40px] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] border-2 md:border-4 border-white/20 bg-[#222222]"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <video 
@@ -91,7 +91,6 @@ export default function HeroSection() {
             className="w-full h-full object-cover"
           />
           
-          {/* Professional Overlay Badge */}
           <div className="absolute top-4 left-4 md:top-8 md:left-8">
             <motion.div 
               initial={{ opacity: 0, y: -10 }}

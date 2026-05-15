@@ -42,13 +42,13 @@ export default function FeatureSlider() {
 
   return (
     <section className="overflow-hidden bg-[var(--card-bg)] py-20">
-      <div className="px-6 text-center md:px-12">
+      <div className="px-6 text-center md:px-12 flex flex-col items-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#666666]"
+          className="mb-4 text-xs font-black uppercase tracking-[0.4em] text-[#666666] opacity-60"
         >
           Our Top Features
         </motion.h2>
@@ -57,9 +57,9 @@ export default function FeatureSlider() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-          className="text-4xl font-black text-[#222222] md:text-5xl"
+          className="text-4xl font-black text-[#222222] md:text-6xl tracking-[-0.05em] leading-[0.9] max-w-3xl"
         >
-          Safety Powered by <span className="text-[#E0B100]">Intelligence</span>
+          Deliver students on time and <span className="headline-italic text-[#E0B100] tracking-normal font-normal">ready to learn.</span>
         </motion.p>
       </div>
 
