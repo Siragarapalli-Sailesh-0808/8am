@@ -2,6 +2,9 @@ import ScrollingTicker from "@/components/ScrollingTicker";
 import StickyHeader from "@/components/StickyHeader";
 import HeroSection from "@/components/HeroSection";
 import MobilityExperience from "@/components/MobilityExperience";
+import StudentsArrive from "@/components/StudentsArrive";
+import FamilyConfidence from "@/components/FamilyConfidence";
+import DistrictEfficiency from "@/components/DistrictEfficiency";
 import ParentAssurance from "@/components/ParentAssurance";
 import StatsBento from "@/components/StatsBento";
 import ScrollytellingSection from "@/components/ScrollytellingSection";
@@ -16,6 +19,9 @@ export default function Home() {
       <StickyHeader />
       <HeroSection />
       <MobilityExperience />
+      <StudentsArrive />
+      <FamilyConfidence />
+      <DistrictEfficiency />
       <ParentAssurance />
       <StatsBento />
       <ScrollytellingSection />
