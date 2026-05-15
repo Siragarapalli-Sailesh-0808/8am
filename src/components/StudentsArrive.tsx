@@ -5,9 +5,9 @@ import { CheckCircle2, Clock } from "lucide-react";
 
 export default function StudentsArrive() {
   return (
-    <section className="py-24 md:py-40 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+    <section className="py-20 md:py-32 bg-white overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
           
           {/* LEFT CONTENT */}
           <div className="order-1">
@@ -17,18 +17,18 @@ export default function StudentsArrive() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-black uppercase tracking-widest mb-8">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-black uppercase tracking-widest mb-6">
                 Reliability
               </div>
-              <h2 className="text-4xl md:text-7xl font-black text-[#222222] leading-[0.9] tracking-tighter mb-10">
+              <h2 className="text-3xl md:text-5xl font-black text-[#222222] leading-[0.9] tracking-tighter mb-8">
                 Students arrive <br />
                 on time and <span className="headline-italic text-[#E0B100]">ready to learn</span>
               </h2>
-              <div className="space-y-6 max-w-lg">
-                <p className="text-base md:text-lg text-[#222222]/70 font-medium leading-relaxed">
+              <div className="space-y-4 max-w-md">
+                <p className="text-sm md:text-base text-[#222222]/70 font-medium leading-relaxed">
                   Drivers and transportation teams have the right information and tools to focus on safe driving and the student experience.
                 </p>
-                <p className="text-base md:text-lg text-[#222222]/70 font-medium leading-relaxed">
+                <p className="text-sm md:text-base text-[#222222]/70 font-medium leading-relaxed">
                   Dispatchers are empowered to coordinate routing and dispatch dynamically to prevent delays. Students&apos; ride times are shortened, reducing missed school breakfasts and late arrivals to class.
                 </p>
               </div>

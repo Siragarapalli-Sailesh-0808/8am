@@ -5,8 +5,8 @@ import { Shield, Truck, School, Zap, TrendingDown, Star } from "lucide-react";
 
 const FivePillarsBento = () => {
   return (
-    <section className="py-32 bg-[#F8F7F2] px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 bg-[#F8F7F2] px-6">
+      <div className="max-w-5xl mx-auto">
         <header className="mb-20 text-center">
             <motion.div 
                 initial={{ opacity: 0, y: 10 }}
@@ -17,7 +17,7 @@ const FivePillarsBento = () => {
                 <Star size={12} className="text-[#E0B100] mr-2 fill-current" />
                 <span className="text-[10px] font-black uppercase tracking-widest text-[#222222]">The Gold Standard of Student Safety</span>
             </motion.div>
-            <h2 className="text-6xl md:text-8xl font-black text-[#222222] tracking-tighter leading-[0.9]">
+            <h2 className="text-4xl md:text-6xl font-black text-[#222222] tracking-tighter leading-[0.9]">
                 Five Pillars <br />
                 <span className="italic font-serif font-normal text-[#E0B100]">One Platform</span>
             </h2>
@@ -40,10 +40,10 @@ const FivePillarsBento = () => {
                     <div className="w-14 h-14 bg-[#E0B100] rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-[#E0B100]/20">
                         <Shield className="text-white" size={28} />
                     </div>
-                    <h3 className="text-3xl md:text-5xl font-black text-[#222222] mb-6 leading-tight">
+                    <h3 className="text-2xl md:text-4xl font-black text-[#222222] mb-6 leading-tight">
                         Parental Peace <br className="hidden md:block" />of Mind
                     </h3>
-                    <p className="text-[#666666] text-base md:text-lg max-w-md leading-relaxed">
+                    <p className="text-[#666666] text-sm md:text-base max-w-md leading-relaxed">
                         Real-time boarding notifications and precise ETA alerts ensure families are always connected to their child&apos;s journey with 100% visibility.
                     </p>
                 </div>
@@ -71,7 +71,7 @@ const FivePillarsBento = () => {
                 <Truck className="text-[#E0B100]" size={24} />
             </div>
             <div>
-                <h4 className="text-2xl font-black text-[#222222] mb-4">Driver Mastery</h4>
+                <h4 className="text-xl font-black text-[#222222] mb-4">Driver Mastery</h4>
                 <p className="text-[#666666] text-sm leading-relaxed">
                     Guided navigation and safety compliance tools designed to empower road captains with zero-distraction workflows.
                 </p>
@@ -91,7 +91,7 @@ const FivePillarsBento = () => {
                 <School className="text-[#E0B100]" size={24} />
             </div>
             <div>
-                <h4 className="text-2xl font-black text-[#222222] mb-4">Institution Ops</h4>
+                <h4 className="text-xl font-black text-[#222222] mb-4">Institution Ops</h4>
                 <p className="text-[#666666] text-sm leading-relaxed">
                     A unified command center to manage entire fleets, student rosters, and administrative schedules with surgical precision.
                 </p>
@@ -125,7 +125,7 @@ const FivePillarsBento = () => {
                 </div>
             </div>
             <div>
-                <h4 className="text-2xl font-black text-[#222222] mb-4">8AM Intelligence</h4>
+                <h4 className="text-xl font-black text-[#222222] mb-4">8AM Intelligence</h4>
                 <p className="text-[#666666] text-sm leading-relaxed">
                     Predictive AI analytics that foresee traffic bottlenecks and optimize routes before the bus even leaves the yard.
                 </p>
@@ -145,7 +145,7 @@ const FivePillarsBento = () => {
                 <div className="w-12 h-12 bg-[#E0B100] rounded-xl flex items-center justify-center mb-6">
                     <TrendingDown className="text-[#222222]" size={24} />
                 </div>
-                <h4 className="text-3xl font-black text-white mb-4">Cost Efficiency</h4>
+                <h4 className="text-2xl font-black text-white mb-4">Cost Efficiency</h4>
                 <p className="text-white/60 text-sm max-w-sm">
                     Reduce operational overhead by up to 25% with automated scheduling and fuel-saving route algorithms.
                 </p>

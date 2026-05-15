@@ -5,9 +5,9 @@ import { Bell, ShieldCheck } from "lucide-react";
 
 export default function FamilyConfidence() {
   return (
-    <section className="py-24 md:py-40 bg-[#F8F7F2] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+    <section className="py-20 md:py-32 bg-[#F8F7F2] overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
           
           {/* LEFT VISUAL (IMAGE ON LEFT FOR THIS SECTION) */}
           <div className="order-2 lg:order-1 relative">
@@ -72,18 +72,18 @@ export default function FamilyConfidence() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#E0B100]/10 text-[#E0B100] text-[10px] font-black uppercase tracking-widest mb-8">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#E0B100]/10 text-[#E0B100] text-[10px] font-black uppercase tracking-widest mb-6">
                 Transparency
               </div>
-              <h2 className="text-4xl md:text-7xl font-black text-[#222222] leading-[0.9] tracking-tighter mb-10">
+              <h2 className="text-3xl md:text-5xl font-black text-[#222222] leading-[0.9] tracking-tighter mb-8">
                 Families gain <span className="headline-italic text-[#E0B100]">trust</span> <br />
                 and <span className="headline-italic text-[#E0B100]">confidence</span>
               </h2>
-              <div className="space-y-6 max-w-lg">
-                <p className="text-base md:text-lg text-[#222222]/70 font-medium leading-relaxed">
+              <div className="space-y-4 max-w-md">
+                <p className="text-sm md:text-base text-[#222222]/70 font-medium leading-relaxed">
                   Students and families get a consistent, transparent experience that provides safety across every ride.
                 </p>
-                <p className="text-base md:text-lg text-[#222222]/70 font-medium leading-relaxed">
+                <p className="text-sm md:text-base text-[#222222]/70 font-medium leading-relaxed">
                   Parents and caregivers receive real-time, role-appropriate visibility into where their children are. They also receive proactive communication of changes, delays, and issue resolutions.
                 </p>
               </div>

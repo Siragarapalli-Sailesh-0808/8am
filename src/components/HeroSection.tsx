@@ -62,8 +62,8 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-9rem)] max-w-7xl px-6 pb-20 pt-8 lg:px-8 text-center">
-        <div className="max-w-4xl w-full">
+      <div className="mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-9rem)] max-w-5xl px-6 pb-20 pt-8 lg:px-8 text-center">
+        <div className="max-w-3xl w-full">
           <motion.div
             className="z-10 flex flex-col items-center"
             variants={containerVariants}
@@ -71,7 +71,7 @@ export default function HeroSection() {
             animate="visible"
           >
             <motion.div variants={fadeInUp} className="mb-8">
-              <h1 className="text-5xl font-black leading-[0.85] text-[#E0B100] sm:text-7xl lg:text-[6rem] tracking-[-0.07em] lg:leading-[0.8] text-center">
+              <h1 className="text-4xl font-black leading-[0.85] text-[#E0B100] sm:text-6xl lg:text-7xl tracking-[-0.07em] lg:leading-[0.8] text-center">
                 <span>The morning</span>
                 <br />
                 <span>commute,</span>
@@ -82,14 +82,14 @@ export default function HeroSection() {
 
             <motion.p
               variants={fadeInUp}
-              className="mb-12 max-w-2xl mx-auto text-lg leading-relaxed text-[#222222]/70 sm:text-xl lg:text-2xl font-medium"
+              className="mb-10 max-w-xl mx-auto text-base leading-relaxed text-[#222222]/70 sm:text-lg lg:text-xl font-medium"
             >
               8AM is a routing-intelligence platform for Indian school transport — automatic nodal points, fuel-aware routes, and live driver, parent and ops apps in one calm system.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="mb-20">
+            <motion.div variants={fadeInUp} className="mb-16">
               <motion.button
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#E0B100] px-12 py-6 text-base font-black text-[#222222] shadow-[0_25px_50px_-12px_rgba(224,177,0,0.4)] transition-all hover:shadow-[0_30px_60px_-12px_rgba(224,177,0,0.5)] tracking-tight"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#E0B100] px-10 py-5 text-base font-black text-[#222222] shadow-[0_25px_50px_-12px_rgba(224,177,0,0.4)] transition-all hover:shadow-[0_30px_60px_-12px_rgba(224,177,0,0.5)] tracking-tight"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

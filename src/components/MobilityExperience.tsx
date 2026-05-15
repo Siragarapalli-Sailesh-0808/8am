@@ -32,14 +32,14 @@ const features = [
 
 export default function MobilityExperience() {
   return (
-    <section className="py-32 md:py-48 bg-[#F8F7F2]">
-      <div className="max-w-7xl mx-auto px-6">
-        <header className="max-w-4xl mx-auto text-center mb-24 md:mb-32">
+    <section className="py-24 md:py-32 bg-[#F8F7F2]">
+      <div className="max-w-5xl mx-auto px-6">
+        <header className="max-w-3xl mx-auto text-center mb-20 md:mb-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#E0B100] font-black uppercase tracking-[0.4em] text-[10px] mb-8"
+            className="text-[#E0B100] font-black uppercase tracking-[0.4em] text-[10px] mb-6"
           >
             The Intelligence Hub
           </motion.p>
@@ -48,7 +48,7 @@ export default function MobilityExperience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-8xl font-black text-[#222222] tracking-tighter leading-[0.9] mb-10"
+            className="text-4xl md:text-6xl font-black text-[#222222] tracking-tighter leading-[0.9] mb-8"
           >
             The Mobility <br />
             <span className="italic font-serif font-normal text-[#E0B100]">Experience.</span>
@@ -58,7 +58,7 @@ export default function MobilityExperience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-2xl text-[#222222]/60 font-medium leading-relaxed"
+            className="text-base md:text-xl text-[#222222]/60 font-medium leading-relaxed"
           >
             8AM is a routing-intelligence platform for Indian school transport — automatic nodal points, fuel-aware routes, and live driver, parent and ops apps in one calm system.
           </motion.p>

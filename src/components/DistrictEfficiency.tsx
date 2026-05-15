@@ -5,9 +5,9 @@ import { TrendingUp, BarChart3 } from "lucide-react";
 
 export default function DistrictEfficiency() {
   return (
-    <section className="py-24 md:py-40 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+    <section className="py-20 md:py-32 bg-white overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
           
           {/* LEFT CONTENT */}
           <div className="order-1">
@@ -17,18 +17,18 @@ export default function DistrictEfficiency() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[10px] font-black uppercase tracking-widest mb-8">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[10px] font-black uppercase tracking-widest mb-6">
                 Efficiency
               </div>
-              <h2 className="text-4xl md:text-7xl font-black text-[#222222] leading-[0.9] tracking-tighter mb-10">
+              <h2 className="text-3xl md:text-5xl font-black text-[#222222] leading-[0.9] tracking-tighter mb-8">
                 Institutions do <br />
                 more <span className="headline-italic text-[#E0B100]">with less</span>
               </h2>
-              <div className="space-y-6 max-w-lg">
-                <p className="text-base md:text-lg text-[#222222]/70 font-medium leading-relaxed">
+              <div className="space-y-4 max-w-md">
+                <p className="text-sm md:text-base text-[#222222]/70 font-medium leading-relaxed">
                   School districts gain tremendous efficiencies with the unified 8AM platform. Routes are designed and optimized to ensure commute times for students are reduced.
                 </p>
-                <p className="text-base md:text-lg text-[#222222]/70 font-medium leading-relaxed">
+                <p className="text-sm md:text-base text-[#222222]/70 font-medium leading-relaxed">
                   Fewer buses are on the road without sacrificing coverage and the right size of vehicles are being used. 8AM connects people, vehicles, and data in real-time to provide total operational mastery.
                 </p>
               </div>

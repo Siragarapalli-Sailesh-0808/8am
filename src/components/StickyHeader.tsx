@@ -57,12 +57,6 @@ export default function StickyHeader() {
                 {item.name}
               </Link>
             ))}
-            <Link 
-              href="/contact"
-              className="px-4 py-2 text-[10px] font-black text-[#E0B100] uppercase tracking-widest"
-            >
-              Contact
-            </Link>
           </nav>
 
           {/* MOBILE MENU TRIGGER (TIGHT GAP) */}
@@ -96,7 +90,7 @@ export default function StickyHeader() {
             className="fixed inset-0 z-[95] bg-white flex items-center justify-center"
           >
             <nav className="flex flex-col items-center space-y-8">
-              {[...navLinks, { name: "Contact", href: "/contact" }].map((link, i) => (
+              {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
                   initial={{ opacity: 0, y: 20 }}
