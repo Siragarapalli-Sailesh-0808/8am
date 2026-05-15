@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 
 const fadeInUp = {
@@ -25,6 +26,30 @@ export default function HeroSection() {
         delayChildren: 0.1,
       },
     },
+  };
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleMouseEnter = () => {
+    setIsPlaying(true);
+    videoRef.current?.play();
+  };
+
+  const handleMouseLeave = () => {
+    setIsPlaying(false);
+    videoRef.current?.pause();
   };
 
   return (
@@ -75,27 +100,63 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* EYE-CATCHING LANDSCAPE HERO VIDEO - CENTERED AND COMPACT */}
+        {/* MAGNETIC INTERACTIVE VIDEO PLAYER */}
         <motion.div
-          className="relative w-full max-w-5xl aspect-video rounded-[32px] md:rounded-[40px] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] border-2 md:border-4 border-white/20 bg-[#222222]"
+          ref={containerRef}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="group relative w-full max-w-5xl aspect-video rounded-[32px] md:rounded-[40px] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] border-2 md:border-4 border-white/20 bg-[#222222] cursor-none"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <video 
+            ref={videoRef}
             src="/hero_demo.mp4" 
-            autoPlay 
             loop 
             muted 
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
           
-          <div className="absolute top-4 left-4 md:top-8 md:left-8">
+          {/* MAGNETIC PLAY BUTTON */}
+          <AnimatePresence>
+            {!isPlaying && (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center z-10 pointer-events-none"
+              >
+                <div className="flex flex-col items-center">
+                  <Play className="w-16 h-16 text-[#E0B100] fill-[#E0B100] mb-4" />
+                  <span className="text-white font-black uppercase tracking-[0.3em] text-[10px]">Hover to Experience</span>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* THE MAGNETIC CURSOR REPLACEMENT */}
+          <motion.div 
+            className="absolute pointer-events-none z-20 hidden md:flex items-center justify-center w-24 h-24 rounded-full bg-[#E0B100] text-[#222222] shadow-2xl mix-blend-normal"
+            animate={{ 
+              x: mousePos.x - 48, 
+              y: mousePos.y - 48,
+              scale: isPlaying ? 0.8 : 1,
+              opacity: isPlaying ? 0.9 : 0
+            }}
+            transition={{ type: "spring", damping: 20, stiffness: 200, mass: 0.5 }}
+          >
+             <span className="text-[10px] font-black uppercase tracking-tighter">
+                {isPlaying ? "Playing" : ""}
+             </span>
+          </motion.div>
+
+          <div className="absolute top-4 left-4 md:top-8 md:left-8 z-30">
             <motion.div 
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 }}
               className="bg-black/20 backdrop-blur-xl border border-white/10 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center space-x-2"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-[#E0B100] animate-pulse" />
