@@ -10,6 +10,7 @@ import ScrollytellingSection from "@/components/ScrollytellingSection";
 import FivePillarsBento from "@/components/FivePillarsBento";
 import EmotionalCarousel from "@/components/EmotionalCarousel";
 import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <FivePillarsBento />
       <EmotionalCarousel />
       <FinalCTA />
+      <Footer />
     </main>
   );
 }

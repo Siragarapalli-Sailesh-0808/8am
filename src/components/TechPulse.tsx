@@ -18,14 +18,14 @@ const TechPulse = () => {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-32">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-[#E0B100] font-black tracking-[0.4em] uppercase text-xs mb-4 block"
           >
             Zero-Latency Architecture
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -39,33 +39,33 @@ const TechPulse = () => {
         <div className="relative">
           {/* CENTRAL CORE (PULSING HEXAGON) */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
-             <motion.div 
-               animate={{ 
-                 scale: [1, 1.2, 1],
-                 opacity: [0.1, 0.3, 0.1]
-               }}
-               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-               className="w-[500px] h-[500px] bg-[#E0B100] rounded-full blur-[120px]"
-             />
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.1, 0.3, 0.1]
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="w-[500px] h-[500px] bg-[#E0B100] rounded-full blur-[120px]"
+            />
           </div>
 
           {/* RADIATING FEATURES */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
             {[
-              { 
-                icon: Zap, 
-                title: "Quantum Sync", 
-                desc: "Our proprietary protocol ensures updates reach your phone in under 200ms." 
+              {
+                icon: Zap,
+                title: "Quantum Sync",
+                desc: "Our proprietary protocol ensures updates reach your phone in under 200ms."
               },
-              { 
-                icon: ShieldCheck, 
-                title: "AES-256 Mesh", 
-                desc: "Every student data packet is encrypted with bank-grade security protocols." 
+              {
+                icon: ShieldCheck,
+                title: "AES-256 Mesh",
+                desc: "Every student data packet is encrypted with bank-grade security protocols."
               },
-              { 
-                icon: Cpu, 
-                title: "Edge Compute", 
-                desc: "High-speed alerts are processed locally on the bus for zero-delay response." 
+              {
+                icon: Cpu,
+                title: "Edge Compute",
+                desc: "High-speed alerts are processed locally on the bus for zero-delay response."
               }
             ].map((item, i) => (
               <motion.div
@@ -83,7 +83,7 @@ const TechPulse = () => {
                 <p className="text-[#E0B100]/60 font-medium leading-relaxed">
                   {item.desc}
                 </p>
-                
+
                 {/* Visual Connector Line (Conceptual) */}
                 <div className="mt-10 h-[2px] w-0 bg-[#E0B100] group-hover:w-full transition-all duration-700" />
               </motion.div>
