@@ -6,7 +6,6 @@ import StudentsArrive from "@/components/StudentsArrive";
 import FamilyConfidence from "@/components/FamilyConfidence";
 import DistrictEfficiency from "@/components/DistrictEfficiency";
 import ParentAssurance from "@/components/ParentAssurance";
-import StatsBento from "@/components/StatsBento";
 import ScrollytellingSection from "@/components/ScrollytellingSection";
 import FivePillarsBento from "@/components/FivePillarsBento";
 import EmotionalCarousel from "@/components/EmotionalCarousel";
@@ -23,7 +22,6 @@ export default function Home() {
       <FamilyConfidence />
       <DistrictEfficiency />
       <ParentAssurance />
-      <StatsBento />
       <ScrollytellingSection />
       <FivePillarsBento />
       <EmotionalCarousel />
