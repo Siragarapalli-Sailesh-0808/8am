@@ -8,6 +8,7 @@ import AdminDashboardMockup from "../../components/AdminDashboardMockup";
 import { motion } from "framer-motion";
 import { Shield, BarChart3, Users, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import InstitutionalVault from "@/components/InstitutionalVault";
+import Footer from "@/components/Footer";
 
 export default function SchoolsPage() {
   return (
@@ -66,6 +67,7 @@ export default function SchoolsPage() {
 
       <StatsBento />
       <FinalCTA />
+      <Footer />
     </main>
   );
 }

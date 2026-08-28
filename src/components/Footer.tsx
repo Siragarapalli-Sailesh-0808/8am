@@ -8,7 +8,9 @@ import {
   Activity, 
   Phone, 
   MapPin, 
-  ArrowRight 
+  ArrowRight,
+  Mail,
+  MessageCircle
 } from "lucide-react";
 
 const Footer = () => {
@@ -53,32 +55,25 @@ const Footer = () => {
           
           {/* BRAND COLUMN */}
           <div className="lg:col-span-5 flex flex-col items-start">
-            <Link href="/" className="group mb-8">
-              <div className="flex items-center space-x-3">
-                <img 
-                  src="/logo.png" 
-                  alt="8AM Logo" 
-                  className="h-16 w-auto mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-500" 
-                />
-              </div>
+            <Link href="/" className="group mb-6">
+              <img 
+                src="/logo-horizontal.png" 
+                alt="8AM Mobility Platform Logo" 
+                className="h-12 md:h-14 w-auto object-contain hover:scale-105 transition-all duration-300" 
+              />
             </Link>
             
-            <h2 className="text-2xl md:text-3xl font-black leading-tight mb-6 max-w-md uppercase tracking-tight">
-              8AM <br />
-              <span className="headline-italic text-[#E0B100] text-3xl md:text-4xl normal-case">with absolute trust.</span>
-            </h2>
-            
-            <p className="text-[#666666] text-sm md:text-base mb-8 max-w-sm leading-relaxed font-medium">
-              India&apos;s leading student mobility intelligence platform. We bridge the gap between schools and parents with real-time safety tech.
+            <p className="text-[#555555] text-sm md:text-base mb-8 max-w-md leading-relaxed font-medium">
+              India&apos;s leading student mobility intelligence platform. We bridge the gap between schools and parents with real-time safety technology and absolute trust.
             </p>
 
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 mb-4">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.href}
-                  whileHover={{ y: -5, color: "#E0B100", borderColor: "#E0B100" }}
-                  className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-[#222222]/60 hover:text-[#E0B100] transition-colors"
+                  whileHover={{ y: -3, color: "#E0B100", borderColor: "#E0B100" }}
+                  className="w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-[#222222]/60 hover:text-[#E0B100] transition-colors"
                 >
                   {social.icon}
                 </motion.a>
@@ -86,14 +81,14 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* LINKS COLUMNS */}
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
+          {/* LINKS & CONTACT COLUMNS */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-10">
             <div>
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E0B100] mb-8">Platform</h4>
-              <ul className="space-y-4">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E0B100] mb-6">Platform</h4>
+              <ul className="space-y-3.5">
                 {footerLinks.platform.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-sm text-[#666666] hover:text-[#E0B100] transition-colors flex items-center group font-bold">
+                    <Link href={link.href} className="text-sm text-[#555555] hover:text-[#E0B100] transition-colors flex items-center group font-semibold">
                       <span>{link.name}</span>
                       <ArrowRight size={12} className="ml-1 opacity-0 group-hover:opacity-100 transition-all -translate-x-1 group-hover:translate-x-0" />
                     </Link>
@@ -103,11 +98,11 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E0B100] mb-8">Company</h4>
-              <ul className="space-y-4">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E0B100] mb-6">Company</h4>
+              <ul className="space-y-3.5">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-sm text-[#666666] hover:text-[#E0B100] transition-colors flex items-center group font-bold">
+                    <Link href={link.href} className="text-sm text-[#555555] hover:text-[#E0B100] transition-colors flex items-center group font-semibold">
                       <span>{link.name}</span>
                       <ArrowRight size={12} className="ml-1 opacity-0 group-hover:opacity-100 transition-all -translate-x-1 group-hover:translate-x-0" />
                     </Link>
@@ -116,20 +111,31 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="col-span-2 md:col-span-1">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E0B100] mb-8">Headquarters</h4>
-              <ul className="space-y-6">
-                <li className="flex items-start space-x-3 text-sm text-[#666666] font-bold">
+            <div className="min-w-[240px]">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E0B100] mb-6">Contact Us</h4>
+              <ul className="space-y-4">
+                <li className="flex items-start space-x-3 text-xs md:text-sm text-[#555555] font-semibold">
                   <MapPin size={18} className="text-[#E0B100] shrink-0 mt-0.5" />
-                  <span>Rajahmundry, <br />Andhra Pradesh - 533104</span>
+                  <span className="leading-snug">Rajahmundry, <br />Andhra Pradesh - 533104</span>
                 </li>
-                <li className="flex items-center space-x-3 text-sm text-[#666666] font-bold">
-                  <Activity size={18} className="text-[#E0B100] shrink-0" />
-                  <a href="mailto:info@8am.in" className="hover:text-[#E0B100] transition-colors">info@8am.in</a>
+                <li className="flex items-center space-x-3 text-xs md:text-sm text-[#555555] font-semibold">
+                  <Mail size={18} className="text-[#E0B100] shrink-0" />
+                  <a href="mailto:8amplatform@gmail.com" className="hover:text-[#E0B100] transition-colors whitespace-nowrap">8amplatform@gmail.com</a>
                 </li>
-                <li className="flex items-center space-x-3 text-sm text-[#666666] font-bold">
+                <li className="flex items-center space-x-3 text-xs md:text-sm text-[#555555] font-semibold">
                   <Phone size={18} className="text-[#E0B100] shrink-0" />
-                  <a href="tel:+918333827275" className="hover:text-[#E0B100] transition-colors">+91 83338 27275</a>
+                  <a href="tel:+918143528142" className="hover:text-[#E0B100] transition-colors whitespace-nowrap">Mobile: +91 81435 28142</a>
+                </li>
+                <li className="flex items-center space-x-3 text-xs md:text-sm text-[#555555] font-semibold">
+                  <MessageCircle size={18} className="text-[#25D366] shrink-0" />
+                  <a 
+                    href="https://wa.me/918374054499" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-[#25D366] transition-colors whitespace-nowrap"
+                  >
+                    WhatsApp: +91 83740 54499
+                  </a>
                 </li>
               </ul>
             </div>

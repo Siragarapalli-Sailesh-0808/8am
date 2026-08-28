@@ -11,6 +11,7 @@ import MetricSpotlight from "@/components/MetricSpotlight";
 import EmotionalCarousel from "@/components/EmotionalCarousel";
 import { ArrowRight, ShieldCheck, MapPin, Bell, Smartphone } from "lucide-react";
 import ParentAssurance from "@/components/ParentAssurance";
+import Footer from "@/components/Footer";
 
 export default function ParentsPage() {
   const containerRef = useRef(null);
@@ -157,6 +158,7 @@ export default function ParentsPage() {
       </section>
 
       <FinalCTA />
+      <Footer />
     </main>
   );
 }

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ScrollingTicker from "@/components/ScrollingTicker";
 import StickyHeader from "@/components/StickyHeader";
 import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
 import { ArrowRight, Globe2, ShieldCheck, Zap } from "lucide-react";
 import Image from "next/image";
 
@@ -313,6 +314,7 @@ export default function CompanyPage() {
       </section>
 
       <FinalCTA />
+      <Footer />
     </main>
   );
 }

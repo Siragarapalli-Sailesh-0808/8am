@@ -37,10 +37,10 @@ export default function StickyHeader() {
           <Link href="/">
             <div className="flex items-center cursor-pointer">
               <img 
-                src="/logo.png" 
-                alt="8AM Logo" 
-                className={`w-auto mix-blend-multiply object-contain transition-all duration-500 ${
-                  isScrolled ? "h-10 md:h-14" : "h-12 md:h-20"
+                src="/logo-horizontal.png" 
+                alt="8AM Mobility Platform Logo" 
+                className={`w-auto object-contain transition-all duration-500 ${
+                  isScrolled ? "h-7 md:h-9" : "h-9 md:h-11"
                 }`} 
               />
             </div>
@@ -57,6 +57,14 @@ export default function StickyHeader() {
                 {item.name}
               </Link>
             ))}
+            <a 
+              href="https://wa.me/918374054499"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 px-4 py-2 bg-[#25D366] text-white hover:bg-[#128C7E] transition-all rounded-full text-[10px] font-black uppercase tracking-widest flex items-center space-x-1.5 shadow-sm hover:shadow-md"
+            >
+              <span>WhatsApp</span>
+            </a>
           </nav>
 
           {/* MOBILE MENU TRIGGER (TIGHT GAP) */}
@@ -89,7 +97,7 @@ export default function StickyHeader() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[95] bg-white flex items-center justify-center"
           >
-            <nav className="flex flex-col items-center space-y-8">
+            <nav className="flex flex-col items-center space-y-6 text-center px-6">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -100,12 +108,34 @@ export default function StickyHeader() {
                   <Link 
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-5xl font-black text-[#222222] hover:text-[#E0B100] transition-colors uppercase tracking-tighter"
+                    className="text-4xl font-black text-[#222222] hover:text-[#E0B100] transition-colors uppercase tracking-tighter"
                   >
                     {link.name}
                   </Link>
                 </motion.div>
               ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="pt-6 border-t border-gray-100 flex flex-col items-center space-y-3 text-xs font-bold text-[#666666]"
+              >
+                <a href="mailto:8amplatform@gmail.com" className="hover:text-[#E0B100] transition-colors">
+                  8amplatform@gmail.com
+                </a>
+                <a href="tel:+918143528142" className="hover:text-[#E0B100] transition-colors">
+                  Mobile: +91 81435 28142
+                </a>
+                <a 
+                  href="https://wa.me/918374054499" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="px-6 py-3 bg-[#25D366] text-white rounded-full font-black text-xs uppercase tracking-wider flex items-center space-x-2"
+                >
+                  <span>WhatsApp: +91 83740 54499</span>
+                </a>
+              </motion.div>
             </nav>
           </motion.div>
         )}
