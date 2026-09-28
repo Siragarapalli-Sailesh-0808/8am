@@ -17,6 +17,7 @@ export default function StickyHeader() {
     { name: "Parents", href: "/parents" },
     { name: "Schools", href: "/schools" },
     { name: "Company", href: "/company" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (

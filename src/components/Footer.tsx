@@ -5,7 +5,6 @@ import Link from "next/link";
 import { 
   Globe,
   Share2,
-  Activity, 
   Phone, 
   MapPin, 
   ArrowRight,
@@ -23,11 +22,12 @@ const Footer = () => {
     ],
     company: [
       { name: "Our Story", href: "/company" },
+      { name: "Contact Us", href: "/contact" },
     ],
     legal: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Compliance", href: "#" },
+      { name: "Privacy Policy", href: "/privacy" },
+      { name: "Terms of Service", href: "/terms" },
+      { name: "Compliance", href: "/privacy#grievance" },
     ],
   };
 
@@ -112,7 +112,10 @@ const Footer = () => {
             </div>
 
             <div className="min-w-[240px]">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E0B100] mb-6">Contact Us</h4>
+              <Link href="/contact" className="group inline-flex items-center space-x-1.5 mb-6">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E0B100] group-hover:underline">Contact Us</h4>
+                <ArrowRight size={12} className="text-[#E0B100] opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Link>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3 text-xs md:text-sm text-[#555555] font-semibold">
                   <MapPin size={18} className="text-[#E0B100] shrink-0 mt-0.5" />
