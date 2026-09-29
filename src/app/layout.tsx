@@ -1,33 +1,50 @@
-import type { Metadata } from "next";
-import { Montserrat, Inter, Playfair_Display } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import MotionProvider from "@/components/MotionProvider";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-});
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "900"],
+  weight: ["400", "500", "600", "700", "900"],
+  display: "swap",
 });
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
+const description =
+  "8AM is a routing-intelligence platform for Indian school transport: live bus tracking, RFID boarding alerts and route optimisation for schools, drivers and parents.";
+
 export const metadata: Metadata = {
-  title: "8AM - India's #1 Student Mobility Platform",
-  description: "Real-time GPS tracking and RFID notifications for student safety and efficient school transportation",
-  icons: {
-    icon: "/logo-icon.png",
-    shortcut: "/logo-icon.png",
-    apple: "/logo-icon.png",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "8AM | Smart School Transport for India",
+    template: "%s | 8AM",
   },
+  description,
+  openGraph: {
+    type: "website",
+    siteName: "8AM",
+    title: "8AM | Smart School Transport for India",
+    description,
+    images: [{ url: "/media/hero-poster.jpg", width: 1280, height: 720 }],
+  },
+  twitter: { card: "summary_large_image" },
+  icons: {
+    icon: "/media/icon-192.png",
+    apple: "/media/apple-icon.png",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#F8F7F2",
 };
 
 export default function RootLayout({
@@ -38,9 +55,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }

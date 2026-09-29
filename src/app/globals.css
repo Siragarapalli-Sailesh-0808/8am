@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Make Tailwind's `font-serif` use Playfair so every italic accent matches */
+@theme inline {
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+}
+
 :root {
   --background: #F8F7F2;
   --foreground: #222222;
@@ -11,7 +17,7 @@
   --card-bg: #FFFFFF;
   --border: #E8E2D3;
   --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  
+
   /* Tailwind 4 variables */
   --color-primary: var(--primary);
   --color-primary-soft: var(--primary-soft);
@@ -23,24 +29,35 @@
   --color-text-gray: var(--text-muted);
 }
 
-.glass-premium {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter, "Inter", sans-serif);
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-inter, "Inter", sans-serif);
   font-weight: 900;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+/* Italic serif accents: a little room so descenders are never clipped */
+.headline-italic,
+h1 .font-serif,
+h2 .font-serif {
+  font-family: var(--font-playfair, "Playfair Display", Georgia, serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  padding-bottom: 0.06em;
 }
 
 .headline-italic {
@@ -49,32 +66,31 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+/* Fluid display headings: scale smoothly between phone and desktop */
+.display-xl { font-size: clamp(2.5rem, 7vw + 0.5rem, 6.5rem); }
+.display-lg { font-size: clamp(2.25rem, 5.5vw + 0.5rem, 5rem); }
+.display-md { font-size: clamp(2rem, 4vw + 0.5rem, 3.75rem); }
+
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .animate-marquee {
-  animation: marquee 22s linear infinite;
-}
-
-@keyframes feature-marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-feature-marquee {
-  animation: feature-marquee 34s linear infinite;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
 }
 
 .perspective-1000 {
   perspective: 1000px;
+}
+
+/* Honour the OS "reduce motion" setting for CSS animations too */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

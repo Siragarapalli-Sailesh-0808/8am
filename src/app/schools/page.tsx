@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
+import Link from "next/link";
+import { m } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import ScrollingTicker from "@/components/ScrollingTicker";
 import StickyHeader from "@/components/StickyHeader";
 import StatsBento from "@/components/StatsBento";
 import FinalCTA from "@/components/FinalCTA";
-import AdminDashboardMockup from "../../components/AdminDashboardMockup";
-import { motion } from "framer-motion";
-import { Shield, BarChart3, Users, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
+import AdminDashboardMockup from "@/components/AdminDashboardMockup";
 import InstitutionalVault from "@/components/InstitutionalVault";
 import Footer from "@/components/Footer";
 
@@ -16,53 +17,48 @@ export default function SchoolsPage() {
       <ScrollingTicker />
       <StickyHeader />
 
-      {/* 1. INSTITUTIONAL HERO SECTION */}
-      <section className="relative pt-32 pb-20 px-6 md:px-24 overflow-hidden">
-        <div className="container mx-auto max-w-7xl relative z-10 grid lg:grid-cols-2 gap-20 items-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+      {/* 1. HERO */}
+      <section className="relative pt-36 pb-16 md:pt-44 md:pb-24 overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_50%_at_75%_45%,rgba(224,177,0,0.12),transparent_70%)]" />
+        <div className="mx-auto max-w-6xl px-5 md:px-8 relative z-10 grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+          <m.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="text-center lg:text-left"
           >
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-[#E0B100]/10 text-[var(--foreground)] px-6 py-2 rounded-full w-max text-xs font-black mb-8 border border-[#E0B100] tracking-[0.3em] uppercase"
-            >
+            <div className="bg-[#E0B100]/10 text-[#222222] px-5 py-2 rounded-full w-max mx-auto lg:mx-0 text-[10px] sm:text-xs font-black mb-8 border border-[#E0B100] tracking-[0.25em] uppercase">
               School Administration Portal
-            </motion.div>
-            <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-8 text-[var(--foreground)]">
-              The Gold Standard <br />
-              of <span className="italic font-serif text-[#E0B100] font-normal">Safety.</span>
-            </h1>
-            <p className="text-xl text-[var(--foreground)]/60 max-w-xl mb-12 font-medium leading-relaxed">
-              Empower your institution with end-to-end fleet visibility and student accountability. 8AM is the preferred partner for 500+ elite schools across India.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <motion.button 
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,215,0,0.3)" }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto bg-[#E0B100] text-[var(--card-bg)] px-12 py-6 rounded-full font-black flex items-center justify-center space-x-3 transition-all shadow-[0_12px_28px_rgba(255,215,0,0.35)]"
-              >
-                <span>Partner with 8AM</span>
-                <ArrowRight size={22} />
-              </motion.button>
             </div>
-          </motion.div>
+            <h1 className="display-xl font-black leading-[0.92] tracking-tighter mb-8 text-[var(--foreground)]">
+              The Gold Standard <br />
+              of <span className="headline-italic text-[#E0B100]">Safety.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-[var(--foreground)]/75 max-w-xl mx-auto lg:mx-0 mb-10 font-medium leading-relaxed">
+              Give your school complete fleet visibility and student accountability, from the first pickup to the
+              last drop-off, in one dashboard your transport team will actually enjoy using.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex w-full sm:w-auto bg-[#E0B100] text-[#222222] px-10 py-5 rounded-full font-black items-center justify-center gap-3 shadow-[0_20px_40px_-12px_rgba(224,177,0,0.45)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5"
+            >
+              <span>Partner with 8AM</span>
+              <ArrowRight size={20} />
+            </Link>
+          </m.div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            className="relative flex justify-center lg:justify-end"
+          <m.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.15 }}
+            className="relative"
           >
             <AdminDashboardMockup />
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#E0B100]/5 rounded-full blur-[100px]" />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
-      {/* 2. INSTITUTIONAL STANDARDS (IMMERSIVE VAULT) */}
+      {/* 2. STANDARDS */}
       <InstitutionalVault />
 
       <StatsBento />

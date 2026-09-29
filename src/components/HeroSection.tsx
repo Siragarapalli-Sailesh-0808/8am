@@ -1,171 +1,167 @@
 "use client";
 
-import React, { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import React, { useRef, useState } from "react";
+import Link from "next/link";
+import { m, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import { ArrowRight, Play, Pause } from "lucide-react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: "easeOut" as const,
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
 };
 
 export default function HeroSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
   const [isPlaying, setIsPlaying] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+  // Cursor follower driven by motion values: moving the mouse causes zero React re-renders
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const cx = useSpring(mx, { damping: 22, stiffness: 220, mass: 0.5 });
+  const cy = useSpring(my, { damping: 22, stiffness: 220, mass: 0.5 });
 
-  const handleMouseEnter = () => {
-    setIsPlaying(true);
-    videoRef.current?.play();
+  const play = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
   };
-
-  const handleMouseLeave = () => {
-    setIsPlaying(false);
+  const pause = () => {
     videoRef.current?.pause();
+    setIsPlaying(false);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse" || !containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    mx.set(e.clientX - rect.left - 48);
+    my.set(e.clientY - rect.top - 48);
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#F8F7F2] pt-32 lg:pt-40">
-      <div className="absolute inset-0 -z-10">
-        <div className="h-full w-full bg-[#F8F7F2]" />
-        <div
-          className="absolute inset-y-0 right-0 hidden w-3/5 bg-[#E0B100] lg:block"
-          style={{ clipPath: "polygon(24% 0, 100% 0, 100% 100%, 0 100%)" }}
-        />
-      </div>
+    <section className="relative overflow-hidden bg-[#F8F7F2] pt-36 lg:pt-44">
+      {/* soft static glow (cheap to render, no blur filter) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[70vh] bg-[radial-gradient(60%_50%_at_50%_30%,rgba(224,177,0,0.12),transparent_70%)]"
+      />
 
-      <div className="mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-9rem)] max-w-5xl px-6 pb-20 pt-8 lg:px-8 text-center">
-        <div className="max-w-3xl w-full">
-          <motion.div
-            className="z-10 flex flex-col items-center"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div variants={fadeInUp} className="mb-8">
-              <h1 className="text-4xl font-black leading-[0.85] text-[#E0B100] sm:text-6xl lg:text-7xl tracking-[-0.07em] lg:leading-[0.8] text-center">
-                <span>The morning</span>
-                <br />
-                <span>commute,</span>
-                <br />
-                <span className="headline-italic text-[#E0B100] tracking-tight">re-engineered.</span>
-              </h1>
-            </motion.div>
-
-            <motion.p
-              variants={fadeInUp}
-              className="mb-10 max-w-xl mx-auto text-base leading-relaxed text-[#222222]/70 sm:text-lg lg:text-xl font-medium"
-            >
-              8AM is a routing-intelligence platform for Indian school transport — automatic nodal points, fuel-aware routes, and live driver, parent and ops apps in one calm system.
-            </motion.p>
-
-            <motion.div variants={fadeInUp} className="mb-16">
-              <motion.button
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#E0B100] px-10 py-5 text-base font-black text-[#222222] shadow-[0_25px_50px_-12px_rgba(224,177,0,0.4)] transition-all hover:shadow-[0_30px_60px_-12px_rgba(224,177,0,0.5)] tracking-tight"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Start Your Free Demo
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* MAGNETIC INTERACTIVE VIDEO PLAYER */}
-        <motion.div
-          ref={containerRef}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className="group relative w-full max-w-5xl aspect-video rounded-[32px] md:rounded-[40px] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] border-2 md:border-4 border-white/20 bg-[#222222] cursor-none"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-5 pb-20 md:px-8 text-center">
+        <m.div
+          className="flex max-w-3xl flex-col items-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <video 
-            ref={videoRef}
-            src="/hero_demo.mp4" 
-            loop 
-            muted 
-            playsInline
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          
-          {/* MAGNETIC PLAY BUTTON */}
-          <AnimatePresence>
-            {!isPlaying && (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center z-10 pointer-events-none"
-              >
-                <div className="flex flex-col items-center">
-                  <Play className="w-16 h-16 text-[#E0B100] fill-[#E0B100] mb-4" />
-                  <span className="text-white font-black uppercase tracking-[0.3em] text-[10px]">Hover to Experience</span>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* THE MAGNETIC CURSOR REPLACEMENT */}
-          <motion.div 
-            className="absolute pointer-events-none z-20 hidden md:flex items-center justify-center w-24 h-24 rounded-full bg-[#E0B100] text-[#222222] shadow-2xl mix-blend-normal"
-            animate={{ 
-              x: mousePos.x - 48, 
-              y: mousePos.y - 48,
-              scale: isPlaying ? 0.8 : 1,
-              opacity: isPlaying ? 0.9 : 0
-            }}
-            transition={{ type: "spring", damping: 20, stiffness: 200, mass: 0.5 }}
+          <m.h1
+            variants={fadeInUp}
+            className="display-xl mb-8 font-black leading-[0.9] tracking-[-0.06em] text-[#222222]"
           >
-             <span className="text-[10px] font-black uppercase tracking-tighter">
-                {isPlaying ? "Playing" : ""}
-             </span>
-          </motion.div>
+            The morning commute,
+            <br />
+            <span className="headline-italic text-[#E0B100] tracking-tight">re-engineered.</span>
+          </m.h1>
 
-          <div className="absolute top-4 left-4 md:top-8 md:left-8 z-30">
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-black/20 backdrop-blur-xl border border-white/10 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center space-x-2"
+          <m.p
+            variants={fadeInUp}
+            className="mb-10 max-w-xl text-base leading-relaxed text-[#222222]/75 sm:text-lg lg:text-xl font-medium"
+          >
+            8AM is a routing-intelligence platform for Indian school transport: automatic nodal points,
+            fuel-aware routes, and live driver, parent and ops apps in one calm system.
+          </m.p>
+
+          <m.div variants={fadeInUp} className="mb-14 w-full sm:w-auto">
+            <Link
+              href="/contact"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-[#E0B100] px-10 py-5 text-base font-black text-[#222222] shadow-[0_20px_40px_-12px_rgba(224,177,0,0.45)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-12px_rgba(224,177,0,0.55)] active:translate-y-0"
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-[#E0B100] animate-pulse" />
-              <span className="text-[8px] md:text-[10px] font-black text-white uppercase tracking-widest">8AM Intelligence Hub</span>
-            </motion.div>
-          </div>
+              Book a Free Demo
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </m.div>
+        </m.div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-        </motion.div>
+        {/* VIDEO PLAYER: loads nothing until the visitor asks for it */}
+        <m.div
+          ref={containerRef}
+          onPointerMove={handlePointerMove}
+          onPointerEnter={(e) => e.pointerType === "mouse" && play()}
+          onPointerLeave={(e) => e.pointerType === "mouse" && pause()}
+          className="group relative w-full max-w-5xl aspect-video rounded-[24px] md:rounded-[40px] overflow-hidden shadow-[0_40px_80px_-24px_rgba(0,0,0,0.3)] border-2 md:border-4 border-white bg-[#101522] md:cursor-none"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.3 }}
+        >
+          <video
+            ref={videoRef}
+            poster="/media/hero-poster.jpg"
+            preload="none"
+            loop
+            muted
+            playsInline
+            aria-label="8AM product demo video"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/media/hero.mp4" type="video/mp4" />
+          </video>
+
+          {/* Tap-to-play for touch screens (and keyboard) */}
+          <button
+            type="button"
+            onClick={() => (isPlaying ? pause() : play())}
+            aria-label={isPlaying ? "Pause demo video" : "Play demo video"}
+            className="absolute inset-0 z-10 flex items-center justify-center focus-visible:outline-4 focus-visible:outline-[#E0B100]"
+          >
+            <AnimatePresence>
+              {!isPlaying && (
+                <m.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 bg-black/35 flex flex-col items-center justify-center"
+                >
+                  <span className="flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-[#E0B100] shadow-2xl">
+                    <Play className="ml-1 h-7 w-7 md:h-8 md:w-8 fill-[#222222] text-[#222222]" />
+                  </span>
+                  <span className="mt-4 text-white font-black uppercase tracking-[0.3em] text-[10px]">
+                    <span className="hidden md:inline">Hover or click</span>
+                    <span className="md:hidden">Tap</span> to play
+                  </span>
+                </m.span>
+              )}
+            </AnimatePresence>
+            {isPlaying && (
+              <span className="md:hidden absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white">
+                <Pause className="h-4 w-4" />
+              </span>
+            )}
+          </button>
+
+          {/* Cursor follower (desktop mouse only) */}
+          <m.div
+            aria-hidden
+            style={{ x: cx, y: cy }}
+            className="absolute left-0 top-0 pointer-events-none z-20 hidden md:flex items-center justify-center w-24 h-24 rounded-full bg-[#E0B100] text-[#222222] shadow-2xl opacity-0 group-hover:opacity-90 transition-opacity duration-200"
+          >
+            <span className="text-[10px] font-black uppercase tracking-tighter">
+              {isPlaying ? "Playing" : "Play"}
+            </span>
+          </m.div>
+
+          <div className="absolute top-4 left-4 md:top-8 md:left-8 z-30 pointer-events-none">
+            <div className="bg-black/40 border border-white/10 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E0B100]" />
+              <span className="text-[9px] md:text-[10px] font-black text-white uppercase tracking-widest">
+                8AM Intelligence Hub
+              </span>
+            </div>
+          </div>
+        </m.div>
       </div>
     </section>
   );

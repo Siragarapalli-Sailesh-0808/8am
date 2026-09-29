@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import ScrollingTicker from "@/components/ScrollingTicker";
+import { EMAIL, PHONE_DISPLAY, PHONE_NUMBER, WHATSAPP_DISPLAY, whatsappLink } from "@/lib/site";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import { 
@@ -13,13 +14,8 @@ import {
   Clock, 
   Send, 
   CheckCircle2, 
-  Sparkles, 
-  Building, 
-  User, 
-  Bus, 
   ChevronDown,
   ArrowRight,
-  ShieldAlert
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -27,7 +23,6 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
-    role: "School Administrator",
     institution: "",
     subject: "Schedule School Demo",
     message: "",
@@ -35,15 +30,7 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [ticketId, setTicketId] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-  const roles = [
-    { label: "School Leader", icon: <Building size={14} /> },
-    { label: "Parent / Guardian", icon: <User size={14} /> },
-    { label: "Fleet Operator", icon: <Bus size={14} /> },
-    { label: "General", icon: <Sparkles size={14} /> },
-  ];
 
   const subjects = [
     "Schedule School Demo",
@@ -65,25 +52,41 @@ export default function ContactPage() {
     },
     {
       q: "What happens if a child forgets or misplaces their RFID pass?",
-      a: "The bus attendant interface allows instant manual roll-call check-in with one tap on the tablet. The school admin can issue a replacement badge in under 60 seconds with new cryptographic keys.",
+      a: "The bus attendant interface allows instant manual roll-call check-in with one tap on the tablet. The school admin can issue a replacement card from the dashboard.",
     },
     {
       q: "What are your emergency response hours for active transit?",
-      a: "Our mission-critical transit telemetry monitoring operations are live 24/7. Any route deviation, panic button press, or delayed bus triggers immediate priority routing to our operations dispatch center.",
+      a: "Route deviations, panic-button presses and major delays trigger instant alerts to the school transport team. For anything urgent, WhatsApp us and we will respond as quickly as we can.",
     },
   ];
+
+  // Sends the enquiry to the 8AM WhatsApp with everything pre-filled
+  const buildMessage = () =>
+    [
+      `Hi 8AM team, I'd like to get in touch.`,
+      ``,
+      `*Subject:* ${formData.subject}`,
+      `*Name:* ${formData.name}`,
+      formData.institution && `*School / Organisation:* ${formData.institution}`,
+      `*Phone:* ${formData.phone}`,
+      `*Email:* ${formData.email}`,
+      ``,
+      formData.message,
+    ]
+      .filter((l): l is string => typeof l === "string" && l !== "")
+      .join("\n");
+
+  const [waUrl, setWaUrl] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate rapid cloud dispatch
-    setTimeout(() => {
-      const generatedId = `8AM-${Math.floor(1000 + Math.random() * 9000)}`;
-      setTicketId(generatedId);
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 900);
+    const url = whatsappLink(buildMessage());
+    setWaUrl(url);
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    if (!win) window.location.href = url; // popup blocked (common on mobile): open in same tab
+    setIsSubmitting(false);
+    setIsSubmitted(true);
   };
 
   const handleReset = () => {
@@ -91,7 +94,6 @@ export default function ContactPage() {
       name: "",
       email: "",
       phone: "",
-      role: "School Administrator",
       institution: "",
       subject: "Schedule School Demo",
       message: "",
@@ -105,7 +107,7 @@ export default function ContactPage() {
       <StickyHeader />
 
       {/* HERO SECTION */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 px-6 overflow-hidden border-b border-[#E8E2D3]">
+      <section className="relative pt-36 pb-16 md:pt-44 md:pb-20 px-5 md:px-8 overflow-hidden border-b border-[#E8E2D3]">
         <div className="absolute inset-0 pointer-events-none opacity-20">
           <svg width="100%" height="100%" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
             <path d="M-50 180 Q 250 40 550 200 T 1150 160" fill="none" stroke="#E0B100" strokeWidth="1.5" strokeDasharray="10 10" />
@@ -121,18 +123,18 @@ export default function ContactPage() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter text-[#222222] mb-6 leading-[0.95]">
+          <h1 className="display-lg font-black tracking-tighter text-[#222222] mb-6 leading-[0.95]">
             Connect with <span className="headline-italic text-[#E0B100] font-normal">8AM</span>
           </h1>
 
           <p className="text-base sm:text-lg text-[#555555] max-w-2xl mx-auto leading-relaxed font-medium">
-            Have questions about institutional rollout, driver telemetry, or parent app support? Our specialized mobility operations team is available around the clock.
+            Have questions about institutional rollout, driver telemetry, or parent app support? Our team is happy to help, and WhatsApp is the fastest way to reach us.
           </p>
         </div>
       </section>
 
       {/* MAIN TWO-COLUMN CONTACT SECTION */}
-      <section className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 md:py-24 px-5 md:px-8 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* LEFT COLUMN: CONTACT CHANNELS */}
@@ -155,7 +157,7 @@ export default function ContactPage() {
               
               {/* WHATSAPP CARD */}
               <a
-                href="https://wa.me/918374054499"
+                href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-start space-x-4 p-5 bg-white border border-[#E8E2D3] rounded-3xl hover:border-[#25D366] transition-all shadow-sm hover:shadow-md"
@@ -169,14 +171,14 @@ export default function ContactPage() {
                     <span className="text-xs text-[#25D366] font-bold group-hover:translate-x-1 transition-transform">Chat Now →</span>
                   </div>
                   <h3 className="text-sm font-black text-[#222222] truncate">WhatsApp Priority Desk</h3>
-                  <p className="text-xs text-[#555555] font-semibold mt-0.5">+91 83740 54499</p>
-                  <p className="text-[11px] text-[#888888] mt-1 font-medium">Instant replies for active bus route support</p>
+                  <p className="text-xs text-[#555555] font-semibold mt-0.5">{WHATSAPP_DISPLAY}</p>
+                  <p className="text-[11px] text-[#888888] mt-1 font-medium">Quickest way to reach us</p>
                 </div>
               </a>
 
               {/* PHONE CALL CARD */}
               <a
-                href="tel:+918143528142"
+                href={`tel:${PHONE_NUMBER}`}
                 className="group flex items-start space-x-4 p-5 bg-white border border-[#E8E2D3] rounded-3xl hover:border-[#E0B100] transition-all shadow-sm hover:shadow-md"
               >
                 <div className="w-12 h-12 rounded-2xl bg-[#E0B100]/10 flex items-center justify-center text-[#E0B100] shrink-0 group-hover:scale-105 transition-transform">
@@ -188,14 +190,14 @@ export default function ContactPage() {
                     <span className="text-xs text-[#E0B100] font-bold group-hover:translate-x-1 transition-transform">Call →</span>
                   </div>
                   <h3 className="text-sm font-black text-[#222222] truncate">Direct Helpline</h3>
-                  <p className="text-xs text-[#555555] font-semibold mt-0.5">+91 81435 28142</p>
+                  <p className="text-xs text-[#555555] font-semibold mt-0.5">{PHONE_DISPLAY}</p>
                   <p className="text-[11px] text-[#888888] mt-1 font-medium">Monday – Saturday: 8:00 AM – 6:00 PM IST</p>
                 </div>
               </a>
 
               {/* EMAIL CARD */}
               <a
-                href="mailto:8amplatform@gmail.com"
+                href={`mailto:${EMAIL}`}
                 className="group flex items-start space-x-4 p-5 bg-white border border-[#E8E2D3] rounded-3xl hover:border-[#E0B100] transition-all shadow-sm hover:shadow-md"
               >
                 <div className="w-12 h-12 rounded-2xl bg-[#E0B100]/10 flex items-center justify-center text-[#E0B100] shrink-0 group-hover:scale-105 transition-transform">
@@ -207,7 +209,7 @@ export default function ContactPage() {
                     <span className="text-xs text-[#E0B100] font-bold group-hover:translate-x-1 transition-transform">Mail →</span>
                   </div>
                   <h3 className="text-sm font-black text-[#222222] truncate">Official Correspondence</h3>
-                  <p className="text-xs text-[#555555] font-semibold mt-0.5">8amplatform@gmail.com</p>
+                  <p className="text-xs text-[#555555] font-semibold mt-0.5">{EMAIL}</p>
                   <p className="text-[11px] text-[#888888] mt-1 font-medium">Formal proposals, billing, and school tenders</p>
                 </div>
               </a>
@@ -241,7 +243,7 @@ export default function ContactPage() {
               
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
-                  <motion.div
+                  <m.div
                     key="form"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -260,30 +262,6 @@ export default function ContactPage() {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
-                      
-                      {/* ROLE SELECTOR PILLS */}
-                      <div>
-                        <label className="block text-xs font-black uppercase tracking-wider text-[#222222] mb-2.5">
-                          I am representing:
-                        </label>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                          {roles.map((r) => (
-                            <button
-                              type="button"
-                              key={r.label}
-                              onClick={() => setFormData({ ...formData, role: r.label })}
-                              className={`flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
-                                formData.role === r.label
-                                  ? "bg-[#E0B100] text-[#222222] shadow-sm"
-                                  : "bg-[#F8F7F2] text-[#666666] hover:bg-[#E8E2D3]/50"
-                              }`}
-                            >
-                              <span>{r.icon}</span>
-                              <span className="truncate">{r.label}</span>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
 
                       {/* NAME & EMAIL */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -340,7 +318,7 @@ export default function ContactPage() {
                             type="text"
                             value={formData.institution}
                             onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
-                            placeholder="e.g. Delhi Public School"
+                            placeholder="e.g. your school name"
                             className="w-full px-4 py-3 bg-[#F8F7F2] border border-[#E8E2D3] rounded-2xl text-xs md:text-sm text-[#222222] placeholder:text-[#999999] focus:outline-none focus:border-[#E0B100] transition-colors"
                           />
                         </div>
@@ -388,24 +366,24 @@ export default function ContactPage() {
                         {isSubmitting ? (
                           <>
                             <div className="w-4 h-4 border-2 border-[#222222] border-t-transparent rounded-full animate-spin" />
-                            <span>Routing Your Message...</span>
+                            <span>Opening WhatsApp...</span>
                           </>
                         ) : (
                           <>
                             <Send size={15} />
-                            <span>Submit Inquiry</span>
+                            <span>Send via WhatsApp</span>
                           </>
                         )}
                       </button>
 
                       <p className="text-[11px] text-[#777777] text-center font-medium">
-                        By submitting, you agree to our <Link href="/privacy" className="text-[#E0B100] underline font-bold">Privacy Policy</Link>. Student data is never shared.
+                        This opens WhatsApp with your message ready to send. By sending, you agree to our <Link href="/privacy" className="text-[#7A5F00] underline font-bold">Privacy Policy</Link>.
                       </p>
 
                     </form>
-                  </motion.div>
+                  </m.div>
                 ) : (
-                  <motion.div
+                  <m.div
                     key="success"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -414,20 +392,27 @@ export default function ContactPage() {
                     <div className="w-16 h-16 rounded-full bg-[#E0B100]/20 text-[#E0B100] flex items-center justify-center mx-auto mb-6">
                       <CheckCircle2 size={36} />
                     </div>
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E0B100] block mb-2">
-                      Inquiry Dispatched
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#7A5F00] block mb-2">
+                      Almost done
                     </span>
                     <h3 className="text-3xl font-black text-[#222222] tracking-tight mb-2">
-                      Thank You, {formData.name || "Partner"}!
+                      Thank you, {formData.name || "there"}!
                     </h3>
-                    <p className="text-xs md:text-sm text-[#555555] max-w-md mx-auto leading-relaxed mb-6 font-medium">
-                      Your inquiry has been registered in our mobility desk queue under Reference Ticket <strong className="text-[#222222] font-black">{ticketId}</strong>. Our regional coordinator will connect with you via email or phone within 4 business hours.
+                    <p className="text-sm text-[#555555] max-w-md mx-auto leading-relaxed mb-6 font-medium">
+                      WhatsApp has opened with your message filled in. <strong className="text-[#222222]">Press send in WhatsApp</strong> and our team will reply as soon as possible.
                     </p>
+                    <a
+                      href={waUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-[#25D366] text-white rounded-full font-black text-xs uppercase tracking-wider hover:bg-[#128C7E] transition-colors"
+                    >
+                      <MessageCircle size={14} /> WhatsApp didn&apos;t open? Tap here
+                    </a>
 
                     <div className="bg-[#F8F7F2] p-4 rounded-2xl border border-[#E8E2D3] max-w-sm mx-auto mb-8 text-xs text-[#555555] space-y-1">
                       <p><strong>Subject:</strong> {formData.subject}</p>
                       <p><strong>Contact Email:</strong> {formData.email}</p>
-                      <p><strong>Role:</strong> {formData.role}</p>
                     </div>
 
                     <button
@@ -436,7 +421,7 @@ export default function ContactPage() {
                     >
                       Send Another Message
                     </button>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
 
@@ -481,7 +466,7 @@ export default function ContactPage() {
                 </button>
                 <AnimatePresence>
                   {openFaq === idx && (
-                    <motion.div
+                    <m.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -490,7 +475,7 @@ export default function ContactPage() {
                       <div className="px-6 pb-6 text-xs md:text-sm text-[#555555] leading-relaxed border-t border-[#E8E2D3]/60 pt-4 font-medium">
                         {faq.a}
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </div>
@@ -502,13 +487,13 @@ export default function ContactPage() {
               Need immediate urgent assistance regarding a student currently on a school bus?
             </p>
             <a
-              href="https://wa.me/918374054499"
+              href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 text-xs font-black text-[#25D366] hover:underline"
             >
               <MessageCircle size={14} />
-              <span>Contact Live Emergency Transit WhatsApp (+91 83740 54499)</span>
+              <span>Message us on WhatsApp ({WHATSAPP_DISPLAY})</span>
               <ArrowRight size={12} />
             </a>
           </div>

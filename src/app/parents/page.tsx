@@ -1,6 +1,6 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
+import { m } from "framer-motion";
 import ScrollingTicker from "@/components/ScrollingTicker";
 import StickyHeader from "@/components/StickyHeader";
 import FinalCTA from "@/components/FinalCTA";
@@ -9,114 +9,106 @@ import SafetyBento from "@/components/SafetyBento";
 import JourneyTimeline from "@/components/JourneyTimeline";
 import MetricSpotlight from "@/components/MetricSpotlight";
 import EmotionalCarousel from "@/components/EmotionalCarousel";
-import { ArrowRight, ShieldCheck, MapPin, Bell, Smartphone } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ShieldCheck, MapPin, Plus } from "lucide-react";
 import ParentAssurance from "@/components/ParentAssurance";
 import Footer from "@/components/Footer";
 
 export default function ParentsPage() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-
   return (
-    <main ref={containerRef} className="bg-[var(--card-bg)] min-h-screen font-sans text-black overflow-x-hidden">
+    <main className="bg-white min-h-screen font-sans text-[#222222] overflow-x-clip">
       <ScrollingTicker />
       <StickyHeader />
 
-      {/* 1. ULTRA-PREMIUM HERO SECTION [cite: 20, 21] */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <motion.div 
-          style={{ scale: heroScale, opacity: heroOpacity }}
-          className="container mx-auto px-6 md:px-12 lg:px-24 grid lg:grid-cols-2 gap-20 items-center z-10"
+      {/* 1. HERO */}
+      <section className="relative lg:min-h-screen flex items-center pt-36 pb-16 lg:pt-28 overflow-hidden">
+        <div
+          className="mx-auto w-full max-w-6xl px-5 md:px-8 grid lg:grid-cols-2 gap-16 lg:gap-12 items-center z-10"
         >
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+          <m.div 
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="text-center lg:text-left"
           >
-            <motion.div 
+            <m.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-[#E0B100]/10 text-[#E0B100] px-5 py-2 rounded-full w-max text-xs font-black mb-8 border border-[#E0B100] tracking-[0.2em] uppercase"
+              className="bg-[#E0B100]/10 text-[#7A5F00] px-5 py-2 rounded-full w-max mx-auto lg:mx-0 text-xs font-black mb-8 border border-[#E0B100] tracking-[0.2em] uppercase"
             >
               The Parental Portal
-            </motion.div>
-            <h1 className="text-5xl md:text-7xl lg:text-[85px] font-black mb-8 leading-[0.9] tracking-tighter text-[#E0B100]">
+            </m.div>
+            <h1 className="display-xl font-black mb-8 leading-[0.92] tracking-tighter text-[#222222]">
               Absolute Control. <br />
-              Total <span className="italic font-serif text-[#E0B100] font-normal">Certainty.</span>
+              Total <span className="headline-italic text-[#E0B100]">Certainty.</span>
             </h1>
-            <p className="text-xl text-[#E0B100] max-w-lg mb-12 font-medium leading-relaxed">
-              Experience the world&apos;s most advanced parent-teacher mobility interface. Real-time updates, AI-driven ETA, and biometric safety standards.
+            <p className="text-lg md:text-xl text-[#222222]/75 max-w-lg mx-auto lg:mx-0 mb-10 font-medium leading-relaxed">
+              Know when your child boards, where the bus is right now, and when they reach school. Real-time updates and smart arrival estimates, free for parents at partner schools.
             </p>
-            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <motion.button 
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,215,0,0.4)" }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto bg-[#E0B100] text-[var(--card-bg)] px-12 py-6 rounded-full font-black flex items-center justify-center space-x-3 transition-all"
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 sm:gap-8">
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto bg-[#E0B100] text-[#222222] px-10 py-5 rounded-full font-black flex items-center justify-center gap-3 shadow-[0_20px_40px_-12px_rgba(224,177,0,0.45)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5"
               >
-                <span>Activate Safety</span>
-                <ArrowRight size={22} />
-              </motion.button>
-              <button className="text-[#E0B100] font-black text-sm border-b-2 border-[#E0B100] pb-1 hover:text-[#E0B100] hover:border-[#E0B100] transition-all">
+                <span>Get 8AM for My School</span>
+                <ArrowRight size={20} />
+              </Link>
+              <a href="#features" className="text-[#222222] font-black text-sm border-b-2 border-[#E0B100] pb-1 hover:text-[#B08A00] transition-colors">
                 View Feature Tour
-              </button>
+              </a>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Phone Mockup with Floating Elements */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+          <m.div 
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.15, ease: "easeOut" }}
             className="relative flex justify-center lg:justify-end"
           >
             <div className="relative">
               <PhoneMockup />
               
               {/* Floating Badges */}
-              <motion.div 
-                animate={{ y: [0, -20, 0] }}
+              <m.div 
+                animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -left-12 top-20 bg-[var(--card-bg)] p-6 rounded-[30px] shadow-2xl border border-gray-50 flex items-center space-x-4 z-20"
+                className="absolute -left-6 sm:-left-16 top-16 bg-white p-3 pr-4 sm:p-5 rounded-[22px] shadow-2xl border border-gray-100 flex items-center gap-3 z-20"
               >
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-[var(--card-bg)]">
-                  <ShieldCheck size={28} />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-green-600 rounded-full flex items-center justify-center text-white">
+                  <ShieldCheck size={22} />
                 </div>
                 <div>
                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Security Status</p>
-                   <p className="text-sm font-black">100% Secure</p>
+                   <p className="text-sm font-black">Verified parents only</p>
                 </div>
-              </motion.div>
+              </m.div>
 
-              <motion.div 
-                animate={{ y: [0, 20, 0] }}
+              <m.div 
+                animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -right-12 bottom-20 bg-[var(--card-bg)] p-6 rounded-[30px] shadow-2xl border border-gray-50 flex items-center space-x-4 z-20"
+                className="absolute -right-6 sm:-right-16 bottom-16 bg-white p-3 pr-4 sm:p-5 rounded-[22px] shadow-2xl border border-gray-100 flex items-center gap-3 z-20"
               >
-                <div className="w-12 h-12 bg-[#E0B100] rounded-full flex items-center justify-center text-black">
-                  <MapPin size={28} />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-[#E0B100] rounded-full flex items-center justify-center text-[#222222]">
+                  <MapPin size={22} />
                 </div>
                 <div>
                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Live Updates</p>
-                   <p className="text-sm font-black">Every 5 Seconds</p>
+                   <p className="text-sm font-black">Real-time</p>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </div>
 
         {/* Dynamic Background */}
-        <div className="absolute right-0 top-0 w-1/3 h-full bg-[#E0B100]/5 -z-10" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
-        <div className="absolute left-0 bottom-0 w-64 h-64 bg-[#E0B100]/10 rounded-full blur-[100px] -z-10" />
+        <div aria-hidden className="absolute right-0 top-0 w-1/3 h-full bg-[#E0B100]/5 pointer-events-none" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
       </section>
 
       {/* 2. THE SECURITY BENTO */}
-      <SafetyBento />
+      <div id="features" className="scroll-mt-28">
+        <SafetyBento />
+      </div>
 
       {/* 3. THE DAILY GUARDIAN TIMELINE */}
       <JourneyTimeline />
@@ -129,29 +121,28 @@ export default function ParentsPage() {
       <MetricSpotlight />
 
       {/* 6. EXTENSIVE FAQ SECTION */}
-      <section className="py-32 bg-[#F9F9F9]">
-         <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-20">
-               <h2 className="text-4xl md:text-6xl font-black">Common <span className="italic font-serif text-[#E0B100]">Questions.</span></h2>
+      <section className="py-20 md:py-28 bg-[#F9F9F9]">
+         <div className="max-w-3xl mx-auto px-5 md:px-8">
+            <div className="text-center mb-12 md:mb-16">
+               <h2 className="display-md font-black">Common <span className="headline-italic text-[#E0B100]">Questions.</span></h2>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4">
                {[
-                 { q: "How accurate is the location tracking?", a: "Our GPS units use multi-constellation GNSS which provides accuracy within 1.5 meters, refreshing every 5 seconds." },
-                 { q: "Is my child's data safe?", a: "We are GDPR and DPDP compliant. All data is encrypted and only accessible by authorized school staff and verified parents." },
-                 { q: "What happens if the bus is delayed?", a: "The system automatically adjusts the ETA and sends a proactive push notification to all affected parents immediately." }
+                 { q: "How accurate is the location tracking?", a: "The bus position comes from a GPS device on the bus and updates every few seconds, so the map shows where the bus really is." },
+                 { q: "Is my child's data safe?", a: "Your child’s data is only visible to authorised school staff and verified parents. See our Privacy Policy for exactly what we collect and how it is protected." },
+                 { q: "What happens if the bus is delayed?", a: "The arrival estimate updates automatically and affected parents get a notification, so nobody waits at the gate wondering." }
                ].map((faq, i) => (
-                 <motion.div 
+                 <details
                    key={i}
-                   initial={{ opacity: 0, y: 10 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   className="bg-[var(--card-bg)] p-8 rounded-[30px] shadow-sm border border-gray-50 hover:shadow-md transition-all cursor-pointer group"
+                   open={i === 0}
+                   className="bg-white rounded-[24px] shadow-sm border border-gray-100 group [&_summary::-webkit-details-marker]:hidden"
                  >
-                    <h3 className="text-xl font-black mb-4 flex justify-between items-center">
+                    <summary className="list-none cursor-pointer p-6 md:p-8 text-lg md:text-xl font-black flex justify-between items-center gap-4">
                        {faq.q}
-                       <span className="text-[#E0B100] group-hover:rotate-90 transition-transform">+</span>
-                    </h3>
-                    <p className="text-gray-500 font-medium leading-relaxed">{faq.a}</p>
-                 </motion.div>
+                       <Plus size={22} className="text-[#B08A00] shrink-0 transition-transform duration-300 group-open:rotate-45" />
+                    </summary>
+                    <p className="px-6 md:px-8 pb-6 md:pb-8 -mt-2 text-gray-600 font-medium leading-relaxed">{faq.a}</p>
+                 </details>
                ))}
             </div>
          </div>

@@ -1,109 +1,43 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import { CheckCircle2, Clock } from "lucide-react";
+import { CheckCircle2, Clock, UserRound, Bus } from "lucide-react";
+import FeatureSplit from "./FeatureSplit";
 
 export default function StudentsArrive() {
   return (
-    <section className="py-20 md:py-32 bg-white overflow-hidden">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
-          
-          {/* LEFT CONTENT */}
-          <div className="order-1">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-black uppercase tracking-widest mb-6">
-                Reliability
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black text-[#222222] leading-[0.9] tracking-tighter mb-8">
-                Students arrive <br />
-                on time and <span className="headline-italic text-[#E0B100]">ready to learn</span>
-              </h2>
-              <div className="space-y-4 max-w-md">
-                <p className="text-sm md:text-base text-[#222222]/70 font-medium leading-relaxed">
-                  Drivers and transportation teams have the right information and tools to focus on safe driving and the student experience.
-                </p>
-                <p className="text-sm md:text-base text-[#222222]/70 font-medium leading-relaxed">
-                  Dispatchers are empowered to coordinate routing and dispatch dynamically to prevent delays. Students&apos; ride times are shortened, reducing missed school breakfasts and late arrivals to class.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* RIGHT VISUAL */}
-          <div className="order-2 relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="relative"
-            >
-              {/* Main Image with Yellow Backdrop */}
-              <div className="absolute -inset-4 bg-[#E0B100] rounded-[40px] opacity-10 -rotate-2" />
-              <div className="relative rounded-[32px] overflow-hidden shadow-2xl border-4 border-white">
-                <img 
-                  src="/indian_school_bus.png" 
-                  alt="Indian students arriving at school" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              {/* Floating UI Card 1: Student Status */}
-              <motion.div
-                initial={{ opacity: 0, y: 20, x: 20 }}
-                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="absolute -top-10 -right-4 md:-right-10 bg-white p-4 md:p-6 rounded-2xl shadow-2xl border border-gray-100 flex items-center space-x-4 z-20"
-              >
-                <div className="w-12 h-12 bg-green-50 rounded-full overflow-hidden border-2 border-green-100">
-                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=student1" alt="student" />
-                </div>
-                <div>
-                  <p className="text-xs font-black text-[#222222]">Arjun Mehra</p>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-[10px] font-bold text-gray-400 uppercase">Grade 5</span>
-                    <span className="w-1 h-1 rounded-full bg-gray-300" />
-                    <span className="flex items-center text-[10px] font-black text-green-600 uppercase tracking-tighter">
-                      <CheckCircle2 size={10} className="mr-1" /> Picked Up
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating UI Card 2: Driver Status */}
-              <motion.div
-                initial={{ opacity: 0, y: -20, x: -20 }}
-                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.7, duration: 0.8 }}
-                className="absolute -bottom-6 -left-4 md:-left-10 bg-white p-4 md:p-6 rounded-2xl shadow-2xl border border-gray-100 flex items-center space-x-4 z-20"
-              >
-                <div className="w-12 h-12 bg-[#FDF7E7] rounded-full overflow-hidden border-2 border-[#E0B100]/20">
-                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=driver1" alt="driver" />
-                </div>
-                <div>
-                  <p className="text-xs font-black text-[#222222]">Rajesh Kumar</p>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-[10px] font-bold text-gray-400 uppercase">Bus 04</span>
-                    <span className="w-1 h-1 rounded-full bg-gray-300" />
-                    <span className="flex items-center text-[10px] font-black text-[#E0B100] uppercase tracking-tighter">
-                      <Clock size={10} className="mr-1" /> Arriving Now
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-
-        </div>
-      </div>
-    </section>
+    <FeatureSplit
+      badge={{ label: "Reliability", className: "bg-green-100 text-green-800" }}
+      title={
+        <>
+          Students arrive on time and{" "}
+          <span className="headline-italic text-[#E0B100]">ready to learn</span>
+        </>
+      }
+      paragraphs={[
+        "Drivers and transport teams get the right information and tools to focus on safe driving and the student experience.",
+        "Coordinators can adjust routes and dispatch on the fly to prevent delays, so ride times are shorter and late arrivals to class become rare.",
+      ]}
+      image={{ src: "/media/indian-school-bus.webp", alt: "Students getting off a school bus at school" }}
+      cards={[
+        {
+          icon: <UserRound size={22} className="text-green-700" />,
+          iconBg: "bg-green-50",
+          title: "Student boarded",
+          subtitle: (
+            <span className="flex items-center text-green-700">
+              <CheckCircle2 size={10} className="mr-1" /> Picked up · Grade 5
+            </span>
+          ),
+        },
+        {
+          icon: <Bus size={22} className="text-[#B08A00]" />,
+          iconBg: "bg-[#FDF7E7]",
+          title: "Bus 04",
+          subtitle: (
+            <span className="flex items-center text-[#B08A00]">
+              <Clock size={10} className="mr-1" /> Arriving now
+            </span>
+          ),
+        },
+      ]}
+    />
   );
 }

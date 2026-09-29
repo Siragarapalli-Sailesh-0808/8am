@@ -21,14 +21,15 @@ export default function Counter({ value, duration = 2, prefix = "", suffix = "" 
       const end = value;
       if (start === end) return;
 
-      let totalMiliseconds = duration * 1000;
-      let incrementTime = totalMiliseconds / end;
+      const totalMilliseconds = duration * 1000;
+      const incrementTime = totalMilliseconds / end;
 
-      let timer = setInterval(() => {
+      const timer = setInterval(() => {
         start += 1;
         setCount(start);
         if (start === end) clearInterval(timer);
       }, incrementTime);
+      return () => clearInterval(timer);
     }
   }, [isInView, value, duration]);
 

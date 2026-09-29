@@ -1,119 +1,82 @@
 "use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
+import { m } from "framer-motion";
+import { Heart, School, Bus } from "lucide-react";
 
-const testimonials = [
-  { id: 1, name: "Anita Sharma", role: "Parent, Delhi Public School", feedback: "The real-time RFID alerts give me peace of mind every single morning.", img: "/parent1.jpg" },
-  { id: 2, name: "Rajesh Iyer", role: "Principal, Oakridge International", feedback: "8AM transformed our fleet efficiency and student safety standards.", img: "/school1.jpg" },
-  { id: 3, name: "Priya V.", role: "Parent, Glendale Academy", feedback: "I no longer worry about delays. The GPS tracking is incredibly accurate.", img: "/parent2.jpg" },
+// Honest "who it's for" cards. Replace with real, permission-granted testimonials when you have them.
+const audiences = [
+  {
+    icon: Heart,
+    who: "For parents",
+    line: "Know the moment your child boards, where the bus is right now, and when they reach school, without a single phone call.",
+    points: ["Boarding & arrival alerts", "Live bus on the map", "Delay notifications"],
+  },
+  {
+    icon: School,
+    who: "For schools",
+    line: "One calm dashboard for every route, every bus and every student, with attendance recorded automatically.",
+    points: ["RFID attendance", "Fleet overview", "Fewer parent calls"],
+  },
+  {
+    icon: Bus,
+    who: "For drivers & attendants",
+    line: "A simple, distraction-free app with clear stops and pickups, so the focus stays on safe driving.",
+    points: ["Turn-by-turn stops", "One-tap roll call", "Direct line to ops"],
+  },
 ];
 
 export const EmotionalCarousel = () => {
-  const [index, setIndex] = useState(0);
-
-  const next = () => setIndex((prev) => (prev + 1) % testimonials.length);
-  const prev = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-
   return (
-    <section className="py-32 bg-[#F8F7F2] overflow-hidden px-6">
-      <div className="max-w-7xl mx-auto text-center mb-20">
-        <motion.span
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-[#E0B100] font-bold tracking-[0.3em] uppercase mb-4 block"
-        >
-          Parent & School Stories
-        </motion.span>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-5xl md:text-7xl font-black text-[var(--foreground)]"
-        >
-          From our community <br />
-          <span className="italic font-serif text-[#E0B100]">to everywhere.</span>
-        </motion.h2>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto h-[600px] flex items-center justify-center perspective-1000">
-        {/* SIDE NAVIGATION BUTTONS */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between items-center z-[100] pointer-events-none px-4 md:px-0">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={prev}
-            className="pointer-events-auto p-6 rounded-full bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[#E0B100]/5 text-[var(--foreground)] shadow-xl hover:bg-[#E0B100] hover:border-[#E0B100] transition-all duration-300 -ml-4 lg:-ml-20"
+    <section className="py-20 md:py-28 bg-[#F8F7F2] overflow-hidden">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="text-center mb-12 md:mb-16">
+          <m.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[#B08A00] text-xs font-bold tracking-[0.3em] uppercase mb-4 block"
           >
-            <ChevronLeft size={32} />
-          </motion.button>
-          
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={next}
-            className="pointer-events-auto p-6 rounded-full bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[#E0B100]/5 text-[var(--foreground)] shadow-xl hover:bg-[#E0B100] hover:border-[#E0B100] transition-all duration-300 -mr-4 lg:-mr-20"
+            Everyone on the school run
+          </m.span>
+          <m.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="display-lg font-black text-[var(--foreground)]"
           >
-            <ChevronRight size={32} />
-          </motion.button>
+            Built for families, <br />
+            <span className="headline-italic text-[#E0B100]">schools and drivers.</span>
+          </m.h2>
         </div>
-
-        <AnimatePresence mode="popLayout">
-          {[-1, 0, 1].map((offset) => {
-            const itemIndex = (index + offset + testimonials.length) % testimonials.length;
-            const item = testimonials[itemIndex];
-
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, x: offset * 400, scale: 0.8 }}
-                animate={{
-                  opacity: offset === 0 ? 1 : 0.3,
-                  x: offset * 450,
-                  scale: offset === 0 ? 1 : 0.7,
-                  zIndex: offset === 0 ? 50 : 10,
-                  rotateY: offset * 25, // 3D Inward Rotation
-                  filter: offset === 0 ? "blur(0px)" : "blur(4px)"
-                }}
-                exit={{ opacity: 0, x: -offset * 400 }}
-                transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                className="absolute w-full max-w-[500px] bg-[var(--card-bg)] rounded-[40px] p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-[#E8E2D3] flex flex-col items-center text-center"
-              >
-                <div className="w-28 h-28 rounded-full overflow-hidden mb-8 border-4 border-[#E0B100] shadow-xl">
-                  {/* High-res image placeholder with fallback */}
-                  <img
-                    src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${item.name}`}
-                    alt={item.name}
-                    className="w-full h-full object-cover bg-gray-100"
-                  />
-                </div>
-                <h3 className="text-3xl font-black text-[var(--foreground)] mb-2">{item.name}</h3>
-                <p className="text-[#E0B100] text-sm font-bold uppercase tracking-widest mb-6">{item.role}</p>
-                <p className="text-xl text-[var(--foreground)] font-medium italic leading-relaxed mb-10">
-                  "{item.feedback}"
-                </p>
-                <button className="group flex items-center space-x-2 text-sm font-black uppercase tracking-tighter border-b-2 border-[#E0B100] pb-1 hover:border-[#E0B100] transition-all">
-                  <span>Read Full Story</span>
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </button>
-              </motion.div>
-            );
-          })}
-        </AnimatePresence>
       </div>
 
-      {/* PAGINATION DOTS ONLY */}
-      <div className="flex justify-center items-center mt-16">
-        <div className="flex space-x-3">
-          {testimonials.map((_, i) => (
-            <motion.div
-              key={i}
-              animate={{
-                width: i === index ? 40 : 10,
-                backgroundColor: i === index ? "#E0B100" : "#E8E2D3"
-              }}
-              className="h-2 rounded-full transition-all duration-300"
-            />
+      {/* Phones: swipe row with snap. Desktop: 3-column grid */}
+      <div className="mx-auto max-w-6xl md:px-8">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-5 pb-4 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {audiences.map((a, i) => (
+            <m.article
+              key={a.who}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="snap-center shrink-0 w-[85%] sm:w-[60%] md:w-auto bg-white rounded-[32px] p-7 md:p-8 border border-[#E8E2D3] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08)] flex flex-col"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-[#FDF7E7] flex items-center justify-center text-[#B08A00] mb-6">
+                <a.icon size={26} />
+              </div>
+              <h3 className="text-2xl font-black text-[#222222] mb-3 leading-tight">{a.who}</h3>
+              <p className="text-base text-[#222222]/75 font-medium leading-relaxed mb-6">{a.line}</p>
+              <ul className="mt-auto space-y-2">
+                {a.points.map((p) => (
+                  <li key={p} className="flex items-center gap-2 text-sm font-bold text-[#222222]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#E0B100]" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </m.article>
           ))}
         </div>
       </div>
