@@ -1,5 +1,5 @@
 // Single place for contact details and site-wide constants.
-export const SITE_NAME = "Dotmornings";
+export const SITE_NAME = "8AM";
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ??
@@ -17,5 +17,5 @@ export const whatsappLink = (text?: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
 
 export const DEMO_WHATSAPP = whatsappLink(
-  "Hi Dotmornings team, I'd like to book a demo for our school."
+  "Hi 8AM team, I'd like to book a demo for our school."
 );

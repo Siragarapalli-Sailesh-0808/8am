@@ -51,7 +51,7 @@ export default function CompanyPage() {
             <span className="headline-italic text-[#E0B100]">is Guarded.</span>
           </h1>
           <p className="text-lg md:text-2xl text-[#222222]/75 font-medium max-w-2xl mx-auto mb-12 leading-relaxed">
-            Dotmornings is building smarter, safer school transport for India, connecting schools, drivers and parents
+            8AM is building smarter, safer school transport for India, connecting schools, drivers and parents
             around every child&apos;s daily journey.
           </p>
           <a
@@ -70,7 +70,7 @@ export default function CompanyPage() {
             <span className="text-xs font-black uppercase tracking-[0.4em] text-[#B08A00] block mb-6">Why we exist</span>
             <h2 className="display-lg font-black leading-[0.95] tracking-tighter">
               Why we started <br />
-              <span className="headline-italic text-[#E0B100]">Dotmornings.</span>
+              <span className="headline-italic text-[#E0B100]">8AM.</span>
             </h2>
           </div>
           <div className="space-y-6">
@@ -79,7 +79,7 @@ export default function CompanyPage() {
             </p>
             <p className="text-lg text-[#222222]/75 font-medium leading-relaxed">
               Parents waiting at the gate, school offices fielding call after call, drivers juggling a phone and a
-              steering wheel. We started Dotmornings to bring transparency, accountability and smart routing to school
+              steering wheel. We started 8AM to bring transparency, accountability and smart routing to school
               transport.
             </p>
             <p className="text-lg text-[#222222]/75 font-medium leading-relaxed">
@@ -134,14 +134,14 @@ export default function CompanyPage() {
               <span className="headline-italic text-[#E0B100]">Precision.</span>
             </h2>
             <p className="text-lg md:text-xl text-[#222222]/75 font-medium mb-10 max-w-md">
-              From a single campus with a handful of buses to larger multi-campus fleets, Dotmornings is designed to scale
+              From a single campus with a handful of buses to larger multi-campus fleets, 8AM is designed to scale
               with your school.
             </p>
             <Link
               href="/schools"
               className="inline-flex items-center gap-4 text-xs font-black uppercase tracking-widest border-b-2 border-[#E0B100] pb-2 hover:text-[#B08A00] transition-colors"
             >
-              <span>See Dotmornings for Schools</span>
+              <span>See 8AM for Schools</span>
               <ArrowRight size={16} />
             </Link>
           </div>

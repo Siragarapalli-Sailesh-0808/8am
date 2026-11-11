@@ -42,7 +42,7 @@ export default function SchoolsPage() {
               href="/contact"
               className="inline-flex w-full sm:w-auto bg-[#E0B100] text-[#222222] px-10 py-5 rounded-full font-black items-center justify-center gap-3 shadow-[0_20px_40px_-12px_rgba(224,177,0,0.45)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5"
             >
-              <span>Partner with Dotmornings</span>
+              <span>Partner with 8AM</span>
               <ArrowRight size={20} />
             </Link>
           </m.div>

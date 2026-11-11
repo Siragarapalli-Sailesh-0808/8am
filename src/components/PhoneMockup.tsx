@@ -18,7 +18,7 @@ const PhoneMockup = () => {
           muted
           playsInline
           poster="/media/portal-poster.jpg"
-          aria-label="Dotmornings parent app preview"
+          aria-label="8AM parent app preview"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/media/portal.mp4" type="video/mp4" />

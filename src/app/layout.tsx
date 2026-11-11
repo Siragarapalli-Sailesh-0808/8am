@@ -20,19 +20,19 @@ const playfairDisplay = Playfair_Display({
 });
 
 const description =
-  "Dotmornings is a routing-intelligence platform for Indian school transport: live bus tracking, RFID boarding alerts and route optimisation for schools, drivers and parents.";
+  "8AM is a routing-intelligence platform for Indian school transport: live bus tracking, RFID boarding alerts and route optimisation for schools, drivers and parents.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Dotmornings | Smart School Transport for India",
-    template: "%s | Dotmornings",
+    default: "8AM | Smart School Transport for India",
+    template: "%s | 8AM",
   },
   description,
   openGraph: {
     type: "website",
-    siteName: "Dotmornings",
-    title: "Dotmornings | Smart School Transport for India",
+    siteName: "8AM",
+    title: "8AM | Smart School Transport for India",
     description,
     images: [{ url: "/media/hero-poster.jpg", width: 1280, height: 720 }],
   },

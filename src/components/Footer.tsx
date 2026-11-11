@@ -54,7 +54,7 @@ const Footer = () => {
             <Link href="/" className="group mb-6 inline-block">
               <Image
                 src="/media/logo-horizontal.webp"
-                alt="Dotmornings"
+                alt="8AM"
                 width={576}
                 height={176}
                 className="h-11 md:h-12 w-auto object-contain"

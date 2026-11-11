@@ -50,7 +50,7 @@ export default function ParentsPage() {
                 href="/contact"
                 className="w-full sm:w-auto bg-[#E0B100] text-[#222222] px-10 py-5 rounded-full font-black flex items-center justify-center gap-3 shadow-[0_20px_40px_-12px_rgba(224,177,0,0.45)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5"
               >
-                <span>Get Dotmornings for My School</span>
+                <span>Get 8AM for My School</span>
                 <ArrowRight size={20} />
               </Link>
               <a href="#features" className="text-[#222222] font-black text-sm border-b-2 border-[#E0B100] pb-1 hover:text-[#B08A00] transition-colors">

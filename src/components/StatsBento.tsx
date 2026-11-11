@@ -52,7 +52,7 @@ export default function StatsBento() {
         <div className="mb-12 md:mb-16 text-center">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.4em] text-[#B08A00]">What your school gets</p>
           <h2 className="display-lg font-black text-[#222222] leading-[0.95]">
-            Dotmornings Mobility <br />
+            8AM Mobility <br />
             <span className="headline-italic text-[#E0B100]">Experience.</span>
           </h2>
         </div>

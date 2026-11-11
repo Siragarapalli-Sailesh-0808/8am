@@ -71,7 +71,7 @@ export default function HeroSection() {
             variants={fadeInUp}
             className="mb-10 max-w-xl text-base leading-relaxed text-[#222222]/75 sm:text-lg lg:text-xl font-medium"
           >
-            Dotmornings is a routing-intelligence platform for Indian school transport: automatic nodal points,
+            8AM is a routing-intelligence platform for Indian school transport: automatic nodal points,
             fuel-aware routes, and live driver, parent and ops apps in one calm system.
           </m.p>
 
@@ -104,7 +104,7 @@ export default function HeroSection() {
             loop
             muted
             playsInline
-            aria-label="Dotmornings product demo video"
+            aria-label="8AM product demo video"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/media/hero.mp4" type="video/mp4" />
@@ -157,7 +157,7 @@ export default function HeroSection() {
             <div className="bg-black/40 border border-white/10 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E0B100]" />
               <span className="text-[9px] md:text-[10px] font-black text-white uppercase tracking-widest">
-                Dotmornings Intelligence Hub
+                *8AM Intelligence Hub
               </span>
             </div>
           </div>
