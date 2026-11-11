@@ -54,7 +54,7 @@ const Footer = () => {
             <Link href="/" className="group mb-6 inline-block">
               <Image
                 src="/media/logo-horizontal.webp"
-                alt="8AM"
+                alt="Dotmornings"
                 width={576}
                 height={176}
                 className="h-11 md:h-12 w-auto object-contain"
@@ -173,7 +173,7 @@ const Footer = () => {
           </div>
 
           <div className="text-[11px] font-semibold tracking-wider text-[#777777]">
-            © {currentYear} 8AM Technologies Private Limited. All rights reserved.
+            © {currentYear} Dotmornings Technologies Private Limited. All rights reserved.
           </div>
         </div>
 

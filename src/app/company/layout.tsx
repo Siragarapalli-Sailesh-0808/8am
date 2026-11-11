@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Who we are and why we are building 8AM, smarter and safer school transport for India.",
+  description: "Who we are and why we are building Dotmornings, smarter and safer school transport for India.",
   alternates: { canonical: "/company" },
 };
 

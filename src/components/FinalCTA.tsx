@@ -37,7 +37,7 @@ export const FinalCTA = () => {
               </h2>
 
               <p className="text-base text-[#555555] mb-10 max-w-md mx-auto lg:mx-0 leading-relaxed font-medium">
-                See how 8AM can bring real-time visibility, instant alerts and calmer mornings to your school.
+                See how Dotmornings can bring real-time visibility, instant alerts and calmer mornings to your school.
                 A short demo is all it takes.
               </p>
 

@@ -43,12 +43,12 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      q: "How fast can 8AM be deployed for a new school?",
+      q: "How fast can Dotmornings be deployed for a new school?",
       a: "Our plug-and-play GPS and RFID hardware can be installed across an entire fleet within 48 to 72 hours. We configure routes, test geofences, and provide hands-on training for drivers and coordinators before going live.",
     },
     {
       q: "Is there any cost for parents to download and track on the app?",
-      a: "No. When your child's school partners with 8AM, the mobile tracking app is completely free for all enrolled parents and guardians with no hidden in-app purchases or subscriptions.",
+      a: "No. When your child's school partners with Dotmornings, the mobile tracking app is completely free for all enrolled parents and guardians with no hidden in-app purchases or subscriptions.",
     },
     {
       q: "What happens if a child forgets or misplaces their RFID pass?",
@@ -60,10 +60,10 @@ export default function ContactPage() {
     },
   ];
 
-  // Sends the enquiry to the 8AM WhatsApp with everything pre-filled
+  // Sends the enquiry to the Dotmornings WhatsApp with everything pre-filled
   const buildMessage = () =>
     [
-      `Hi 8AM team, I'd like to get in touch.`,
+      `Hi Dotmornings team, I'd like to get in touch.`,
       ``,
       `*Subject:* ${formData.subject}`,
       `*Name:* ${formData.name}`,
@@ -124,7 +124,7 @@ export default function ContactPage() {
           </div>
 
           <h1 className="display-lg font-black tracking-tighter text-[#222222] mb-6 leading-[0.95]">
-            Connect with <span className="headline-italic text-[#E0B100] font-normal">8AM</span>
+            Connect with <span className="headline-italic text-[#E0B100] font-normal">Dotmornings</span>
           </h1>
 
           <p className="text-base sm:text-lg text-[#555555] max-w-2xl mx-auto leading-relaxed font-medium">
@@ -222,7 +222,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex-1">
                     <span className="text-[10px] font-black uppercase tracking-wider text-[#888888]">Headquarters</span>
-                    <h3 className="text-sm font-black text-[#222222] mt-0.5">8AM Mobility Intelligence</h3>
+                    <h3 className="text-sm font-black text-[#222222] mt-0.5">Dotmornings Mobility Intelligence</h3>
                     <p className="text-xs text-[#555555] font-medium mt-1 leading-relaxed">
                       Rajahmundry, Andhra Pradesh - 533104, India
                     </p>
@@ -257,7 +257,7 @@ export default function ContactPage() {
                         How Can We Assist You?
                       </h3>
                       <p className="text-xs md:text-sm text-[#666666] font-medium mt-1">
-                        Fill out the details below and an 8AM mobility engineer will get in touch shortly.
+                        Fill out the details below and an Dotmornings mobility engineer will get in touch shortly.
                       </p>
                     </div>
 

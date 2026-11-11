@@ -109,7 +109,7 @@ export default function PrivacyPage() {
               <span>•</span>
               <span>Last Updated: <strong className="text-[#222222]">29 September 2026</strong></span>
               <span>•</span>
-              <span>Entity: <strong className="text-[#222222]">8AM Technologies Private Limited</strong></span>
+              <span>Entity: <strong className="text-[#222222]">Dotmornings Technologies Private Limited</strong></span>
             </div>
             <button
               onClick={handlePrint}
@@ -215,7 +215,7 @@ export default function PrivacyPage() {
             {/* PREAMBLE */}
             <div className="bg-white rounded-3xl p-8 border border-[#E8E2D3] shadow-sm space-y-4 text-sm leading-relaxed text-[#555555]">
               <p>
-                This Privacy Policy explains how <strong>8AM Technologies Private Limited</strong> (&quot;<strong>8 AM</strong>&quot;, &quot;<strong>we</strong>&quot;, &quot;<strong>us</strong>&quot;, &quot;<strong>our</strong>&quot;) collects, uses, shares and protects personal data when you use the 8 AM mobile application, the website at <a href="https://the8am.in" target="_blank" rel="noopener noreferrer" className="text-[#E0B100] underline font-bold">the8am.in</a>, RFID cards and related services (together, the &quot;<strong>Service</strong>&quot;).
+                This Privacy Policy explains how <strong>Dotmornings Technologies Private Limited</strong> (&quot;<strong>8 AM</strong>&quot;, &quot;<strong>we</strong>&quot;, &quot;<strong>us</strong>&quot;, &quot;<strong>our</strong>&quot;) collects, uses, shares and protects personal data when you use the 8 AM mobile application, the website at <a href="https://the8am.in" target="_blank" rel="noopener noreferrer" className="text-[#E0B100] underline font-bold">the8am.in</a>, RFID cards and related services (together, the &quot;<strong>Service</strong>&quot;).
               </p>
               <p>
                 We have written this policy in simple language because the Service involves children&apos;s data, and parents deserve to understand exactly what happens to it. Please read it carefully. If you do not agree, please do not use the Service.
@@ -266,7 +266,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="bg-[#F8F7F2] p-5 rounded-2xl border border-[#E8E2D3] space-y-2 text-xs">
-                  <div className="font-bold text-[#222222] text-sm">8AM Technologies Private Limited</div>
+                  <div className="font-bold text-[#222222] text-sm">Dotmornings Technologies Private Limited</div>
                   <div className="text-[#555555]">
                     D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103
                   </div>
@@ -797,7 +797,7 @@ export default function PrivacyPage() {
                   </div>
                   <div className="flex items-start space-x-3 text-[#555555]">
                     <MapPin size={16} className="text-[#E0B100] shrink-0 mt-0.5" />
-                    <span><strong>Address:</strong> 8AM Technologies Private Limited, D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103</span>
+                    <span><strong>Address:</strong> Dotmornings Technologies Private Limited, D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103</span>
                   </div>
                 </div>
                 <p className="text-xs text-[#666666]">
@@ -832,7 +832,7 @@ export default function PrivacyPage() {
               <div className="space-y-4 text-sm leading-relaxed text-[#555555]">
                 <div className="bg-[#F8F7F2] p-6 rounded-2xl border border-[#E8E2D3] space-y-3">
                   <div className="font-bold text-[#222222] text-base">
-                    8AM Technologies Private Limited
+                    Dotmornings Technologies Private Limited
                   </div>
                   <div className="flex items-start space-x-3 text-xs md:text-sm text-[#555555]">
                     <MapPin size={16} className="text-[#E0B100] shrink-0 mt-0.5" />

@@ -121,7 +121,7 @@ const FivePillarsBento = () => {
                 </div>
             </div>
             <div>
-                <h3 className="text-xl font-black text-[#222222] mb-4">8AM Intelligence</h3>
+                <h3 className="text-xl font-black text-[#222222] mb-4">Dotmornings Intelligence</h3>
                 <p className="text-[#666666] text-sm leading-relaxed">
                     Route analytics that spot recurring delays and suggest better routes before the next school run.
                 </p>

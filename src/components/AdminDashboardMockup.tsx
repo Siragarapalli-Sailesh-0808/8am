@@ -6,7 +6,7 @@ const AdminDashboardMockup = () => {
       <div className="relative aspect-square sm:aspect-[16/12] w-full rounded-[28px] md:rounded-[40px] overflow-hidden shadow-[0_50px_120px_-30px_rgba(0,0,0,0.25)] border border-white/60">
         <Image
           src="/media/admin-panel.webp"
-          alt="8AM school admin dashboard"
+          alt="Dotmornings school admin dashboard"
           fill
           preload
           sizes="(max-width: 1024px) 92vw, 600px"

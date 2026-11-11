@@ -47,10 +47,10 @@ export default function StickyHeader() {
           ${isScrolled ? "py-1.5 shadow-lg border-[#E0B100]/30" : "py-2"}`}
         >
           {/* LOGO */}
-          <Link href="/" aria-label="8AM home" className="flex items-center shrink-0">
+          <Link href="/" aria-label="Dotmornings home" className="flex items-center shrink-0">
             <Image
               src="/media/logo-horizontal.webp"
-              alt="8AM"
+              alt="Dotmornings"
               width={576}
               height={176}
               preload

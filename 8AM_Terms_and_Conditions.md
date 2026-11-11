@@ -3,9 +3,9 @@
 **Effective date:** 29 September 2026
 **Last updated:** 29 September 2026
 
-These Terms and Conditions ("**Terms**") form a legally binding agreement between you and **8AM Technologies Private Limited** ("**8 AM**", "**we**", "**us**", "**our**"), a company incorporated under the Companies Act, 2013, with its registered office at D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103.
+These Terms and Conditions ("**Terms**") form a legally binding agreement between you and ** Technologies Private Limited** ("**8 AM**", "**we**", "**us**", "**our**"), a company incorporated under the Companies Act, 2013, with its registered office at D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103.
 
-By downloading, registering for or using the 8 AM mobile application, the website at the8am.in, RFID cards or related services (the "**Service**"), you confirm that you have read, understood and agree to these Terms and our [Privacy Policy](link). If you do not agree, do not use the Service.
+By downloading, registering for or using the 8 AM mobile application, the website at the.in, RFID cards or related services (the "**Service**"), you confirm that you have read, understood and agree to these Terms and our [Privacy Policy](link). If you do not agree, do not use the Service.
 
 ---
 
@@ -119,7 +119,7 @@ In accordance with the Information Technology Act, 2000 and rules made under it:
 **Name:** Teja Davuluri
 **Email:** fivextechnologiesofficial@gmail.com
 **Phone:** +91 81435 28142
-**Address:** 8AM Technologies Private Limited, D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103
+**Address:**  Technologies Private Limited, D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103
 
 We will acknowledge complaints within 48 hours and aim to resolve them within 30 days.
 
@@ -133,6 +133,6 @@ We will acknowledge complaints within 48 hours and aim to resolve them within 30
 
 ## 21. Contact
 
-**8AM Technologies Private Limited**
+** Technologies Private Limited**
 D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103
 Email: fivextechnologiesofficial@gmail.com | Phone: +91 81435 28142

@@ -17,7 +17,7 @@ export default function FamilyConfidence() {
         "Students and families get a consistent, transparent experience that keeps them informed on every ride.",
         "Parents and caregivers see where their children are in real time, and are told proactively about changes, delays and how issues were resolved.",
       ]}
-      image={{ src: "/media/indian-mother.webp", alt: "A mother checking her child's bus on the 8AM app" }}
+      image={{ src: "/media/indian-mother.webp", alt: "A mother checking her child's bus on the Dotmornings app" }}
       cards={[
         {
           icon: <Bell size={22} className="text-[#B08A00]" />,

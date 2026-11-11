@@ -3,7 +3,7 @@ import React from "react";
 import { m } from "framer-motion";
 import { Eye, Phone, TrendingUp } from "lucide-react";
 
-// The problem 8AM solves, stated plainly (no unverifiable statistics).
+// The problem Dotmornings solves, stated plainly (no unverifiable statistics).
 const problems = [
   {
     icon: Eye,

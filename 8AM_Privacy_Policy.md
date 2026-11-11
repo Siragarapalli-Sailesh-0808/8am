@@ -3,7 +3,7 @@
 **Effective date:** 29 September 2026
 **Last updated:** 29 September 2026
 
-This Privacy Policy explains how **8AM Technologies Private Limited** ("**8 AM**", "**we**", "**us**", "**our**") collects, uses, shares and protects personal data when you use the 8 AM mobile application, the website at the8am.in, RFID cards and related services (together, the "**Service**").
+This Privacy Policy explains how **Dotmornings Technologies Private Limited** ("**8 AM**", "**we**", "**us**", "**our**") collects, uses, shares and protects personal data when you use the 8 AM mobile application, the website at the8am.in, RFID cards and related services (together, the "**Service**").
 
 We have written this policy in simple language because the Service involves children's data, and parents deserve to understand exactly what happens to it. Please read it carefully. If you do not agree, please do not use the Service.
 
@@ -20,7 +20,7 @@ We have written this policy in simple language because the Service involves chil
 | Boarding the bus (after school) | "School is over. Your child is on the way home." |
 | Arriving at the home bus stop | "Your child has reached the bus stop. Please collect your child." |
 
-**8AM Technologies Private Limited**
+**Dotmornings Technologies Private Limited**
 D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103
 **Email:** fivextechnologiesofficial@gmail.com
 **Phone:** +91 81435 28142
@@ -167,7 +167,7 @@ If you have any concern or complaint about your data, please contact:
 **Grievance Officer:** Teja Davuluri
 **Email:** fivextechnologiesofficial@gmail.com
 **Phone:** +91 81435 28142
-**Address:** 8AM Technologies Private Limited, D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103
+**Address:** Dotmornings Technologies Private Limited, D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103
 
 We will acknowledge your complaint within 48 hours and try to resolve it within 30 days or such time as required by law. If you are not satisfied, you may approach the **Data Protection Board of India**.
 
@@ -177,6 +177,6 @@ We may update this policy from time to time. If we make significant changes, we 
 
 ## 18. Contact us
 
-**8AM Technologies Private Limited**
+** Technologies Private Limited**
 D.No - 79, 04R, 16, Smalamma Temple Area, Syamala Nagar, Postal Colony, Gandhipuram, Rajamahendravaram, Andhra Pradesh 533103
 Email: fivextechnologiesofficial@gmail.com | Phone: +91 81435 28142
